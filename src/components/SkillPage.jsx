@@ -478,65 +478,67 @@ export default function SkillPage({ onBack, isExiting }) {
       </div>
 
       {/* 8. Right Skill Displays with dynamic offset & animated skill selector */}
-      <div className={`skill-cards-container ${navMode === 'skill' ? 'focused-offset' : 'resting-offset'} skill-fall-elem`}>
-        {/* Dynamic Skill Selector Envelope Envelope (Figma node 142:431) */}
-        <div
-          className={`skill-selector-envelope ${navMode === 'skill' ? 'active' : 'inactive'}`}
-          style={{
-            top: `${BASE_SELECTOR_TOP + activeSkillIndex * ITEM_HEIGHT_STEP}px`,
-            left: `${BASE_SELECTOR_LEFT}px`
-          }}
-        >
-          <img
-            src="/skill/skill-selector.svg"
-            alt="Skill Selector Envelope"
-            className="skill-selector-img"
-          />
-        </div>
+      <div className="skill-cards-fall-wrapper skill-fall-elem">
+        <div className={`skill-cards-container ${navMode === 'skill' ? 'focused-offset' : 'resting-offset'}`}>
+          {/* Dynamic Skill Selector Envelope Envelope (Figma node 142:431) */}
+          <div
+            className={`skill-selector-envelope ${navMode === 'skill' ? 'active' : 'inactive'}`}
+            style={{
+              top: `${BASE_SELECTOR_TOP + activeSkillIndex * ITEM_HEIGHT_STEP}px`,
+              left: `${BASE_SELECTOR_LEFT}px`
+            }}
+          >
+            <img
+              src="/skill/skill-selector.svg"
+              alt="Skill Selector Envelope"
+              className="skill-selector-img"
+            />
+          </div>
 
-        {/* Skill Items List */}
-        <div className="skill-items-list">
-          {currentSkills.map((skill, sIdx) => {
-            const isSkillSelected = navMode === 'skill' && activeSkillIndex === sIdx;
-            return (
-              <div
-                key={skill.id}
-                className={`skill-card-item ${isSkillSelected ? 'selected-skill' : ''}`}
-                style={{
-                  top: `${BASE_ITEM_TOP + sIdx * ITEM_HEIGHT_STEP}px`,
-                  left: `${BASE_ITEM_LEFT}px`
-                }}
-                onClick={() => {
-                  setNavMode('skill');
-                  setActiveSkillIndex(sIdx);
-                }}
-              >
-                <svg width="663" height="38" viewBox="0 0 663 38" fill="none" className="skill-card-svg">
-                  {/* Black Parallelogram Box on the left */}
-                  <path d="M19 1H125.5L110.5 36H0L19 1Z" fill="black" />
+          {/* Skill Items List */}
+          <div className="skill-items-list">
+            {currentSkills.map((skill, sIdx) => {
+              const isSkillSelected = navMode === 'skill' && activeSkillIndex === sIdx;
+              return (
+                <div
+                  key={skill.id}
+                  className={`skill-card-item ${isSkillSelected ? 'selected-skill' : ''}`}
+                  style={{
+                    top: `${BASE_ITEM_TOP + sIdx * ITEM_HEIGHT_STEP}px`,
+                    left: `${BASE_ITEM_LEFT}px`
+                  }}
+                  onClick={() => {
+                    setNavMode('skill');
+                    setActiveSkillIndex(sIdx);
+                  }}
+                >
+                  <svg width="663" height="38" viewBox="0 0 663 38" fill="none" className="skill-card-svg">
+                    {/* Black Parallelogram Box on the left */}
+                    <path d="M19 1H125.5L110.5 36H0L19 1Z" fill="black" />
 
-                  {/* Tech Stack Logo inside the black box */}
-                  <SkillLogo logo={skill.logo} />
+                    {/* Tech Stack Logo inside the black box */}
+                    <SkillLogo logo={skill.logo} />
 
-                  {/* Skill / Tech Name */}
-                  <text
-                    x="145"
-                    y="19"
-                    dominantBaseline="central"
-                    fill={isSkillSelected ? '#000000' : '#72FFFF'}
-                    fontFamily="'Almarai', 'Archivo Black', 'Fira Sans Extra Condensed', sans-serif"
-                    fontWeight="800"
-                    fontSize={skill.name.length > 20 ? '16px' : skill.name.length > 14 ? '19px' : '22px'}
-                    letterSpacing="-0.03em"
-                    fontStyle="italic"
-                    style={{ transition: 'fill 0.15s ease' }}
-                  >
-                    {skill.name}
-                  </text>
-                </svg>
-              </div>
-            );
-          })}
+                    {/* Skill / Tech Name */}
+                    <text
+                      x="145"
+                      y="19"
+                      dominantBaseline="central"
+                      fill={isSkillSelected ? '#000000' : '#72FFFF'}
+                      fontFamily="'Almarai', 'Archivo Black', 'Fira Sans Extra Condensed', sans-serif"
+                      fontWeight="800"
+                      fontSize={skill.name.length > 20 ? '16px' : skill.name.length > 14 ? '19px' : '22px'}
+                      letterSpacing="-0.03em"
+                      fontStyle="italic"
+                      style={{ transition: 'fill 0.15s ease' }}
+                    >
+                      {skill.name}
+                    </text>
+                  </svg>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

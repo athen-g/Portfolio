@@ -970,6 +970,16 @@ body {
 }
 
 /* 8. Right Skill SP Display Cards with Dynamic Offset & Selector */
+.skill-cards-fall-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 8;
+}
+
 .skill-cards-container {
   position: absolute;
   top: 0;
