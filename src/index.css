@@ -1008,17 +1008,17 @@ body {
   height: 76px;
   pointer-events: none;
   z-index: 1;
-  transition: top 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease, transform 0.25s ease;
+  transition: top 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .skill-selector-envelope.inactive {
   opacity: 0;
-  transform: scale(0.97);
+  transform: translateX(60px) scale(0.96);
 }
 
 .skill-selector-envelope.active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateX(0px) scale(1);
 }
 
 .skill-selector-img {
