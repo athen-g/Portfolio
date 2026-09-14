@@ -983,7 +983,7 @@ body {
 }
 
 .skill-cards-container.resting-offset {
-  transform: translateX(120px);
+  transform: translateX(56px);
 }
 
 .skill-cards-container.focused-offset {
