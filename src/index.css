@@ -1063,6 +1063,324 @@ body {
 }
 
 /* ═══════════════════════════════════════════════
+   PERSONA PAGE (P3R Persona Selection Menu)
+   ═══════════════════════════════════════════════ */
+
+.persona-page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Blue polygon background (same shape as Skill page) */
+.persona-blue-poly-wrapper {
+  position: absolute;
+  left: 30.22px;
+  top: -1000.91px;
+  width: 2187.876px;
+  height: 2102.392px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.persona-blue-poly-rotator {
+  transform: rotate(38.48deg);
+}
+
+.persona-blue-poly-bg {
+  background-color: #0018B4;
+  width: 1792.69px;
+  height: 1260.766px;
+}
+
+/* "PERSONA" horizontal typography — top-left, partially clipped at top edge matching P3R */
+.persona-bg-typography {
+  position: absolute;
+  top: -24px;
+  left: 0px;
+  font-family: 'Archivo Black', 'Impact', sans-serif;
+  font-size: 215px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -8px;
+  color: rgba(255, 255, 255, 0.95);
+  z-index: 3;
+  pointer-events: none;
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+/* Right artwork area */
+.persona-artwork-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.persona-artwork-container {
+  position: absolute;
+  right: 80px;
+  top: 40px;
+  width: 780px;
+  height: 780px;
+  animation: personaArtFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.persona-artwork-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  animation: personaArtSpin 80s linear infinite;
+}
+
+@keyframes personaArtSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes personaArtFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tagline text — large bold cyan with hollow/translucent effect matching P3R */
+.persona-tagline {
+  position: absolute;
+  right: 130px;
+  top: 520px;
+  font-family: 'Archivo Black', 'Impact', sans-serif;
+  font-size: 110px;
+  font-weight: 900;
+  font-style: italic;
+  color: #00E5FF;
+  opacity: 0.85;
+  letter-spacing: -3px;
+  text-shadow:
+    0 0 25px rgba(0, 220, 255, 0.6),
+    0 4px 15px rgba(0, 20, 100, 0.9);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: personaTagSlideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes personaTagSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) rotate(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(-3deg);
+  }
+}
+
+/* Left persona list wrapper */
+.persona-list-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* White selector box with vibrant red top border — exactly matching P3R */
+.persona-selector {
+  position: absolute;
+  left: 0;
+  width: 480px;
+  height: 44px;
+  pointer-events: none;
+  z-index: 2;
+  background: #FFFFFF;
+  border-top: 4px solid #FF0022;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: top 0.16s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Individual persona row */
+.persona-item {
+  position: absolute;
+  left: 0;
+  width: 480px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  background: rgba(0, 15, 60, 0.72);
+  border-bottom: 1px solid rgba(0, 100, 200, 0.2);
+  transition: background 0.15s ease;
+  z-index: 3;
+}
+
+.persona-item:hover {
+  background: rgba(0, 25, 90, 0.82);
+}
+
+.persona-item.selected {
+  background: transparent;
+  border-bottom: none;
+}
+
+/* Tarot card crystal icon — visible on selected row */
+.persona-tarot-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-5deg);
+  z-index: 5;
+  filter: drop-shadow(0 2px 4px rgba(0, 80, 255, 0.5));
+}
+
+/* Arcana name — cyan italic on dark, black bold on selected */
+.persona-arcana {
+  display: inline-block;
+  width: 125px;
+  text-align: right;
+  font-family: 'Fira Sans Extra Condensed', 'Gill Sans MT Condensed', sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  font-style: italic;
+  color: #00D5FF;
+  margin-right: 18px;
+  letter-spacing: 0.5px;
+  transition: color 0.15s ease;
+}
+
+.persona-item.selected .persona-arcana {
+  color: #000000;
+}
+
+/* Level number and Lv prefix */
+.persona-level {
+  display: inline-flex;
+  align-items: baseline;
+  min-width: 42px;
+  font-family: 'Archivo Black', 'Impact', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  color: #00E5FF;
+  letter-spacing: -0.5px;
+}
+
+.persona-item.selected .persona-level {
+  color: #000000;
+}
+
+.persona-lv-prefix {
+  font-size: 21px;
+  font-weight: 700;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-style: italic;
+  color: #000000;
+  margin-right: 4px;
+}
+
+/* Dot separator */
+.persona-dot {
+  margin: 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #00D5FF;
+}
+
+.persona-item.selected .persona-dot {
+  color: #000000;
+}
+
+/* Persona name */
+.persona-pname {
+  font-family: 'Fira Sans Extra Condensed', 'Gill Sans MT Condensed', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #E2F3FF;
+  letter-spacing: -0.2px;
+}
+
+.persona-item.selected .persona-pname {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Dashed cyan separator line */
+.persona-dashed-line {
+  position: absolute;
+  left: 45px;
+  width: 420px;
+  height: 0;
+  border-top: 3px dashed rgba(0, 200, 255, 0.5);
+  pointer-events: none;
+}
+
+/* Bottom HUD bar */
+.persona-hud-bar {
+  position: absolute;
+  bottom: 22px;
+  right: 35px;
+  text-align: right;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.persona-hud-question {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2px;
+}
+
+.persona-hud-guide {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+
+.persona-hud-controls {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.hud-btn {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.hud-btn-icon {
+  margin-right: 4px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════
    BIDIRECTIONAL MENU TRANSITIONS (GPU ACCELERATED)
    ═══════════════════════════════════════════════ */
 

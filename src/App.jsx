@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import SkillPage from './components/SkillPage';
 import UnderConstructionPage from './components/UnderConstructionPage';
+import PersonaPage from './components/PersonaPage';
 import DoubleCircleTransition from './components/DoubleCircleTransition';
 
 /* ── 16:9 Viewport Scaler Hook ── */
@@ -226,6 +227,8 @@ function App() {
     if (currentOption) {
       if (currentOption.name === 'SKILL') {
         setViewState('skill');
+      } else if (currentOption.name === 'PERSONA') {
+        setViewState('persona');
       } else {
         setSelectedMenuName(currentOption.name);
         setViewState('construction');
@@ -393,6 +396,9 @@ function App() {
           {(viewState === 'menu' || isExitingToMenu) && renderMainMenuContent()}
           {(viewState === 'skill' || (isExitingToMenu && viewState === 'skill')) && (
             <SkillPage onBack={handleBackToMenu} isExiting={isExitingToMenu} />
+          )}
+          {viewState === 'persona' && (
+            <PersonaPage onBack={handleBackToMenu} isExiting={isExitingToMenu} />
           )}
           {(viewState === 'construction' || (isExitingToMenu && viewState === 'construction')) && (
             <UnderConstructionPage
