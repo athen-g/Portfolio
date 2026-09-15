@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="890" height="73" viewBox="0 0 890 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="persona-selector">
+<path d="M0 6.72368C0 3.01029 3.30482 0 7.38151 0H890V64.3553H7.38154C3.30484 64.3553 0 62.2134 0 58.5V6.72368Z" fill="#E03636"/>
+<path d="M2 13.4046C348.785 13.4984 890 8.64474 890 8.64474V73H16.307C12.2715 73 2 69.4733 2 65.7599C2 65.7599 2 35.8032 2 13.4046Z" fill="white"/>
+<path d="M2 13.4046C348.786 13.5922 890 12.8849 890 12.8849V8.4046L16.0001 9.4046C16.0001 9.4046 4.5 8.5 2 13.4046Z" fill="white"/>
+</g>
+</svg>

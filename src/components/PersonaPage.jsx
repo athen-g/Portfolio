@@ -1,133 +1,66 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-/* ═══════════════════════════════════════════
-   PERSONA DATA (P3R Game-Accurate)
-   ═══════════════════════════════════════════ */
-const PERSONAS = [
-  { id: 0,  arcana: 'Fool',      level: 42, name: 'Black Frost',  tagline: 'JACK OF ALL TRADES' },
-  { id: 1,  arcana: 'Priestess', level: 35, name: 'Sarasvati',    tagline: 'DIVINE WISDOM' },
-  { id: 2,  arcana: 'Lovers',    level: 28, name: 'Queen Medb',   tagline: 'ETERNAL BOND' },
-  { id: 3,  arcana: 'Justice',   level: 36, name: 'Virtue',       tagline: 'RIGHTEOUS PATH' },
-  { id: 4,  arcana: 'Moon',      level: 23, name: 'Gurulu',       tagline: 'MIDNIGHT CALL' },
-  { id: 5,  arcana: 'Fortune',   level: 19, name: 'Fortuna',      tagline: 'CARPE DIEM' },
-  { id: 6,  arcana: 'Magician',  level: 33, name: 'Sati',         tagline: 'ARCANE MASTERY' },
-  { id: 7,  arcana: 'Hiero.',    level: 26, name: 'Shiisaa',      tagline: 'SACRED GUARDIAN' },
-  { id: 8,  arcana: 'Sun',       level: 25, name: 'Yatagarasu',   tagline: 'BLAZING DAWN' },
-  { id: 9,  arcana: 'Strength',  level: 29, name: 'Jikokuten',    tagline: 'IRON WILL' },
-  { id: 10, arcana: 'Fortune',   level: 39, name: 'Clotho',       tagline: 'THREADS OF FATE' },
+/* ══════════════════════════════════════════════════════════════════════════
+   PERSONA PROJECTS DATA (From Figma Frame "04 PERSONA" Node 163:115)
+   ══════════════════════════════════════════════════════════════════════════ */
+const PERSONA_PROJECTS = [
+  {
+    id: 0,
+    arcana: 'Priestess',
+    name: 'Hyperspace SIG',
+    tagline: 'PIERCE THE VEIL',
+    url: 'https://hyperspacesig.tech',
+    displayUrl: 'hyperspacesig.tech',
+    description: 'Hyperspace XR SIG platform featuring an immersive cyberpunk interface with scroll-driven storytelling and serverless dashboard.'
+  },
+  {
+    id: 1,
+    arcana: 'Strength',
+    name: 'FutureU',
+    tagline: 'IRON WILL',
+    url: 'https://futureu.dev/?iframe=true',
+    displayUrl: 'futureu.dev',
+    description: 'Privacy-focused MHT-CET college predictor giving Maharashtra aspirants cutoff trends and seat matrices.'
+  },
+  {
+    id: 2,
+    arcana: 'Fool',
+    name: 'unimark',
+    tagline: 'ORDER & WISDOM',
+    url: 'https://theunimark.in',
+    displayUrl: 'theunimark.in',
+    description: 'School management & learning system featuring a high-performance attendance and grading database.'
+  },
+  {
+    id: 3,
+    arcana: 'Emperor',
+    name: 'Hanasaku (花咲く)',
+    tagline: 'BLOOMING LIFE',
+    url: 'https://hanasaku-seven.vercel.app/',
+    displayUrl: 'hanasaku-seven.vercel.app',
+    description: 'Secure real-time health tracker with strict PostgreSQL security policies and multi-lingual support.'
+  },
+  {
+    id: 4,
+    arcana: 'Justice',
+    name: 'MGC Cosmetics',
+    tagline: 'RIGHTEOUS BLADE',
+    url: 'https://atharvanitinghule.wixstudio.com/mcgcosmetics',
+    displayUrl: 'atharvanitinghule.wixstudio.com/mcgcosmetics',
+    description: 'Premium e-commerce storefront engineered for cosmetics cataloging with interactive hover modules.'
+  },
+  {
+    id: 5,
+    arcana: 'Fool',
+    name: 'Green Life',
+    tagline: 'INFINITE POTENTIAL',
+    url: 'https://atharvanitinghule.wixstudio.com/greenlife',
+    displayUrl: 'atharvanitinghule.wixstudio.com/greenlife',
+    description: 'Organic bio-centric presence implementing sustainable branding aesthetics and smooth parallax.'
+  },
 ];
 
-const LIST_TOP = 195;
-const ITEM_HEIGHT = 44;
-
-/* ═══════════════════════════════════════════
-   ARCANA GEOMETRIC ARTWORK GENERATOR
-   ═══════════════════════════════════════════ */
-const ARCANA_DATA = {
-  'Fool':      { numeral: '0',     sides: 5,  rings: 3, rotation: 0 },
-  'Priestess': { numeral: 'II',    sides: 6,  rings: 4, rotation: 15 },
-  'Lovers':    { numeral: 'VI',    sides: 4,  rings: 3, rotation: 45 },
-  'Justice':   { numeral: 'XI',    sides: 4,  rings: 3, rotation: 0 },
-  'Moon':      { numeral: 'XVIII', sides: 8,  rings: 3, rotation: 22 },
-  'Fortune':   { numeral: 'X',     sides: 10, rings: 4, rotation: 18 },
-  'Magician':  { numeral: 'I',     sides: 5,  rings: 3, rotation: -18 },
-  'Hiero.':    { numeral: 'V',     sides: 6,  rings: 3, rotation: 30 },
-  'Sun':       { numeral: 'XIX',   sides: 12, rings: 4, rotation: 15 },
-  'Strength':  { numeral: 'VIII',  sides: 8,  rings: 3, rotation: 0 },
-};
-
-function generatePolygonPoints(cx, cy, radius, sides, rotationDeg) {
-  const points = [];
-  const rotRad = (rotationDeg * Math.PI) / 180;
-  for (let i = 0; i < sides; i++) {
-    const angle = (Math.PI * 2 * i) / sides + rotRad - Math.PI / 2;
-    points.push(`${cx + radius * Math.cos(angle)},${cy + radius * Math.sin(angle)}`);
-  }
-  return points.join(' ');
-}
-
-function PersonaArtwork({ persona }) {
-  const config = ARCANA_DATA[persona.arcana] || ARCANA_DATA['Fool'];
-  const cx = 400, cy = 400;
-
-  return (
-    <svg viewBox="0 0 800 800" className="persona-artwork-svg">
-      {/* Outer glow ring */}
-      <circle cx={cx} cy={cy} r="370" fill="none" stroke="rgba(0,180,255,0.06)" strokeWidth="50" />
-      <circle cx={cx} cy={cy} r="350" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" strokeDasharray="12 6" />
-
-      {/* Radiating lines from center */}
-      {Array.from({ length: config.sides * 2 }, (_, i) => {
-        const angle = (Math.PI * 2 * i) / (config.sides * 2) + (config.rotation * Math.PI) / 180 - Math.PI / 2;
-        return (
-          <line
-            key={`ray-${i}`}
-            x1={cx + 70 * Math.cos(angle)}
-            y1={cy + 70 * Math.sin(angle)}
-            x2={cx + 330 * Math.cos(angle)}
-            y2={cy + 330 * Math.sin(angle)}
-            stroke={i % 2 === 0 ? 'rgba(255,255,255,0.1)' : 'rgba(0,180,255,0.06)'}
-            strokeWidth="1"
-          />
-        );
-      })}
-
-      {/* Concentric polygon rings */}
-      {Array.from({ length: config.rings }, (_, r) => {
-        const radius = 100 + r * 72;
-        const ringRotation = config.rotation + r * 12;
-        const ringSides = config.sides + (r % 2 === 0 ? 0 : 1);
-        return (
-          <polygon
-            key={`ring-${r}`}
-            points={generatePolygonPoints(cx, cy, radius, ringSides, ringRotation)}
-            fill="none"
-            stroke={r === 0 ? 'rgba(255,255,255,0.55)' : `rgba(0,200,255,${0.3 - r * 0.06})`}
-            strokeWidth={2.5 - r * 0.4}
-          />
-        );
-      })}
-
-      {/* Vertex dots on inner polygon */}
-      {Array.from({ length: config.sides }, (_, i) => {
-        const angle = (Math.PI * 2 * i) / config.sides + (config.rotation * Math.PI) / 180 - Math.PI / 2;
-        const r = 100;
-        return (
-          <circle
-            key={`dot-${i}`}
-            cx={cx + r * Math.cos(angle)}
-            cy={cy + r * Math.sin(angle)}
-            r="4"
-            fill="rgba(0,200,255,0.5)"
-          />
-        );
-      })}
-
-      {/* Inner decorative circles */}
-      <circle cx={cx} cy={cy} r="58" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" />
-      <circle cx={cx} cy={cy} r="63" fill="none" stroke="rgba(0,200,255,0.2)" strokeWidth="1" strokeDasharray="4 3" />
-
-      {/* Center Roman numeral */}
-      <text
-        x={cx}
-        y={cy + 2}
-        textAnchor="middle"
-        dominantBaseline="central"
-        fill="rgba(255,255,255,0.8)"
-        fontSize={config.numeral.length > 3 ? '18' : config.numeral.length > 2 ? '22' : '28'}
-        fontWeight="bold"
-        fontFamily="'Times New Roman', 'Georgia', serif"
-        letterSpacing="2px"
-      >
-        {config.numeral}
-      </text>
-    </svg>
-  );
-}
-
-/* ═══════════════════════════════════════════
-   WATER OVERLAY (Reused pattern)
-   ═══════════════════════════════════════════ */
+/* ── Water Overlay Component ── */
 function PersonaWaterOverlay() {
   const videoRef = useRef(null);
   useEffect(() => {
@@ -149,24 +82,23 @@ function PersonaWaterOverlay() {
   );
 }
 
-/* ═══════════════════════════════════════════
-   PERSONA PAGE — P3R Persona Selection Menu
-   ═══════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════════════════
+   PERSONA PAGE COMPONENT (Exact Figma Implementation)
+   ══════════════════════════════════════════════════════════════════════════ */
 export default function PersonaPage({ onBack, isExiting }) {
-  const [activeIndex, setActiveIndex] = useState(5); // Start on Fortuna like reference
+  const [activeIndex, setActiveIndex] = useState(0);
   const handleBack = onBack || (() => {});
-  const currentPersona = PERSONAS[activeIndex];
+  const currentProject = PERSONA_PROJECTS[activeIndex] || PERSONA_PROJECTS[0];
 
-  // Keyboard navigation: ArrowUp/Down to browse, Esc to return
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (isExiting) return;
       if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONAS.length - 1));
+        setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONA_PROJECTS.length - 1));
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setActiveIndex((prev) => (prev < PERSONAS.length - 1 ? prev + 1 : 0));
+        setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0));
       } else if (e.key === 'Escape' || e.key === 'Backspace') {
         e.preventDefault();
         handleBack();
@@ -179,92 +111,132 @@ export default function PersonaPage({ onBack, isExiting }) {
   return (
     <div className={`persona-page-container ${isExiting ? 'skill-exiting' : 'skill-entering'}`}>
 
-      {/* 1. Blue polygon background */}
-      <div className="persona-blue-poly-wrapper skill-fall-elem">
-        <div className="persona-blue-poly-rotator">
-          <div className="persona-blue-poly-bg" />
+      {/* 1. Figma Deep Blue Polygon Background (Node 163:126) */}
+      <div className="persona-figma-blue-wrapper skill-fall-elem">
+        <div className="persona-figma-blue-rotator">
+          <div className="persona-figma-blue-bg" />
         </div>
       </div>
 
-      {/* 2. Water overlay video + halftone texture */}
+      {/* 2. Water overlay video */}
       <PersonaWaterOverlay />
 
-      {/* 3. "PERSONA" horizontal typography — top-left, partially clipped */}
-      <div className="persona-bg-typography skill-fall-elem">
-        PERSONA
-      </div>
-
-      {/* 4. Right artwork area — geometric arcana illustration + tagline */}
-      <div className="persona-artwork-area skill-fall-elem">
-        <div className="persona-artwork-container" key={activeIndex}>
-          <PersonaArtwork persona={currentPersona} />
-        </div>
-        <div className="persona-tagline" key={`tag-${activeIndex}`}>
-          {currentPersona.tagline}
+      {/* 3. Figma Image 6 Shattered Particles Overlay (Node 163:149) */}
+      <div className="persona-figma-particles-wrapper skill-fall-elem">
+        <div className="persona-figma-particles-rotator">
+          <img src="/persona-image6.png" alt="Particles" className="persona-figma-particles-img" />
         </div>
       </div>
 
-      {/* 5. Left persona list with red selector */}
-      <div className="persona-list-wrapper skill-fall-elem">
-        {/* Red selector bar — tracks active index */}
+      {/* 4. Figma Giant "PERSONA" Typography (Node 163:148) */}
+      <div className="persona-figma-typography skill-fall-elem">
+        <div className="persona-figma-typo-inner">
+          PERSONA
+        </div>
+      </div>
+
+      {/* 5. Right Feature Card Frame — Dynamic Project Website Live Embed & Link */}
+      <div className="persona-figma-frame-wrapper skill-fall-elem">
+        <div className="persona-figma-frame-rotator">
+          <div className="persona-figma-frame-box">
+            {/* Browser top-bar indicator like main branch ProjectCard */}
+            <div className="persona-frame-topbar">
+              <div className="persona-frame-dots">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
+              </div>
+              <div className="persona-frame-url-bar">
+                {currentProject.displayUrl || currentProject.url.replace(/^https?:\/\//, '')}
+              </div>
+            </div>
+
+            {/* Embedded Live Webview of the selected project */}
+            <iframe
+              key={`frame-${currentProject.id}`}
+              src={currentProject.url}
+              title={`Preview of ${currentProject.name}`}
+              className="persona-frame-iframe"
+              loading="lazy"
+              scrolling="no"
+              sandbox="allow-scripts allow-same-origin allow-popups"
+            />
+
+            {/* Interactive Overlay & Visit Button */}
+            <a
+              href={currentProject.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="persona-frame-visit-btn"
+              title={`Visit ${currentProject.name} in new tab`}
+            >
+              <span>{currentProject.displayUrl ? currentProject.displayUrl.toUpperCase() : 'VISIT PROJECT'} ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 6. Figma Tagline Typography "PIERCE THE VEIL" (Node 165:283) */}
+      <div className="persona-figma-tagline skill-fall-elem" key={`tag-${activeIndex}`}>
+        {currentProject.tagline}
+      </div>
+
+      {/* 7. Persona Projects Selection List & Selector (Nodes 165:276 to 165:281) */}
+      <div className="persona-figma-list-wrapper skill-fall-elem">
+        {/* Figma Persona Selector Graphic (Node 163:219) */}
         <div
-          className="persona-selector"
-          style={{ top: `${LIST_TOP + activeIndex * ITEM_HEIGHT}px` }}
-        />
+          className="persona-figma-selector"
+          style={{ top: `${238 + activeIndex * 63}px` }}
+        >
+          <img src="/persona-selector.svg" alt="Selector" className="persona-selector-img" />
+        </div>
 
-        {/* Persona rows */}
-        {PERSONAS.map((persona, idx) => {
+        {/* Project Items */}
+        {PERSONA_PROJECTS.map((project, idx) => {
           const isSelected = activeIndex === idx;
+          const rowTop = 255 + idx * 63;
+
           return (
             <div
-              key={persona.id}
-              className={`persona-item ${isSelected ? 'selected' : ''}`}
-              style={{ top: `${LIST_TOP + idx * ITEM_HEIGHT}px` }}
+              key={project.id}
+              className={`persona-figma-row ${isSelected ? 'selected' : ''}`}
+              style={{ top: `${rowTop}px` }}
               onClick={() => setActiveIndex(idx)}
             >
-              {/* Crystal Tarot card icon — matching P3R game reference */}
-              {isSelected && (
-                <svg className="persona-tarot-icon" width="28" height="34" viewBox="0 0 28 34" fill="none">
-                  <polygon points="14,1 27,9 27,25 14,33 1,25 1,9" fill="#00AAFF" stroke="#88EEFF" strokeWidth="1.5" />
-                  <polygon points="14,4 24,10 24,23 14,30 4,23 4,10" fill="#0044CC" opacity="0.75" />
-                  <polygon points="14,6 22,11 14,16 6,11" fill="#FFFFFF" opacity="0.65" />
-                  <polygon points="14,16 22,11 22,22 14,27" fill="#0088FF" opacity="0.8" />
-                  <polygon points="14,16 6,11 6,22 14,27" fill="#002288" opacity="0.9" />
-                </svg>
-              )}
+              {/* Arcana Capsule Pill (Nodes 164:227, etc.) */}
+              <div className={`persona-arcana-pill ${isSelected ? 'pill-selected' : 'pill-normal'}`}>
+                <span className="persona-arcana-text">{project.arcana}</span>
+              </div>
 
-              <span className="persona-arcana">{persona.arcana}</span>
-
-              <span className="persona-level">
-                {isSelected && <span className="persona-lv-prefix">Lv </span>}
-                {persona.level}
+              {/* Project Label Name (Nodes 165:248, 165:249, etc.) */}
+              <span className={`persona-project-name ${isSelected ? 'name-selected' : 'name-normal'}`}>
+                {project.name}
               </span>
-
-              <span className="persona-dot">·</span>
-
-              <span className="persona-pname">{persona.name}</span>
             </div>
           );
         })}
 
-        {/* Dashed cyan separator line below list */}
-        <div
-          className="persona-dashed-line"
-          style={{ top: `${LIST_TOP + PERSONAS.length * ITEM_HEIGHT + 14}px` }}
-        />
+        {/* Dashed Separator Lines (Nodes 165:274, 165:275) */}
+        <div className="persona-figma-dashed-line line-1">
+          <img src="/persona-dashed-line.svg" alt="separator" />
+        </div>
+        <div className="persona-figma-dashed-line line-2">
+          <img src="/persona-dashed-line.svg" alt="separator" />
+        </div>
       </div>
 
-      {/* 6. Bottom HUD bar — game-style controls */}
+      {/* 8. Bottom HUD bar — game-style navigation guidance */}
       <div className="persona-hud-bar skill-fall-elem">
         <div className="persona-hud-question">Which Persona do you want to change to?</div>
         <div className="persona-hud-guide">Guide</div>
         <div className="persona-hud-controls">
           <span className="hud-btn"><span className="hud-btn-icon">Ⓧ</span> Stats</span>
           <span className="hud-btn"><span className="hud-btn-icon">Ⓐ</span> Change Persona</span>
-          <span className="hud-btn"><span className="hud-btn-icon">Ⓑ</span> Back</span>
+          <span className="hud-btn"><span className="hud-btn-icon">Ⓑ</span> Back (Esc)</span>
           <span className="hud-btn"><span className="hud-btn-icon">≡</span> Release</span>
         </div>
       </div>
+
     </div>
   );
 }
