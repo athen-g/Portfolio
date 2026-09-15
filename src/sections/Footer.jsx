@@ -17,11 +17,25 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-24 flex items-center justify-between text-[10px] font-ui tracking-widest text-[var(--text-3)] uppercase font-bold">
         {/* Footnote signature */}
         <div className="w-full flex flex-col md:flex-row md:items-center justify-between gap-4 text-center md:text-left">
-          <span>© 2025 ATHARVA GHULE</span>
-          <span className="hidden md:inline">·</span>
-          <span>@athen-g</span>
-          <span className="hidden md:inline">·</span>
-          <span>CRAFTED WITH OBSESSION</span>
+          <div className="flex items-center justify-center md:justify-start gap-2">
+            <span>© 2025 ATHARVA GHULE</span>
+            <span>·</span>
+            <span>@athen-g</span>
+            <span>·</span>
+            <span>CRAFTED WITH OBSESSION</span>
+          </div>
+
+          {/* Redesign preview link */}
+          <a
+            href="https://portfolio-git-redesign-athen-gs-projects.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 text-[var(--gold)] hover:underline opacity-90 transition-opacity"
+            aria-label="View Persona 3 Reload inspired portfolio redesign"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00D5FF] shadow-[0_0_6px_#00D5FF]" />
+            <span>Persona 3 Reload Redesign Preview ↗</span>
+          </a>
         </div>
       </div>
     </footer>

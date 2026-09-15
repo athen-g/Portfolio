@@ -282,6 +282,53 @@ export default function Navbar() {
             )}
           </button>
 
+          {/* Visit Redesign Badge / Link */}
+          <a
+            href="https://portfolio-git-redesign-athen-gs-projects.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="hover"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              fontSize: '11px',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--gold)',
+              border: '0.5px solid var(--border-gold)',
+              background: 'rgba(232, 160, 32, 0.08)',
+              padding: '6px 14px',
+              borderRadius: '2px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--gold)'
+              e.currentTarget.style.color = 'var(--bg)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(232, 160, 32, 0.08)'
+              e.currentTarget.style.color = 'var(--gold)'
+            }}
+            aria-label="Experience the new Persona 3 Reload inspired portfolio redesign preview"
+          >
+            <span
+              style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                background: '#00D5FF',
+                boxShadow: '0 0 8px #00D5FF',
+                display: 'inline-block',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              }}
+            />
+            <span>Redesign Preview ↗</span>
+          </a>
+
           {/* Hire Me CTA Button — hidden on mobile */}
           <a
             href="mailto:atharvanitinghule@gmail.com"
@@ -512,6 +559,40 @@ export default function Navbar() {
           )}
         </button>
 
+        {/* Redesign preview button in mobile menu */}
+        <a
+          href="https://portfolio-git-redesign-athen-gs-projects.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 600,
+            fontSize: '12px',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            background: 'rgba(232, 160, 32, 0.08)',
+            border: '0.5px solid var(--border-gold)',
+            padding: '10px 24px',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            marginTop: '4px',
+          }}
+        >
+          <span
+            style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              background: '#00D5FF',
+              boxShadow: '0 0 8px #00D5FF',
+            }}
+          />
+          <span>Redesign Preview ↗</span>
+        </a>
+
         {/* Hire Me CTA button in mobile menu */}
         <a
           href="mailto:atharvanitinghule@gmail.com"
@@ -528,7 +609,7 @@ export default function Navbar() {
             textDecoration: 'none',
             transition: 'background 0.3s, color 0.3s',
             display: 'inline-block',
-            marginTop: '8px',
+            marginTop: '4px',
           }}
         >
           {t('nav.hireMe')}
