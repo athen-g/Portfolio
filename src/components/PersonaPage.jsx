@@ -118,15 +118,15 @@ export default function PersonaPage({ onBack, isExiting }) {
         </div>
       </div>
 
-      {/* 2. Figma Giant "PERSONA" Typography (Node 163:148) */}
+      {/* 2. Water overlay video */}
+      <PersonaWaterOverlay />
+
+      {/* 3. Figma Giant "PERSONA" Typography (Node 163:148) */}
       <div className="persona-figma-typography skill-fall-elem">
         <div className="persona-figma-typo-inner">
           PERSONA
         </div>
       </div>
-
-      {/* 3. Water overlay video */}
-      <PersonaWaterOverlay />
 
       {/* 4. Figma Image 6 Shattered Particles Overlay (Node 163:149) */}
       <div className="persona-figma-particles-wrapper skill-fall-elem">
