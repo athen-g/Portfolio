@@ -197,16 +197,6 @@ export default function PersonaPage({ onBack, isExiting }) {
         ))}
       </div>
 
-      {/* Water Caustics and Shattered Particles Top Overlay — seamlessly ripples over tagline text */}
-      <div className="persona-top-overlay-layer">
-        <PersonaWaterOverlay />
-        <div className="persona-figma-particles-wrapper skill-fall-elem">
-          <div className="persona-figma-particles-rotator">
-            <img src="/persona-image6.png" alt="Particles" className="persona-figma-particles-img" />
-          </div>
-        </div>
-      </div>
-
       {/* 7. Persona Projects Selection List & Selector (Nodes 165:276 to 165:281) */}
       <div className="persona-figma-list-wrapper skill-fall-elem">
         {/* Figma Persona Selector Graphic (Node 163:219) */}
