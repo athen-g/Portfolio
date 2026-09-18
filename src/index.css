@@ -1063,7 +1063,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════
-   PERSONA PAGE (P3R Persona Selection Menu)
+   PERSONA PAGE (Figma Frame 04 PERSONA Node 163:115)
    ═══════════════════════════════════════════════ */
 
 .persona-page-container {
@@ -1078,13 +1078,15 @@ body {
   z-index: 10;
 }
 
-/* Blue polygon background (same shape as Skill page) */
-.persona-blue-poly-wrapper {
+/* 1. Deep Blue Polygon Background (Node 163:126)
+   Figma: left -170.33px, top -135.26px, width 2338.47px, height 1644.84px, rotate -13.12deg
+   Inner rect: width 2122.81px, height 1194.08px, fill #0018B4 */
+.persona-figma-blue-wrapper {
   position: absolute;
-  left: 30.22px;
-  top: -1000.91px;
-  width: 2187.876px;
-  height: 2102.392px;
+  left: -170.33px;
+  top: -135.26px;
+  width: 2338.47px;
+  height: 1644.84px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1092,252 +1094,405 @@ body {
   pointer-events: none;
 }
 
-.persona-blue-poly-rotator {
-  transform: rotate(38.48deg);
+.persona-figma-blue-rotator {
+  transform: rotate(-13.12deg);
+  flex-shrink: 0;
 }
 
-.persona-blue-poly-bg {
+.persona-figma-blue-bg {
   background-color: #0018B4;
-  width: 1792.69px;
-  height: 1260.766px;
+  width: 2122.81px;
+  height: 1194.08px;
 }
 
-/* "PERSONA" horizontal typography — top-left, partially clipped at top edge matching P3R */
-.persona-bg-typography {
+/* 2. Image 6 Shattered Particles Overlay (Node 163:149)
+   Figma: left -31px, top -178px, width 1981.02px, height 1192.64px, rotate 176.58deg, mix-blend-mode lighten */
+.persona-figma-particles-wrapper {
   position: absolute;
-  top: -24px;
-  left: 0px;
-  font-family: 'Archivo Black', 'Impact', sans-serif;
-  font-size: 215px;
-  font-weight: 900;
-  font-style: italic;
-  letter-spacing: -8px;
-  color: rgba(255, 255, 255, 0.95);
-  z-index: 3;
-  pointer-events: none;
-  line-height: 0.95;
-  white-space: nowrap;
-}
-
-/* Right artwork area */
-.persona-artwork-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1920px;
-  height: 1080px;
+  left: -31px;
+  top: -178px;
+  width: 1981.02px;
+  height: 1192.64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: lighten;
   pointer-events: none;
   z-index: 4;
 }
 
-.persona-artwork-container {
+.persona-figma-particles-rotator {
+  transform: rotate(176.58deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-particles-img {
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 3. Figma Giant Horizontal Typography: PERSONA (Node 163:148)
+   Figma: left -50px, top 0, font Almarai ExtraBold 308px, tracking -33.88px, color #a6a6a6, skewX -10deg, scaleY 0.98 */
+.persona-figma-typography {
   position: absolute;
-  right: 80px;
-  top: 40px;
-  width: 780px;
-  height: 780px;
-  animation: personaArtFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  left: -50px;
+  top: 0px;
+  width: 1476.82px;
+  height: 285.59px;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
 }
 
-.persona-artwork-svg {
+.persona-figma-typo-inner {
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 800;
+  font-size: 308px;
+  letter-spacing: -33.88px;
+  color: #a6a6a6;
+  line-height: 0.92;
+  transform: skewX(-10deg) scaleY(0.98);
+  transform-origin: top left;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* 4. Right Skewed Frame Card (Node 165:282)
+   Figma: left 920px, top 224px, width 999.75px, height 651.98px, rotate -5deg, skewX -5deg
+   Inner box: width 1003.57px, height 564.51px, fill #d9d9d9 */
+.persona-figma-frame-wrapper {
+  position: absolute;
+  left: 920px;
+  top: 224px;
+  width: 999.75px;
+  height: 651.98px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.persona-figma-frame-rotator {
+  transform: rotate(-5deg) skewX(-5deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-frame-box {
+  width: 1003.57px;
+  height: 564.51px;
+  background: #0d1224;
+  box-shadow:
+    0 20px 50px rgba(0, 5, 25, 0.6),
+    0 0 0 2px rgba(0, 213, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Browser mockup top bar inspired by main branch ProjectCard */
+.persona-frame-topbar {
+  height: 32px;
+  background: #060914;
+  border-bottom: 1px solid rgba(0, 230, 255, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.persona-frame-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.persona-frame-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.dot-red { background: #ff5f56; }
+.dot.dot-yellow { background: #ffbd2e; }
+.dot.dot-green { background: #27c93f; }
+
+.persona-frame-url-bar {
+  flex: 1;
+  max-width: 480px;
+  height: 20px;
+  background: rgba(0, 15, 45, 0.7);
+  border: 1px solid rgba(0, 230, 255, 0.15);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #72FFFF;
+  letter-spacing: 0.04em;
+}
+
+/* Viewport containing the scaled live webview */
+.persona-frame-content-viewport {
+  flex: 1;
   width: 100%;
-  height: 100%;
-  opacity: 0.75;
-  animation: personaArtSpin 80s linear infinite;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
 }
 
-@keyframes personaArtSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Scaled live iframe view of project with hidden scrollbars, exactly fitting the box */
+.persona-frame-iframe {
+  width: 1672.6px;
+  height: 887.5px;
+  border: none;
+  display: block;
+  transform: scale(0.6);
+  transform-origin: top left;
+  background: #000000;
+  pointer-events: auto;
+  overflow: hidden;
 }
 
-@keyframes personaArtFadeIn {
+/* Floating interactive visit CTA badge */
+.persona-frame-visit-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  background: rgba(0, 15, 45, 0.88);
+  border: 1.5px solid #00E6FF;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 230, 255, 0.4);
+  color: #00E6FF;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-family: 'Archivo Black', 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  z-index: 10;
+  pointer-events: auto;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.persona-frame-visit-btn:hover {
+  background: #00E6FF;
+  color: #000d45;
+  box-shadow: 0 4px 20px rgba(0, 230, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+/* 5. Figma Tagline Typography: "PIERCE THE VEIL" (Node 165:283)
+   Figma: left 829px, top 662px, width 1107px, font Almarai ExtraBold 128px, tracking -12.8px, fill #72ffff */
+.persona-figma-tagline {
+  position: absolute;
+  left: 829px;
+  top: 662px;
+  width: 1107px;
+  display: flex;
+  align-items: baseline;
+  gap: 32px; /* Spacing between words decreased by half */
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 800;
+  font-size: 128px;
+  line-height: 1;
+  color: #72FFFF;
+  text-shadow: none;
+  pointer-events: none;
+  z-index: 6;
+  white-space: nowrap;
+  animation: personaTagSlideIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.persona-tagline-word {
+  display: inline-flex;
+  align-items: baseline;
+  letter-spacing: -12.8px; /* Preserving exact letter spacing */
+}
+
+/* Undulating water wave animation per character matching P3R Carpe Diem / Pierce the Veil wave */
+.persona-tagline-char {
+  display: inline-block;
+  will-change: transform;
+  animation: personaTextWave 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes personaTextWave {
   0% {
-    opacity: 0;
-    transform: scale(0.92);
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translateY(-9px) rotate(1.2deg) scale(1.02);
+  }
+  70% {
+    transform: translateY(7px) rotate(-1deg) scale(0.98);
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateY(-4px) rotate(0.6deg) scale(1.01);
   }
-}
-
-/* Tagline text — large bold cyan with hollow/translucent effect matching P3R */
-.persona-tagline {
-  position: absolute;
-  right: 130px;
-  top: 520px;
-  font-family: 'Archivo Black', 'Impact', sans-serif;
-  font-size: 110px;
-  font-weight: 900;
-  font-style: italic;
-  color: #00E5FF;
-  opacity: 0.85;
-  letter-spacing: -3px;
-  text-shadow:
-    0 0 25px rgba(0, 220, 255, 0.6),
-    0 4px 15px rgba(0, 20, 100, 0.9);
-  pointer-events: none;
-  white-space: nowrap;
-  animation: personaTagSlideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes personaTagSlideIn {
   0% {
     opacity: 0;
-    transform: translateX(40px) rotate(-3deg);
+    transform: translateX(40px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) rotate(-3deg);
+    transform: translateX(0);
   }
 }
 
-/* Left persona list wrapper */
-.persona-list-wrapper {
+/* 6. Left Project Items List Wrapper */
+.persona-figma-list-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 1920px;
   height: 1080px;
-  pointer-events: none;
   z-index: 8;
+  pointer-events: none;
 }
 
-/* White selector box with vibrant red top border — exactly matching P3R */
-.persona-selector {
+/* Figma Selector SVG (Node 163:219)
+   Figma: left 0, width 890px, height 73px, scaleY -100%, rotate 180deg */
+.persona-figma-selector {
   position: absolute;
   left: 0;
-  width: 480px;
-  height: 44px;
+  width: 890px;
+  height: 73px;
   pointer-events: none;
   z-index: 2;
-  background: #FFFFFF;
-  border-top: 4px solid #FF0022;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: top 0.16s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: top 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Individual persona row */
-.persona-item {
+.persona-selector-img {
+  width: 890px;
+  height: 73px;
+  display: block;
+  transform: rotate(180deg) scaleY(-1);
+  transform-origin: center;
+}
+
+/* Persona Project Row Item */
+.persona-figma-row {
   position: absolute;
   left: 0;
-  width: 480px;
-  height: 44px;
+  width: 700px;
+  height: 48px;
   display: flex;
   align-items: center;
   cursor: pointer;
   pointer-events: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-  background: rgba(0, 15, 60, 0.72);
-  border-bottom: 1px solid rgba(0, 100, 200, 0.2);
-  transition: background 0.15s ease;
-  z-index: 3;
-}
-
-.persona-item:hover {
-  background: rgba(0, 25, 90, 0.82);
-}
-
-.persona-item.selected {
-  background: transparent;
-  border-bottom: none;
-}
-
-/* Tarot card crystal icon — visible on selected row */
-.persona-tarot-icon {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-5deg);
   z-index: 5;
-  filter: drop-shadow(0 2px 4px rgba(0, 80, 255, 0.5));
+  transition: transform 0.15s ease;
 }
 
-/* Arcana name — cyan italic on dark, black bold on selected */
-.persona-arcana {
-  display: inline-block;
-  width: 125px;
-  text-align: right;
-  font-family: 'Fira Sans Extra Condensed', 'Gill Sans MT Condensed', sans-serif;
-  font-size: 27px;
+.persona-figma-row:hover {
+  transform: translateX(4px);
+}
+
+/* Arcana Capsule Pill (Nodes 164:227, 165:245, etc.)
+   Width 232px, height 48px, rounded 5px, left 107px (selected 109px) */
+.persona-arcana-pill {
+  width: 232px;
+  height: 48px;
+  border-radius: 5px;
+  margin-left: 107px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: background 0.18s ease;
+}
+
+/* Normal pill: background #000d45, text #00e6ff */
+.persona-arcana-pill.pill-normal {
+  background: #000d45;
+}
+
+.persona-arcana-pill.pill-normal .persona-arcana-text {
+  color: #00E6FF;
+}
+
+/* Selected pill: background #00e6ff, text #000d45 */
+.persona-arcana-pill.pill-selected {
+  background: #00E6FF;
+  margin-left: 109px;
+}
+
+.persona-arcana-pill.pill-selected .persona-arcana-text {
+  color: #000d45;
+}
+
+/* Arcana Pill Text: Alumni Sans ExtraBold Italic 60px */
+.persona-arcana-text {
+  font-family: 'Alumni Sans', 'Fira Sans Extra Condensed', sans-serif;
   font-weight: 800;
   font-style: italic;
-  color: #00D5FF;
-  margin-right: 18px;
+  font-size: 58px;
+  line-height: 1;
+  text-align: center;
   letter-spacing: 0.5px;
-  transition: color 0.15s ease;
+  display: block;
 }
 
-.persona-item.selected .persona-arcana {
-  color: #000000;
-}
-
-/* Level number and Lv prefix */
-.persona-level {
-  display: inline-flex;
-  align-items: baseline;
-  min-width: 42px;
-  font-family: 'Archivo Black', 'Impact', sans-serif;
-  font-size: 26px;
-  font-weight: 700;
-  font-style: italic;
-  color: #00E5FF;
-  letter-spacing: -0.5px;
-}
-
-.persona-item.selected .persona-level {
-  color: #000000;
-}
-
-.persona-lv-prefix {
-  font-size: 21px;
-  font-weight: 700;
+/* Project Name Text (Nodes 165:248, 165:253, etc.)
+   Left 359px from screen edge (pill left is 107px + 232px + 20px gap = 359px) */
+.persona-project-name {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
-  font-style: italic;
-  color: #000000;
-  margin-right: 4px;
+  font-size: 40px;
+  font-weight: 400;
+  margin-left: 20px;
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  transition: color 0.18s ease, font-weight 0.18s ease;
 }
 
-/* Dot separator */
-.persona-dot {
-  margin: 0 6px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #00D5FF;
+.persona-project-name.name-normal {
+  color: #72FFFF;
 }
 
-.persona-item.selected .persona-dot {
-  color: #000000;
-}
-
-/* Persona name */
-.persona-pname {
-  font-family: 'Fira Sans Extra Condensed', 'Gill Sans MT Condensed', sans-serif;
-  font-size: 25px;
-  font-weight: 600;
-  color: #E2F3FF;
-  letter-spacing: -0.2px;
-}
-
-.persona-item.selected .persona-pname {
+.persona-project-name.name-selected {
   color: #000000;
   font-weight: 700;
 }
 
-/* Dashed cyan separator line */
-.persona-dashed-line {
+/* Dashed Separator Lines (Nodes 165:274 at top 655px, 165:275 at top 717px, left 155px, width 440px) */
+.persona-figma-dashed-line {
   position: absolute;
-  left: 45px;
-  width: 420px;
-  height: 0;
-  border-top: 3px dashed rgba(0, 200, 255, 0.5);
+  left: 155px;
+  width: 440px;
+  height: 6px;
   pointer-events: none;
 }
 
-/* Bottom HUD bar */
+.persona-figma-dashed-line.line-1 {
+  top: 655px;
+}
+
+.persona-figma-dashed-line.line-2 {
+  top: 717px;
+}
+
+.persona-figma-dashed-line img {
+  width: 440px;
+  height: 6px;
+  display: block;
+}
+
+/* 7. Bottom HUD Bar */
 .persona-hud-bar {
   position: absolute;
   bottom: 22px;

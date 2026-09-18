@@ -118,20 +118,20 @@ export default function PersonaPage({ onBack, isExiting }) {
         </div>
       </div>
 
-      {/* 2. Water overlay video */}
-      <PersonaWaterOverlay />
-
-      {/* 3. Figma Image 6 Shattered Particles Overlay (Node 163:149) */}
-      <div className="persona-figma-particles-wrapper skill-fall-elem">
-        <div className="persona-figma-particles-rotator">
-          <img src="/persona-image6.png" alt="Particles" className="persona-figma-particles-img" />
-        </div>
-      </div>
-
-      {/* 4. Figma Giant "PERSONA" Typography (Node 163:148) */}
+      {/* 2. Figma Giant "PERSONA" Typography (Node 163:148) */}
       <div className="persona-figma-typography skill-fall-elem">
         <div className="persona-figma-typo-inner">
           PERSONA
+        </div>
+      </div>
+
+      {/* 3. Water overlay video */}
+      <PersonaWaterOverlay />
+
+      {/* 4. Figma Image 6 Shattered Particles Overlay (Node 163:149) */}
+      <div className="persona-figma-particles-wrapper skill-fall-elem">
+        <div className="persona-figma-particles-rotator">
+          <img src="/persona-image6.png" alt="Particles" className="persona-figma-particles-img" />
         </div>
       </div>
 
@@ -151,16 +151,18 @@ export default function PersonaPage({ onBack, isExiting }) {
               </div>
             </div>
 
-            {/* Embedded Live Webview of the selected project */}
-            <iframe
-              key={`frame-${currentProject.id}`}
-              src={currentProject.url}
-              title={`Preview of ${currentProject.name}`}
-              className="persona-frame-iframe"
-              loading="lazy"
-              scrolling="no"
-              sandbox="allow-scripts allow-same-origin allow-popups"
-            />
+            {/* Embedded Live Webview viewport container */}
+            <div className="persona-frame-content-viewport">
+              <iframe
+                key={`frame-${currentProject.id}`}
+                src={currentProject.url}
+                title={`Preview of ${currentProject.name}`}
+                className="persona-frame-iframe"
+                loading="lazy"
+                scrolling="no"
+                sandbox="allow-scripts allow-same-origin allow-popups"
+              />
+            </div>
 
             {/* Interactive Overlay & Visit Button */}
             <a
@@ -178,7 +180,19 @@ export default function PersonaPage({ onBack, isExiting }) {
 
       {/* 6. Figma Tagline Typography "PIERCE THE VEIL" (Node 165:283) */}
       <div className="persona-figma-tagline skill-fall-elem" key={`tag-${activeIndex}`}>
-        {currentProject.tagline}
+        {currentProject.tagline.split(' ').map((word, wIdx) => (
+          <span key={wIdx} className="persona-tagline-word">
+            {word.split('').map((char, cIdx) => (
+              <span
+                key={cIdx}
+                className="persona-tagline-char"
+                style={{ animationDelay: `${(wIdx * 4 + cIdx) * 0.12}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+        ))}
       </div>
 
       {/* 7. Persona Projects Selection List & Selector (Nodes 165:276 to 165:281) */}
@@ -222,18 +236,6 @@ export default function PersonaPage({ onBack, isExiting }) {
         </div>
         <div className="persona-figma-dashed-line line-2">
           <img src="/persona-dashed-line.svg" alt="separator" />
-        </div>
-      </div>
-
-      {/* 8. Bottom HUD bar — game-style navigation guidance */}
-      <div className="persona-hud-bar skill-fall-elem">
-        <div className="persona-hud-question">Which Persona do you want to change to?</div>
-        <div className="persona-hud-guide">Guide</div>
-        <div className="persona-hud-controls">
-          <span className="hud-btn"><span className="hud-btn-icon">Ⓧ</span> Stats</span>
-          <span className="hud-btn"><span className="hud-btn-icon">Ⓐ</span> Change Persona</span>
-          <span className="hud-btn"><span className="hud-btn-icon">Ⓑ</span> Back (Esc)</span>
-          <span className="hud-btn"><span className="hud-btn-icon">≡</span> Release</span>
         </div>
       </div>
 
