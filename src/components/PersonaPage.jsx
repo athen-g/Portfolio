@@ -123,8 +123,10 @@ export default function PersonaPage({ onBack, isExiting }) {
 
       {/* 3. Figma Giant "PERSONA" Typography (Node 163:148) */}
       <div className="persona-figma-typography skill-fall-elem">
-        <div className="persona-figma-typo-inner">
-          PERSONA
+        <div className="persona-figma-typo-rotator">
+          <div className="persona-figma-typo-inner">
+            <p className="persona-figma-typo-text">PERSONA</p>
+          </div>
         </div>
       </div>
 

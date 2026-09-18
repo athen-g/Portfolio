@@ -1134,27 +1134,48 @@ body {
 }
 
 /* 3. Figma Giant Horizontal Typography: PERSONA (Node 163:148)
-   Figma: left -50px, top 0, font Almarai ExtraBold 308px, tracking -33.88px, color #a6a6a6, skewX -10deg, scaleY 0.98 */
+   Figma:
+     wrapper: left -50px, top 285.59px, -translate-y-full (meaning top: 0px relative to root, height 285.594px, width 1476.818px), flex items-center justify-center
+     rotator: -skew-x-10 scale-y-98 flex-none
+     inner: width 1426.46px, height 290px, flex flex-col justify-end, leading-[0]
+     text: Almarai ExtraBold 308px, tracking -33.88px, color #a6a6a6, leading-normal */
 .persona-figma-typography {
   position: absolute;
   left: -50px;
   top: 0px;
   width: 1476.82px;
   height: 285.59px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 6;
   pointer-events: none;
   overflow: visible;
 }
 
+.persona-figma-typo-rotator {
+  transform: skewX(-10deg) scaleY(0.98);
+  flex-shrink: 0;
+}
+
 .persona-figma-typo-inner {
+  width: 1426.46px;
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  line-height: 0;
+}
+
+.persona-figma-typo-text {
   font-family: 'Almarai', 'Archivo Black', sans-serif;
   font-weight: 800;
   font-size: 308px;
   letter-spacing: -33.88px;
   color: #a6a6a6;
-  line-height: 0.92;
-  transform: skewX(-10deg) scaleY(0.98);
-  transform-origin: top left;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
   white-space: nowrap;
   user-select: none;
 }
