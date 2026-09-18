@@ -1142,11 +1142,11 @@ body {
 .persona-figma-typography {
   position: absolute;
   left: -50px;
-  top: 0px;
+  top: -35px; /* Shifted up to close the gap with the top of the frame */
   width: 1476.82px;
   height: 285.59px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 6;
   pointer-events: none;
@@ -1163,7 +1163,7 @@ body {
   height: 290px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   line-height: 0;
 }
 
@@ -1173,7 +1173,7 @@ body {
   font-size: 308px;
   letter-spacing: -33.88px;
   color: #a6a6a6;
-  line-height: 1;
+  line-height: 0.82;
   margin: 0;
   padding: 0;
   white-space: nowrap;
