@@ -180,21 +180,40 @@ export default function PersonaPage({ onBack, isExiting }) {
         </div>
       </div>
 
-      {/* 6. Figma Tagline Typography "PIERCE THE VEIL" (Node 165:283) */}
-      <div className="persona-figma-tagline skill-fall-elem" key={`tag-${activeIndex}`}>
-        {currentProject.tagline.split(' ').map((word, wIdx) => (
-          <span key={wIdx} className="persona-tagline-word">
-            {word.split('').map((char, cIdx) => (
-              <span
-                key={cIdx}
-                className="persona-tagline-char"
-                style={{ animationDelay: `${(wIdx * 4 + cIdx) * 0.12}s` }}
-              >
-                {char}
-              </span>
-            ))}
-          </span>
-        ))}
+      {/* 6. Figma Tagline Typography "PIERCE THE VEIL" (Node 165:283) with dedicated water & particle overlay */}
+      <div className="persona-tagline-container skill-fall-elem" key={`tag-${activeIndex}`}>
+        <div className="persona-figma-tagline">
+          {currentProject.tagline.split(' ').map((word, wIdx) => (
+            <span key={wIdx} className="persona-tagline-word">
+              {word.split('').map((char, cIdx) => (
+                <span
+                  key={cIdx}
+                  className="persona-tagline-char"
+                  style={{ animationDelay: `${(wIdx * 4 + cIdx) * 0.12}s` }}
+                >
+                  {char}
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+
+        {/* Dedicated water caustic overlay layer strictly over the tagline */}
+        <div className="persona-tagline-overlay-wrapper">
+          <video
+            className="persona-tagline-water-video"
+            src="/water-overlay.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <img
+            src="/persona-image6.png"
+            alt="Tagline Particles"
+            className="persona-tagline-particles-img"
+          />
+        </div>
       </div>
 
       {/* 7. Persona Projects Selection List & Selector (Nodes 165:276 to 165:281) */}

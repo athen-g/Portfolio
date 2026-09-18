@@ -1315,24 +1315,61 @@ body {
 
 /* 5. Figma Tagline Typography: "PIERCE THE VEIL" (Node 165:283)
    Figma: left 829px, top 662px, width 1107px, font Almarai ExtraBold 128px, tracking -12.8px, fill #72ffff */
-.persona-figma-tagline {
+.persona-tagline-container {
   position: absolute;
   left: 829px;
   top: 662px;
   width: 1107px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 6;
+  animation: personaTagSlideIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.persona-figma-tagline {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: baseline;
-  gap: 32px; /* Spacing between words decreased by half */
+  gap: 32px; /* Spacing between words */
   font-family: 'Almarai', 'Archivo Black', sans-serif;
   font-weight: 800;
   font-size: 128px;
   line-height: 1;
   color: #72FFFF;
   text-shadow: none;
-  pointer-events: none;
-  z-index: 6;
   white-space: nowrap;
-  animation: personaTagSlideIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Dedicated localized water & particle overlay strictly covering the tagline */
+.persona-tagline-overlay-wrapper {
+  position: absolute;
+  inset: -20px -30px;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: color-dodge;
+  opacity: 0.55;
+  border-radius: 8px;
+}
+
+.persona-tagline-water-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.2) contrast(1.4);
+}
+
+.persona-tagline-particles-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  mix-blend-mode: screen;
 }
 
 .persona-tagline-word {
