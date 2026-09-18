@@ -1314,11 +1314,7 @@ body {
 }
 
 /* 5. Figma Tagline Typography: "PIERCE THE VEIL" (Node 165:283)
-   Figma: left 829px, top 662px, width 1107px, font Almarai ExtraBold 128px, tracking -12.8px
-   Styling matched to in-game reference:
-   - Rich vertical aquatic gradient (#00D4FF to #0076CE)
-   - -2deg dynamic upward slant
-   - Animated underwater caustics & particle texture overlay applied on the letters */
+   Figma: left 829px, top 662px, width 1107px, font Almarai ExtraBold 128px, tracking -12.8px, fill #72ffff */
 .persona-figma-tagline {
   position: absolute;
   left: 829px;
@@ -1326,79 +1322,55 @@ body {
   width: 1107px;
   display: flex;
   align-items: baseline;
-  gap: 32px;
+  gap: 32px; /* Spacing between words decreased by half */
   font-family: 'Almarai', 'Archivo Black', sans-serif;
   font-weight: 800;
   font-size: 128px;
   line-height: 1;
+  color: #72FFFF;
+  text-shadow: none;
   pointer-events: none;
-  z-index: 6; /* Preserved in front of frame card */
+  z-index: 6;
   white-space: nowrap;
-  transform: rotate(-2.2deg); /* Dynamic upward arc matching game reference */
-  transform-origin: left center;
   animation: personaTagSlideIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .persona-tagline-word {
   display: inline-flex;
   align-items: baseline;
-  letter-spacing: -12.8px;
+  letter-spacing: -12.8px; /* Preserving exact letter spacing */
 }
 
-/* Character with vertical aquatic gradient & caustic water texture overlay */
+/* Undulating water wave animation per character matching P3R Carpe Diem / Pierce the Veil wave */
 .persona-tagline-char {
   display: inline-block;
   will-change: transform;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
-    radial-gradient(ellipse at 40% 30%, rgba(135, 246, 255, 0.6) 0%, transparent 60%),
-    linear-gradient(180deg, #18E2FF 0%, #00B2FE 42%, #0068C4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  position: relative;
   animation: personaTextWave 3.2s ease-in-out infinite alternate;
-}
-
-/* Floating water caustic highlights shimmering over the text */
-.persona-tagline-char::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at var(--caustic-x, 50%) var(--caustic-y, 30%), rgba(255, 255, 255, 0.5), transparent 70%);
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  opacity: 0.6;
 }
 
 @keyframes personaTextWave {
   0% {
     transform: translateY(0px) rotate(0deg) scale(1);
-    filter: brightness(1);
   }
   30% {
     transform: translateY(-9px) rotate(1.2deg) scale(1.02);
-    filter: brightness(1.08);
   }
   70% {
     transform: translateY(7px) rotate(-1deg) scale(0.98);
-    filter: brightness(0.95);
   }
   100% {
     transform: translateY(-4px) rotate(0.6deg) scale(1.01);
-    filter: brightness(1.04);
   }
 }
 
 @keyframes personaTagSlideIn {
   0% {
     opacity: 0;
-    transform: translateX(40px) rotate(-2.2deg);
+    transform: translateX(40px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) rotate(-2.2deg);
+    transform: translateX(0);
   }
 }
 
