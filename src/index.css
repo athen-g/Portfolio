@@ -1514,6 +1514,445 @@ body {
   display: block;
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   04 PERSONA SELECTED VIEW & CINEMATIC TRANSITIONS (Node 183:115)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Phase 1 Exit Animations */
+
+/* 1. Frame Shrink: transitions to bottom-right position & scale matching Figma node 183:152 */
+.persona-figma-frame-wrapper {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.persona-figma-frame-wrapper.frame-shrink {
+  left: 1045px !important;
+  top: 499px !important;
+  transform: scale(0.825) !important;
+  transform-origin: top left;
+  z-index: 25;
+}
+
+/* 2. PERSONA Typography fly out to top left */
+.persona-figma-typography.typo-flyout-topleft {
+  animation: personaTypoFlyOut 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  pointer-events: none;
+}
+
+@keyframes personaTypoFlyOut {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-100vw, -40vh, 0) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* 3. Persona Project List fades out fast (0.3s) */
+.persona-figma-list-wrapper.list-fadeout {
+  animation: personaListFadeOut 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  pointer-events: none;
+}
+
+@keyframes personaListFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+/* 4. Particles fade out */
+.persona-figma-particles-wrapper.particles-fadeout {
+  animation: personaParticlesFadeOut 0.3s ease forwards !important;
+  pointer-events: none;
+}
+
+@keyframes personaParticlesFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 5. Tagline fades out SLOWER than the list (0.7s) */
+.persona-figma-tagline.tagline-slow-fadeout {
+  animation: personaTaglineSlowFadeOut 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  pointer-events: none;
+}
+
+@keyframes personaTaglineSlowFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SELECTED VIEW LAYOUT & ELEMENTS (Node 183:115)
+   ══════════════════════════════════════════════════════════════════ */
+.persona-selected-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 12;
+  overflow: hidden;
+}
+
+/* Selected view background particles texture overlay (image 10) */
+.persona-selected-particles-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: personaSelectedFadeIn 0.5s ease 0.3s forwards;
+}
+
+.persona-selected-particles-img {
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.65;
+}
+
+@keyframes personaSelectedFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Phase 2: Top Elements fly in from Top-Left (Nodes 188:165, 189:206) ── */
+.persona-selected-top {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  animation: personaTopFlyIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+@keyframes personaTopFlyIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100vw, -30vh, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.persona-selected-top-shape {
+  position: absolute;
+  top: -12px;
+  left: -24px;
+  width: 580px;
+  height: 96px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.persona-top-polygon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000D45;
+  transform: skewX(-14deg);
+  border-left: 5px solid #00E6FF;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.persona-top-polygon-cyan {
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+  width: 480px;
+  height: 4px;
+  background: #00E6FF;
+  transform: skewX(-14deg);
+}
+
+.persona-selected-top-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 16px;
+}
+
+.persona-selected-project-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-la,
+.badge-ra {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 22px;
+  background: #00E6FF;
+  color: #000D45;
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  transform: skewX(-10deg);
+}
+
+.badge-title {
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  text-shadow: 0 0 8px rgba(0, 230, 255, 0.6);
+}
+
+.persona-selected-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.persona-selected-name {
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.persona-selected-stack-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  background: rgba(0, 230, 255, 0.15);
+  border: 1px solid rgba(0, 230, 255, 0.4);
+  padding: 2px 10px;
+  transform: skewX(-10deg);
+}
+
+.persona-selected-stack-label {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #00E6FF;
+}
+
+.persona-selected-stack-val {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+/* ── Phase 2: Bottom Blue Slanted Rectangle flies in from Bottom-Right (Node 184:158) ── */
+.persona-selected-bottom-rect {
+  position: absolute;
+  left: -91px;
+  top: 733px;
+  width: 2116px;
+  height: 1029px;
+  z-index: 10;
+  pointer-events: none;
+  animation: personaBottomRectFlyIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+@keyframes personaBottomRectFlyIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(100vw, 80vh, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.persona-bottom-rect-bg {
+  width: 100%;
+  height: 100%;
+  background: #0018B4;
+  transform: rotate(-13.12deg);
+  transform-origin: top left;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(0, 230, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.persona-bottom-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #00E6FF 0%, transparent 80%);
+}
+
+/* ── Phase 3: Synchronized Diamond Expansion & Skill List Fly-In ──
+   Both animations start at 0.8s and end at 1.3s (duration 0.5s, timing cubic-bezier(0.2, 0.8, 0.2, 1))
+── */
+
+/* Diamond (Node 184:160) */
+.persona-selected-diamond {
+  position: absolute;
+  left: 881px;
+  top: 724px;
+  width: 1152px;
+  height: 1152px;
+  pointer-events: none;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  animation: personaDiamondExpand 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both;
+}
+
+@keyframes personaDiamondExpand {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+.persona-diamond-inner {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid rgba(0, 230, 255, 0.45);
+  background: radial-gradient(circle at center, rgba(0, 140, 255, 0.15) 0%, rgba(0, 24, 180, 0.4) 70%, transparent 100%);
+  position: relative;
+}
+
+.persona-diamond-outline {
+  position: absolute;
+  inset: 20px;
+  border: 1px dashed rgba(0, 230, 255, 0.25);
+}
+
+/* Skills Frame (Node 188:191) - Exactly Synchronized with Diamond */
+.persona-selected-skills {
+  position: absolute;
+  left: 40px;
+  top: 624px;
+  width: 944px;
+  height: 352px;
+  z-index: 20;
+  pointer-events: auto;
+  animation: personaSkillsFlyIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both;
+}
+
+@keyframes personaSkillsFlyIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100vh, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.persona-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 456px);
+  grid-template-rows: repeat(4, 76px);
+  column-gap: 32px;
+  row-gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.persona-skill-card {
+  width: 456px;
+  height: 76px;
+  background: rgba(0, 13, 69, 0.85);
+  border: 1.5px solid rgba(0, 230, 255, 0.35);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 230, 255, 0.08);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.persona-skill-card:hover {
+  border-color: #00E6FF;
+  box-shadow: 0 8px 30px rgba(0, 230, 255, 0.35), inset 0 0 20px rgba(0, 230, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.persona-skill-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.persona-skill-text {
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.persona-skill-card.empty-card {
+  background: rgba(0, 10, 45, 0.4);
+  border: 1.5px dashed rgba(255, 255, 255, 0.2);
+  justify-content: center;
+  padding: 0;
+}
+
+.persona-skill-none-text {
+  font-family: 'Fira Sans Extra Condensed', monospace;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
 /* 7. Bottom HUD Bar */
 .persona-hud-bar {
   position: absolute;
