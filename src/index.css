@@ -1769,11 +1769,13 @@ body {
   }
 }
 
-/* 2. Polygon 2 (Red chevron background for RA, Node 188:196) */
+/* 2. Polygon 2 (Red chevron background for RA, Node 188:196)
+   Figma: left 1022.5px, top 40.63px, width 59.503px, height 80.762px, rotate 95.96deg
+*/
 .persona-figma-polygon2-wrap {
   position: absolute;
-  left: 1013px;
-  top: 36px;
+  left: 1022.5px;
+  top: 40.63px;
   width: 59.503px;
   height: 80.762px;
   display: flex;
@@ -1793,11 +1795,13 @@ body {
   display: block;
 }
 
-/* 3. Rectangle 19 (Black chevron outline for RA, Node 188:199) */
+/* 3. Rectangle 19 (Black chevron outline for RA, Node 188:199)
+   Figma: left 1019px, top 49px, width 47.5px, height 59px, rotate 180deg
+*/
 .persona-figma-rect19-wrap {
   position: absolute;
-  left: 1009px;
-  top: 44px;
+  left: 1019px;
+  top: 49px;
   width: 47.5px;
   height: 59px;
   display: flex;
@@ -1817,11 +1821,13 @@ body {
   display: block;
 }
 
-/* 4. Polygon 1 (Red chevron background for LA, Node 188:194) */
+/* 4. Polygon 1 (Red chevron background for LA, Node 188:194)
+   Figma: left -12.21px, top 233.54px, width 60.213px, height 81.405px, rotate -84.04deg
+*/
 .persona-figma-polygon1-wrap {
   position: absolute;
-  left: 150px;
-  top: 203px;
+  left: -12.21px;
+  top: 233.54px;
   width: 60.213px;
   height: 81.405px;
   display: flex;
@@ -1841,11 +1847,13 @@ body {
   display: block;
 }
 
-/* 5. Rectangle 18 (Black chevron outline for LA, Node 188:197) */
+/* 5. Rectangle 18 (Black chevron outline for LA, Node 188:197)
+   Figma: left 4.5px, top 245.5px, width 47.5px, height 59px
+*/
 .persona-figma-rect18-wrap {
   position: absolute;
-  left: 152px;
-  top: 205px;
+  left: 4.5px;
+  top: 245.5px;
   width: 47.5px;
   height: 59px;
   display: flex;
@@ -1864,11 +1872,13 @@ body {
   display: block;
 }
 
-/* 6. Frontend (Node 188:201) - 1.5x size */
+/* 6. Frontend (Node 188:201) - 1.5x size
+   Figma: left 251.56px, top 124.55px
+*/
 .persona-figma-frontend-wrap {
   position: absolute;
-  left: 245px;
-  top: 110px;
+  left: 251.56px;
+  top: 124.55px;
   width: 500px;
   height: 180px;
   display: flex;
@@ -1892,11 +1902,13 @@ body {
   white-space: nowrap;
 }
 
-/* 7. STACK (Node 189:203) - 1.5x size */
+/* 7. STACK (Node 189:203) - 1.5x size
+   Figma: left 258px, top 109px
+*/
 .persona-figma-stack-wrap {
   position: absolute;
-  left: 252px;
-  top: 86px;
+  left: 258px;
+  top: 109px;
   width: 420px;
   height: 90px;
   display: flex;
@@ -1921,11 +1933,13 @@ body {
   white-space: nowrap;
 }
 
-/* 8. Project Name (Node 188:200) - 1.5x size */
+/* 8. Project Name (Node 188:200) - 1.5x size
+   Figma: left 471px, top 180.64px
+*/
 .persona-figma-project-wrap {
   position: absolute;
-  left: 475px;
-  top: 182px;
+  left: 471px;
+  top: 180.64px;
   width: 500px;
   height: 90px;
   transform: translateY(-50%);
@@ -1952,13 +1966,15 @@ body {
   white-space: nowrap;
 }
 
-/* 9. LA Button with SVG (Node 189:204) */
+/* 9. LA Button with SVG (Node 189:204)
+   Figma: left 52px, top 255.82px, width 150.345px, height 97.649px, rotate -11.21deg
+*/
 .persona-figma-la-wrap {
   position: absolute;
-  left: 175px;
-  top: 165px;
-  width: 78px;
-  height: 70px;
+  left: 52px;
+  top: 255.82px;
+  width: 150.345px;
+  height: 97.649px;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -1980,19 +1996,21 @@ body {
 }
 
 .persona-figma-la-svg {
-  width: 78px;
-  height: 70px;
+  width: 110px;
+  height: 100px;
   display: block;
   pointer-events: none;
 }
 
-/* 10. RA Button with SVG (Node 189:205) */
+/* 10. RA Button with SVG (Node 189:205)
+   Figma: left 870px, top 89.15px, width 163.683px, height 100.292px, rotate -11.21deg
+*/
 .persona-figma-ra-wrap {
   position: absolute;
-  left: 903px;
-  top: 25px;
-  width: 78px;
-  height: 70px;
+  left: 870px;
+  top: 89.15px;
+  width: 163.683px;
+  height: 100.292px;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -2014,8 +2032,8 @@ body {
 }
 
 .persona-figma-ra-svg {
-  width: 78px;
-  height: 70px;
+  width: 128px;
+  height: 103px;
   display: block;
   pointer-events: none;
 }
@@ -2112,15 +2130,15 @@ body {
 }
 
 /* ── Phase 3: Skills Container (Node 188:191) ──
+   Figma: left 40px, top 624px, width 944px, height 352px
    Synchronized exactly with diamond expansion (starts 0.8s, duration 0.5s)
-   Container repositioned to left: 184px, top: 527px, width: 796px, height: 296px
 */
 .persona-selected-skills {
   position: absolute;
-  left: 184px;
-  top: 527px;
-  width: 796px;
-  height: 296px;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
   z-index: 35;
   pointer-events: auto;
   animation: personaSkillsFlyIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both;
@@ -2140,49 +2158,51 @@ body {
 /* Rectangle 13 (Background box #00053a, Node 188:166) */
 .persona-skills-bg-box {
   position: absolute;
-  inset: 0;
-  width: 796px;
-  height: 296px;
+  left: 40px;
+  top: 624px;
+  width: 944px;
+  height: 352px;
   background: #00053A;
-  overflow: hidden;
 }
 
 /* Alternating Row Highlights (Frame 188:190 'alternative') */
 .persona-skills-alternatives {
   position: absolute;
-  inset: 0;
-  width: 796px;
-  height: 296px;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
   pointer-events: none;
 }
 
 .persona-alt-row {
   position: absolute;
-  width: 386px;
-  height: 40px;
+  width: 458px;
+  height: 48px;
   background: #FFFFFF;
   opacity: 0.18;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-.persona-alt-row.row-1-left  { left: 9px;   top: 12px; }
-.persona-alt-row.row-2-right { left: 394px; top: 53.5px; width: 387px; }
-.persona-alt-row.row-3-left  { left: 9px;   top: 95px; }
-.persona-alt-row.row-4-right { left: 394px; top: 136.5px; width: 387px; }
+.persona-alt-row.row-1-left  { left: 51px;  top: 638px; }
+.persona-alt-row.row-2-right { left: 508px; top: 687px; }
+.persona-alt-row.row-3-left  { left: 51px;  top: 736px; }
+.persona-alt-row.row-4-right { left: 508px; top: 785px; }
 
 /* Skills items (Frame 188:185 'skills') */
 .persona-skills-items {
   position: absolute;
-  inset: 0;
-  width: 796px;
-  height: 296px;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
   pointer-events: auto;
 }
 
 .persona-skill-icon-cell {
   position: absolute;
-  width: 95px;
-  height: 28px;
+  width: 112px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2191,15 +2211,15 @@ body {
 .persona-skill-icon-bg {
   position: absolute;
   inset: 0;
-  width: 95px;
-  height: 28px;
+  width: 112px;
+  height: 30px;
   display: block;
 }
 
 .persona-skill-icon-inner {
   position: relative;
   z-index: 2;
-  transform: scale(0.78);
+  transform: scale(0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2208,13 +2228,13 @@ body {
 .persona-skill-label-cell {
   position: absolute;
   height: 26px;
-  width: 250px;
+  width: 201px;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
   font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 26px;
-  letter-spacing: -2.8px;
+  font-size: 32px;
+  letter-spacing: -3.52px;
   color: #FFFFFF;
   white-space: nowrap;
   overflow: hidden;
@@ -2231,16 +2251,16 @@ body {
 .persona-skill-none-cell {
   position: absolute;
   width: 250px;
-  height: 28px;
-  transform: translateY(-50%);
+  height: 33px;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Fira Sans', 'Fira Sans Condensed', sans-serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 32px;
-  letter-spacing: -3.5px;
+  font-size: 40px;
+  letter-spacing: -4.4px;
   color: #7E87A1;
   user-select: none;
 }

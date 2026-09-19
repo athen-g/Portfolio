@@ -597,82 +597,82 @@ export default function PersonaPage({ onBack, isExiting }) {
           {/* Phase 3: Skills container flying in from bottom (Node 188:191) */}
           <div className="persona-selected-skills" data-node-id="188:191">
             {/* Rectangle 13 (Dark navy background container #00053a, Node 188:166) */}
-            <div className="persona-skills-bg-box" data-node-id="188:166">
-              {/* Alternating row highlights inside container */}
-              <div className="persona-skills-alternatives" data-node-id="188:190">
-                <div className="persona-alt-row row-1-left" data-node-id="188:186" />
-                <div className="persona-alt-row row-2-right" data-node-id="188:188" />
-                <div className="persona-alt-row row-3-left" data-node-id="188:187" />
-                <div className="persona-alt-row row-4-right" data-node-id="188:189" />
-              </div>
+            <div className="persona-skills-bg-box" data-node-id="188:166" />
 
-              {/* Skills items grid */}
-              <div className="persona-skills-items" data-node-id="188:185">
-                {/* Left Column (Slots 0, 1, 2, 3) */}
-                {[0, 1, 2, 3].map((idx) => {
-                  const skill = currentProject.skills && currentProject.skills[idx];
-                  const topOffset = 18 + idx * 41.5;
-                  const textTopOffset = 33 + idx * 41.5;
-                  return (
-                    <React.Fragment key={`left-${idx}`}>
-                      <div
-                        className="persona-skill-icon-cell"
-                        style={{ left: '20px', top: `${topOffset}px` }}
-                        data-node-id={idx === 0 ? '188:167' : idx === 1 ? '188:169' : idx === 2 ? '188:170' : '188:171'}
-                      >
-                        <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
-                        <div className="persona-skill-icon-inner">
-                          {skill && <SkillLogo logo={skill.logo} />}
-                        </div>
-                      </div>
-                      <div
-                        className="persona-skill-label-cell"
-                        style={{ left: '125px', top: `${textTopOffset}px` }}
-                        data-node-id={idx === 0 ? '188:176' : idx === 1 ? '188:177' : idx === 2 ? '188:178' : '188:179'}
-                      >
-                        <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
+            {/* Alternating row highlights inside container (Frame 188:190) */}
+            <div className="persona-skills-alternatives" data-node-id="188:190">
+              <div className="persona-alt-row row-1-left" data-node-id="188:186" />
+              <div className="persona-alt-row row-2-right" data-node-id="188:188" />
+              <div className="persona-alt-row row-3-left" data-node-id="188:187" />
+              <div className="persona-alt-row row-4-right" data-node-id="188:189" />
+            </div>
 
-                {/* Right Column (Slots 4, 5, 6) */}
-                {[4, 5, 6].map((idx) => {
-                  const skill = currentProject.skills && currentProject.skills[idx];
-                  const rowIdx = idx - 4;
-                  const topOffset = 18 + rowIdx * 41.5;
-                  const textTopOffset = 33 + rowIdx * 41.5;
-                  return (
-                    <React.Fragment key={`right-${idx}`}>
-                      <div
-                        className="persona-skill-icon-cell"
-                        style={{ left: '405px', top: `${topOffset}px` }}
-                        data-node-id={idx === 4 ? '188:172' : idx === 5 ? '188:173' : '188:174'}
-                      >
-                        <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
-                        <div className="persona-skill-icon-inner">
-                          {skill && <SkillLogo logo={skill.logo} />}
-                        </div>
+            {/* Skills items grid (Frame 188:185) */}
+            <div className="persona-skills-items" data-node-id="188:185">
+              {/* Left Column (Slots 0, 1, 2, 3) */}
+              {[0, 1, 2, 3].map((idx) => {
+                const skill = currentProject.skills && currentProject.skills[idx];
+                const topOffset = 646 + idx * 49;
+                const textTopOffset = 661 + idx * 49;
+                return (
+                  <React.Fragment key={`left-${idx}`}>
+                    <div
+                      className="persona-skill-icon-cell"
+                      style={{ left: '70px', top: `${topOffset}px` }}
+                      data-node-id={idx === 0 ? '188:167' : idx === 1 ? '188:169' : idx === 2 ? '188:170' : '188:171'}
+                    >
+                      <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
+                      <div className="persona-skill-icon-inner">
+                        {skill && <SkillLogo logo={skill.logo} />}
                       </div>
-                      <div
-                        className="persona-skill-label-cell"
-                        style={{ left: '510px', top: `${textTopOffset}px` }}
-                        data-node-id={idx === 4 ? '188:180' : idx === 5 ? '188:181' : '188:182'}
-                      >
-                        <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
+                    </div>
+                    <div
+                      className="persona-skill-label-cell"
+                      style={{ left: '187px', top: `${textTopOffset}px` }}
+                      data-node-id={idx === 0 ? '188:176' : idx === 1 ? '188:177' : idx === 2 ? '188:178' : '188:179'}
+                    >
+                      <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
 
-                {/* Slot 7: ------- NONE ------ (Node 188:184) */}
-                <div
-                  className="persona-skill-none-cell"
-                  style={{ left: '590px', top: `${33 + 3 * 41.5}px` }}
-                  data-node-id="188:184"
-                >
-                  <p>------- NONE ------</p>
-                </div>
+              {/* Right Column (Slots 4, 5, 6) */}
+              {[4, 5, 6].map((idx) => {
+                const skill = currentProject.skills && currentProject.skills[idx];
+                const rowIdx = idx - 4;
+                const topOffset = 646 + rowIdx * 49;
+                const textTopOffset = 661 + rowIdx * 49;
+                return (
+                  <React.Fragment key={`right-${idx}`}>
+                    <div
+                      className="persona-skill-icon-cell"
+                      style={{ left: '527px', top: `${topOffset}px` }}
+                      data-node-id={idx === 4 ? '188:172' : idx === 5 ? '188:173' : '188:174'}
+                    >
+                      <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
+                      <div className="persona-skill-icon-inner">
+                        {skill && <SkillLogo logo={skill.logo} />}
+                      </div>
+                    </div>
+                    <div
+                      className="persona-skill-label-cell"
+                      style={{ left: '644px', top: `${textTopOffset}px` }}
+                      data-node-id={idx === 4 ? '188:180' : idx === 5 ? '188:181' : '188:182'}
+                    >
+                      <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+
+              {/* Slot 7: ------- NONE ------ (Node 188:184) */}
+              <div
+                className="persona-skill-none-cell"
+                style={{ left: '736px', top: '811.5px' }}
+                data-node-id="188:184"
+              >
+                <p>------- NONE ------</p>
               </div>
             </div>
           </div>
