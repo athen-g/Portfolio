@@ -1808,6 +1808,7 @@ body {
 .persona-figma-rect19-rotator {
   transform: rotate(180deg);
   flex-shrink: 0;
+  animation: kf_199_178_translate_0 2s linear infinite;
 }
 
 .persona-figma-rect19-img {
@@ -1847,6 +1848,14 @@ body {
   top: 205px;
   width: 47.5px;
   height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-rect18-rotator {
+  flex-shrink: 0;
+  animation: kf_199_177_translate_0 2s linear infinite;
 }
 
 .persona-figma-rect18-img {

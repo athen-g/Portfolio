@@ -519,7 +519,9 @@ export default function PersonaPage({ onBack, isExiting }) {
 
             {/* Rectangle 18 (Black chevron outline for LA, Node 188:197) */}
             <div className="persona-figma-rect18-wrap" data-node-id="188:197">
-              <img src="/rectangle18.svg" alt="Rectangle 18" className="persona-figma-rect18-img" />
+              <div className="persona-figma-rect18-rotator">
+                <img src="/rectangle18.svg" alt="Rectangle 18" className="persona-figma-rect18-img" />
+              </div>
             </div>
 
             {/* Frontend (Node 188:201) */}
