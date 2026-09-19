@@ -447,75 +447,184 @@ export default function PersonaPage({ onBack, isExiting }) {
           SELECTED VIEW (04 PERSONA-selected Node 183:115)
           ══════════════════════════════════════════════════════════════════ */}
       {isSelectedView && (
-        <div className="persona-selected-container">
-          {/* Background particles texture (image 10) */}
-          <div className="persona-selected-particles-overlay">
+        <div className="persona-selected-container" data-node-id="183:115">
+          {/* Background particles texture (image 10, Node 183:156) */}
+          <div className="persona-selected-particles-overlay" data-node-id="183:156">
             <img src="/image-10.png" alt="Particles texture" className="persona-selected-particles-img" />
           </div>
 
-          {/* Phase 2: Top elements flying in from top-left (Nodes 188:165, 189:206) */}
-          <div className="persona-selected-top">
-            <div className="persona-selected-top-shape">
-              <div className="persona-top-polygon" />
-              <div className="persona-top-polygon-cyan" />
+          {/* Phase 2: Top Slanted Banner (Node 188:165) */}
+          <div className="persona-selected-top-banner" data-node-id="188:165" data-name="top">
+            <img src="/top.svg" alt="top banner" className="persona-top-banner-img" />
+          </div>
+
+          {/* Phase 2: Top Text & Navigation Elements (Node 189:206) */}
+          <div className="persona-selected-top-text" data-node-id="189:206" data-name="top-text">
+            {/* Atharva Ghule (Node 188:192) */}
+            <div className="persona-figma-author-wrap" data-node-id="188:192">
+              <div className="persona-figma-author-rotator">
+                <p className="persona-figma-author-text">Atharva Ghule</p>
+              </div>
             </div>
 
-            <div className="persona-selected-top-content">
-              {/* Project Label pill / badge */}
-              <div className="persona-selected-project-badge">
-                <span className="badge-la">LA</span>
-                <span className="badge-title">PROJECT {activeIndex + 1}</span>
-                <span className="badge-ra">RA</span>
+            {/* Polygon 2 (Red chevron background for RA, Node 188:196) */}
+            <div className="persona-figma-polygon2-wrap" data-node-id="188:196">
+              <div className="persona-figma-polygon2-rotator">
+                <img src="/polygon2.svg" alt="Polygon 2" className="persona-figma-polygon2-img" />
               </div>
+            </div>
 
-              {/* Author / Title */}
-              <div className="persona-selected-title-group">
-                <span className="persona-selected-name">ATHARVA GHULE</span>
-                <div className="persona-selected-stack-group">
-                  <span className="persona-selected-stack-label">STACK:</span>
-                  <span className="persona-selected-stack-val">FRONTEND</span>
-                </div>
+            {/* Rectangle 19 (Black chevron outline for RA, Node 188:199) */}
+            <div className="persona-figma-rect19-wrap" data-node-id="188:199">
+              <div className="persona-figma-rect19-rotator">
+                <img src="/rectangle19.svg" alt="Rectangle 19" className="persona-figma-rect19-img" />
+              </div>
+            </div>
+
+            {/* Polygon 1 (Red chevron background for LA, Node 188:194) */}
+            <div className="persona-figma-polygon1-wrap" data-node-id="188:194">
+              <div className="persona-figma-polygon1-rotator">
+                <img src="/polygon1.svg" alt="Polygon 1" className="persona-figma-polygon1-img" />
+              </div>
+            </div>
+
+            {/* Rectangle 18 (Black chevron outline for LA, Node 188:197) */}
+            <div className="persona-figma-rect18-wrap" data-node-id="188:197">
+              <img src="/rectangle18.svg" alt="Rectangle 18" className="persona-figma-rect18-img" />
+            </div>
+
+            {/* Frontend (Node 188:201) */}
+            <div className="persona-figma-frontend-wrap" data-node-id="188:201">
+              <div className="persona-figma-frontend-rotator">
+                <p className="persona-figma-frontend-text">Frontend</p>
+              </div>
+            </div>
+
+            {/* STACK (Node 189:203) */}
+            <div className="persona-figma-stack-wrap" data-node-id="189:203">
+              <div className="persona-figma-stack-rotator">
+                <p className="persona-figma-stack-text">STACK</p>
+              </div>
+            </div>
+
+            {/* Project N (Node 188:200) */}
+            <div className="persona-figma-project-wrap" data-node-id="188:200">
+              <div className="persona-figma-project-rotator">
+                <p className="persona-figma-project-text">Project {activeIndex + 1}</p>
+              </div>
+            </div>
+
+            {/* LA Button (Node 189:204) */}
+            <div className="persona-figma-la-wrap" data-node-id="189:204">
+              <div className="persona-figma-la-rotator">
+                <p className="persona-figma-la-text">LA</p>
+              </div>
+            </div>
+
+            {/* RA Button (Node 189:205) */}
+            <div className="persona-figma-ra-wrap" data-node-id="189:205">
+              <div className="persona-figma-ra-rotator">
+                <p className="persona-figma-ra-text">RA</p>
               </div>
             </div>
           </div>
 
-          {/* Phase 2: Bottom Blue Slanted Rectangle flying in from bottom-right (Node 184:158) */}
-          <div className="persona-selected-bottom-rect">
-            <div className="persona-bottom-rect-bg">
-              {/* Decorative stripes / accents inside blue banner */}
-              <div className="persona-bottom-stripe" />
+          {/* Phase 2: Bottom Blue Slanted Graphic (Rectangle 8, Node 184:158) */}
+          <div className="persona-selected-bottom-rect" data-node-id="184:158">
+            <div className="persona-bottom-rect-rotator">
+              <div className="persona-bottom-rect-inner">
+                <img src="/rectangle8.svg" alt="Rectangle 8" className="persona-bottom-rect-svg" />
+              </div>
             </div>
           </div>
 
-          {/* Phase 3: Diamond expanding inside blue banner (Node 184:160) */}
-          <div className="persona-selected-diamond">
-            <div className="persona-diamond-inner">
-              <div className="persona-diamond-outline" />
+          {/* Phase 3: Diamond expanding inside blue banner (Rectangle 9, Node 184:160) */}
+          <div className="persona-selected-diamond" data-node-id="184:160">
+            <div className="persona-diamond-rotator">
+              <div className="persona-diamond-box" />
             </div>
           </div>
 
           {/* Phase 3: Skills container flying in from bottom (Node 188:191) */}
-          <div className="persona-selected-skills">
-            <div className="persona-skills-grid">
-              {/* 8 slots: 7 skills + 1 NONE empty slot */}
-              {Array.from({ length: 8 }).map((_, sIdx) => {
-                const skill = currentProject.skills && currentProject.skills[sIdx];
-                if (skill) {
-                  return (
-                    <div key={skill.id} className="persona-skill-card">
-                      <div className="persona-skill-icon-wrap">
-                        <SkillLogo logo={skill.logo} />
-                      </div>
-                      <span className="persona-skill-text">{skill.name}</span>
-                    </div>
-                  );
-                }
+          <div className="persona-selected-skills" data-node-id="188:191">
+            {/* Rectangle 13 (Dark navy background container #00053a, Node 188:166) */}
+            <div className="persona-skills-bg-box" data-node-id="188:166" />
+
+            {/* Alternating row highlights (Frame 188:190 'alternative') */}
+            <div className="persona-skills-alternatives" data-node-id="188:190">
+              <div className="persona-alt-row row-1-left" data-node-id="188:186" />
+              <div className="persona-alt-row row-2-right" data-node-id="188:188" />
+              <div className="persona-alt-row row-3-left" data-node-id="188:187" />
+              <div className="persona-alt-row row-4-right" data-node-id="188:189" />
+            </div>
+
+            {/* Skills items grid (Frame 188:185 'skills') */}
+            <div className="persona-skills-items" data-node-id="188:185">
+              {/* Left Column (Slots 0, 1, 2, 3) */}
+              {[0, 1, 2, 3].map((idx) => {
+                const skill = currentProject.skills && currentProject.skills[idx];
+                const topOffset = 646 + idx * 49;
+                const textTopOffset = 661 + idx * 49;
                 return (
-                  <div key={`empty-${sIdx}`} className="persona-skill-card empty-card">
-                    <span className="persona-skill-none-text">------- NONE ------</span>
-                  </div>
+                  <React.Fragment key={`left-${idx}`}>
+                    <div
+                      className="persona-skill-icon-cell"
+                      style={{ left: '70px', top: `${topOffset}px` }}
+                      data-node-id={idx === 0 ? '188:167' : idx === 1 ? '188:169' : idx === 2 ? '188:170' : '188:171'}
+                    >
+                      <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
+                      <div className="persona-skill-icon-inner">
+                        {skill && <SkillLogo logo={skill.logo} />}
+                      </div>
+                    </div>
+                    <div
+                      className="persona-skill-label-cell"
+                      style={{ left: '187px', top: `${textTopOffset}px` }}
+                      data-node-id={idx === 0 ? '188:176' : idx === 1 ? '188:177' : idx === 2 ? '188:178' : '188:179'}
+                    >
+                      <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
+                    </div>
+                  </React.Fragment>
                 );
               })}
+
+              {/* Right Column (Slots 4, 5, 6, 7) */}
+              {[4, 5, 6].map((idx) => {
+                const skill = currentProject.skills && currentProject.skills[idx];
+                const rowIdx = idx - 4;
+                const topOffset = 646 + rowIdx * 49;
+                const textTopOffset = 661 + rowIdx * 49;
+                return (
+                  <React.Fragment key={`right-${idx}`}>
+                    <div
+                      className="persona-skill-icon-cell"
+                      style={{ left: '527px', top: `${topOffset}px` }}
+                      data-node-id={idx === 4 ? '188:172' : idx === 5 ? '188:173' : '188:174'}
+                    >
+                      <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
+                      <div className="persona-skill-icon-inner">
+                        {skill && <SkillLogo logo={skill.logo} />}
+                      </div>
+                    </div>
+                    <div
+                      className="persona-skill-label-cell"
+                      style={{ left: '644px', top: `${textTopOffset}px` }}
+                      data-node-id={idx === 4 ? '188:180' : idx === 5 ? '188:181' : '188:182'}
+                    >
+                      <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+
+              {/* Slot 7: ------- NONE ------ (Node 188:184) */}
+              <div
+                className="persona-skill-none-cell"
+                style={{ left: '736px', top: '811.5px' }}
+                data-node-id="188:184"
+              >
+                <p>------- NONE ------</p>
+              </div>
             </div>
           </div>
         </div>

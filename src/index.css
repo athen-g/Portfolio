@@ -1529,10 +1529,21 @@ body {
 
 .persona-figma-frame-wrapper.frame-shrink {
   left: 1045px !important;
-  top: 499px !important;
-  transform: scale(0.825) !important;
-  transform-origin: top left;
+  top: 427px !important;
+  width: 826.505px !important;
+  height: 538.995px !important;
   z-index: 25;
+}
+
+.persona-figma-frame-wrapper.frame-shrink .persona-figma-frame-rotator {
+  transform: rotate(-5deg) skewX(-5deg);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.persona-figma-frame-wrapper.frame-shrink .persona-figma-frame-box {
+  width: 829.662px !important;
+  height: 466.685px !important;
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* 2. PERSONA Typography fly out to top left */
@@ -1607,7 +1618,7 @@ body {
   width: 1920px;
   height: 1080px;
   pointer-events: none;
-  z-index: 12;
+  z-index: 30;
   overflow: hidden;
 }
 
@@ -1637,18 +1648,21 @@ body {
   to { opacity: 1; }
 }
 
-/* ── Phase 2: Top Elements fly in from Top-Left (Nodes 188:165, 189:206) ── */
-.persona-selected-top {
+/* ── Phase 2: Top Slanted Banner (Node 188:165) ──
+   Figma: left -43.71px, top -211.33px, width 1979.874px, height 686.251px
+*/
+.persona-selected-top-banner {
   position: absolute;
-  top: 32px;
-  left: 40px;
+  left: -43.71px;
+  top: -211.33px;
+  width: 1979.874px;
+  height: 686.251px;
+  pointer-events: none;
   z-index: 15;
-  display: flex;
-  align-items: center;
-  animation: personaTopFlyIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+  animation: personaTopBannerFlyIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
-@keyframes personaTopFlyIn {
+@keyframes personaTopBannerFlyIn {
   0% {
     opacity: 0;
     transform: translate3d(-100vw, -30vh, 0);
@@ -1659,123 +1673,348 @@ body {
   }
 }
 
-.persona-selected-top-shape {
-  position: absolute;
-  top: -12px;
-  left: -24px;
-  width: 580px;
-  height: 96px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.persona-top-polygon {
-  position: absolute;
-  top: 0;
-  left: 0;
+.persona-top-banner-img {
   width: 100%;
   height: 100%;
-  background: #000D45;
-  transform: skewX(-14deg);
-  border-left: 5px solid #00E6FF;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: block;
 }
 
-.persona-top-polygon-cyan {
+/* ── Phase 2: Top Text & Navigation Elements (Node 189:206) ──
+   Figma: left -12.21px, top 39px (contents container)
+   Animated together with the top banner
+*/
+.persona-selected-top-text {
   position: absolute;
-  bottom: -4px;
-  left: 20px;
-  width: 480px;
-  height: 4px;
-  background: #00E6FF;
-  transform: skewX(-14deg);
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 16;
+  animation: personaTopTextFlyIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
-.persona-selected-top-content {
+@keyframes personaTopTextFlyIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100vw, -30vh, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 1. Atharva Ghule (Node 188:192)
+   Figma: left 144.56px, top 79.35px, width 219.04px, height 80.164px, -translate-y-1/2, rotate -11.21deg
+   Text: Fira Sans Condensed 48px, #72ffff, tracking -5.28px
+*/
+.persona-figma-author-wrap {
+  position: absolute;
+  left: 144.56px;
+  top: 79.35px;
+  width: 219.04px;
+  height: 80.164px;
+  transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 8px 16px;
-}
-
-.persona-selected-project-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.badge-la,
-.badge-ra {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 22px;
-  background: #00E6FF;
-  color: #000D45;
-  font-family: 'Almarai', 'Archivo Black', sans-serif;
-  font-weight: 900;
-  font-size: 14px;
-  transform: skewX(-10deg);
 }
 
-.badge-title {
-  font-family: 'Almarai', 'Archivo Black', sans-serif;
-  font-weight: 900;
-  font-size: 16px;
-  letter-spacing: 2px;
-  color: #FFFFFF;
-  text-shadow: 0 0 8px rgba(0, 230, 255, 0.6);
+.persona-figma-author-rotator {
+  transform: rotate(-11.21deg);
+  flex-shrink: 0;
 }
 
-.persona-selected-title-group {
+.persona-figma-author-text {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #72ffff;
+  letter-spacing: -5.28px;
+  line-height: 0.9;
+  margin: 0;
+  padding: 0;
+  width: 215.57px;
+  white-space: nowrap;
+}
+
+/* 2. Polygon 2 (Red chevron background for RA, Node 188:196)
+   Figma: left 1022.5px, top 40.63px, width 59.503px, height 80.762px, rotate 95.96deg
+*/
+.persona-figma-polygon2-wrap {
+  position: absolute;
+  left: 1022.5px;
+  top: 40.63px;
+  width: 59.503px;
+  height: 80.762px;
   display: flex;
-  align-items: baseline;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
-.persona-selected-name {
-  font-family: 'Almarai', 'Archivo Black', sans-serif;
+.persona-figma-polygon2-rotator {
+  transform: rotate(95.96deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-polygon2-img {
+  width: 75.781px;
+  height: 51.916px;
+  display: block;
+}
+
+/* 3. Rectangle 19 (Black chevron outline for RA, Node 188:199)
+   Figma: left 1019px, top 49px, width 47.5px, height 59px, rotate 180deg
+*/
+.persona-figma-rect19-wrap {
+  position: absolute;
+  left: 1019px;
+  top: 49px;
+  width: 47.5px;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-rect19-rotator {
+  transform: rotate(180deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-rect19-img {
+  width: 47.5px;
+  height: 59px;
+  display: block;
+}
+
+/* 4. Polygon 1 (Red chevron background for LA, Node 188:194)
+   Figma: left -12.21px, top 233.54px, width 60.213px, height 81.405px, rotate -84.04deg
+*/
+.persona-figma-polygon1-wrap {
+  position: absolute;
+  left: -12.21px;
+  top: 233.54px;
+  width: 60.213px;
+  height: 81.405px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-polygon1-rotator {
+  transform: rotate(-84.04deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-polygon1-img {
+  width: 76.359px;
+  height: 52.569px;
+  display: block;
+}
+
+/* 5. Rectangle 18 (Black chevron outline for LA, Node 188:197)
+   Figma: left 4.5px, top 245.5px, width 47.5px, height 59px
+*/
+.persona-figma-rect18-wrap {
+  position: absolute;
+  left: 4.5px;
+  top: 245.5px;
+  width: 47.5px;
+  height: 59px;
+}
+
+.persona-figma-rect18-img {
+  width: 47.5px;
+  height: 59px;
+  display: block;
+}
+
+/* 6. Frontend (Node 188:201)
+   Figma: left 251.56px, top 124.55px, width 305.774px, height 145.624px, rotate -11.21deg
+   Text: Contrail One 96px, #cecece, tracking -9.6px
+*/
+.persona-figma-frontend-wrap {
+  position: absolute;
+  left: 251.56px;
+  top: 124.55px;
+  width: 305.774px;
+  height: 145.624px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-frontend-rotator {
+  transform: rotate(-11.21deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-frontend-text {
+  font-family: 'Contrail One', 'Almarai', sans-serif;
+  font-size: 96px;
+  line-height: normal;
+  color: #cecece;
+  letter-spacing: -9.6px;
+  margin: 0;
+  padding: 0;
+  width: 293.84px;
+  white-space: nowrap;
+}
+
+/* 7. STACK (Node 189:203)
+   Figma: left 258px, top 109px, width 271.937px, height 75.04px, rotate -11.21deg
+   Text: BankGothic RUSS / Outfit Bold 40px, #cecece, tracking -4px
+*/
+.persona-figma-stack-wrap {
+  position: absolute;
+  left: 258px;
+  top: 109px;
+  width: 271.937px;
+  height: 75.04px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-stack-rotator {
+  transform: rotate(-11.21deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-stack-text {
+  font-family: 'BankGothic RUSS', 'Outfit', 'Archivo Black', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: normal;
+  color: #cecece;
+  letter-spacing: -4px;
+  margin: 0;
+  padding: 0;
+  width: 272.78px;
+  white-space: nowrap;
+}
+
+/* 8. Project N (Node 188:200)
+   Figma: left 471px, top 180.64px, width 180.286px, height 63.274px, -translate-y-1/2, rotate -11.21deg
+   Text: Alumni Sans Bold Italic 48px, #000000
+*/
+.persona-figma-project-wrap {
+  position: absolute;
+  left: 471px;
+  top: 180.64px;
+  width: 180.286px;
+  height: 63.274px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-project-rotator {
+  transform: rotate(-11.21deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-project-text {
+  font-family: 'Alumni Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: normal;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  width: 178px;
+  white-space: nowrap;
+}
+
+/* 9. LA (Node 189:204)
+   Figma: left 52px, top 255.82px, width 150.345px, height 97.649px, -translate-y-1/2, rotate -11.21deg
+   Text: Afacad Flux Black Italic 120px, stroke 4px black, fill transparent, tracking -13.2px
+*/
+.persona-figma-la-wrap {
+  position: absolute;
+  left: 52px;
+  top: 255.82px;
+  width: 150.345px;
+  height: 97.649px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-figma-la-rotator {
+  transform: rotate(-11.21deg);
+  flex-shrink: 0;
+}
+
+.persona-figma-la-text {
+  font-family: 'Afacad Flux', 'Archivo Black', sans-serif;
+  font-size: 120px;
   font-weight: 900;
-  font-size: 32px;
-  letter-spacing: -0.5px;
-  color: #FFFFFF;
-  text-transform: uppercase;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 4px #000000;
+  letter-spacing: -13.2px;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 139px;
+  white-space: nowrap;
 }
 
-.persona-selected-stack-group {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  background: rgba(0, 230, 255, 0.15);
-  border: 1px solid rgba(0, 230, 255, 0.4);
-  padding: 2px 10px;
-  transform: skewX(-10deg);
+/* 10. RA (Node 189:205)
+   Figma: left 870px, top 89.15px, width 163.683px, height 100.292px, -translate-y-1/2, rotate -11.21deg
+   Text: Afacad Flux Black Italic 120px, stroke 4px black, fill transparent, tracking -13.2px
+*/
+.persona-figma-ra-wrap {
+  position: absolute;
+  left: 870px;
+  top: 89.15px;
+  width: 163.683px;
+  height: 100.292px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.persona-selected-stack-label {
-  font-family: 'Fira Sans Extra Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #00E6FF;
+.persona-figma-ra-rotator {
+  transform: rotate(-11.21deg);
+  flex-shrink: 0;
 }
 
-.persona-selected-stack-val {
-  font-family: 'Fira Sans Extra Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #FFFFFF;
+.persona-figma-ra-text {
+  font-family: 'Afacad Flux', 'Archivo Black', sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 4px #000000;
+  letter-spacing: -13.2px;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 152.6px;
+  white-space: nowrap;
 }
 
-/* ── Phase 2: Bottom Blue Slanted Rectangle flies in from Bottom-Right (Node 184:158) ── */
+/* ── Phase 2: Bottom Blue Slanted Graphic (Rectangle 8, Node 184:158) ──
+   Figma: left -91.07px, top 212.71px, width 2116.164px, height 1028.953px, rotate -14.7deg
+   Inner: width 2049.785px, height 525.987px
+*/
 .persona-selected-bottom-rect {
   position: absolute;
-  left: -91px;
-  top: 733px;
-  width: 2116px;
-  height: 1029px;
+  left: -91.07px;
+  top: 212.71px;
+  width: 2116.164px;
+  height: 1028.953px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
   pointer-events: none;
   animation: personaBottomRectFlyIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
@@ -1792,39 +2031,35 @@ body {
   }
 }
 
-.persona-bottom-rect-bg {
+.persona-bottom-rect-rotator {
+  transform: rotate(-14.7deg);
+  flex-shrink: 0;
+}
+
+.persona-bottom-rect-inner {
+  width: 2049.785px;
+  height: 525.987px;
+  position: relative;
+}
+
+.persona-bottom-rect-svg {
   width: 100%;
   height: 100%;
-  background: #0018B4;
-  transform: rotate(-13.12deg);
-  transform-origin: top left;
-  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(0, 230, 255, 0.3);
-  position: relative;
-  overflow: hidden;
+  display: block;
 }
 
-.persona-bottom-stripe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #00E6FF 0%, transparent 80%);
-}
-
-/* ── Phase 3: Synchronized Diamond Expansion & Skill List Fly-In ──
-   Both animations start at 0.8s and end at 1.3s (duration 0.5s, timing cubic-bezier(0.2, 0.8, 0.2, 1))
-── */
-
-/* Diamond (Node 184:160) */
+/* ── Phase 3: Synchronized Diamond Expansion (Rectangle 9, Node 184:160) ──
+   Figma: left 881.39px, top 148.28px, width 1152.583px, height 1152.583px, rotate -44.91deg
+   Inner: 815px x 815px border 3px solid #001acc
+*/
 .persona-selected-diamond {
   position: absolute;
-  left: 881px;
-  top: 724px;
-  width: 1152px;
-  height: 1152px;
+  left: 881.39px;
+  top: 148.28px;
+  width: 1152.583px;
+  height: 1152.583px;
   pointer-events: none;
-  z-index: 11;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1835,38 +2070,38 @@ body {
 @keyframes personaDiamondExpand {
   0% {
     opacity: 0;
-    transform: scale(0) rotate(45deg);
+    transform: scale(0);
   }
   50% {
     opacity: 1;
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(45deg);
+    transform: scale(1);
   }
 }
 
-.persona-diamond-inner {
-  width: 100%;
-  height: 100%;
-  border: 1.5px solid rgba(0, 230, 255, 0.45);
-  background: radial-gradient(circle at center, rgba(0, 140, 255, 0.15) 0%, rgba(0, 24, 180, 0.4) 70%, transparent 100%);
-  position: relative;
+.persona-diamond-rotator {
+  transform: rotate(-44.91deg);
+  flex-shrink: 0;
 }
 
-.persona-diamond-outline {
-  position: absolute;
-  inset: 20px;
-  border: 1px dashed rgba(0, 230, 255, 0.25);
+.persona-diamond-box {
+  width: 815px;
+  height: 815px;
+  border: 3px solid #001ACC;
+  box-sizing: border-box;
 }
 
-/* Skills Frame (Node 188:191) - Exactly Synchronized with Diamond */
+/* ── Phase 3: Skills Container (Node 188:191) ──
+   Synchronized exactly with diamond expansion (starts 0.8s, duration 0.5s)
+*/
 .persona-selected-skills {
   position: absolute;
-  left: 40px;
-  top: 624px;
-  width: 944px;
-  height: 352px;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
   z-index: 20;
   pointer-events: auto;
   animation: personaSkillsFlyIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both;
@@ -1883,74 +2118,119 @@ body {
   }
 }
 
-.persona-skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 456px);
-  grid-template-rows: repeat(4, 76px);
-  column-gap: 32px;
-  row-gap: 16px;
-  width: 100%;
-  height: 100%;
+/* Rectangle 13 (Background box #00053a, Node 188:166) */
+.persona-skills-bg-box {
+  position: absolute;
+  left: 40px;
+  top: 624px;
+  width: 944px;
+  height: 352px;
+  background: #00053A;
 }
 
-.persona-skill-card {
-  width: 456px;
-  height: 76px;
-  background: rgba(0, 13, 69, 0.85);
-  border: 1.5px solid rgba(0, 230, 255, 0.35);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  gap: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 230, 255, 0.08);
-  transition: all 0.2s ease;
-  backdrop-filter: blur(8px);
+/* Alternating Row Highlights (Frame 188:190 'alternative') */
+.persona-skills-alternatives {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
 }
 
-.persona-skill-card:hover {
-  border-color: #00E6FF;
-  box-shadow: 0 8px 30px rgba(0, 230, 255, 0.35), inset 0 0 20px rgba(0, 230, 255, 0.2);
-  transform: translateY(-2px);
+.persona-alt-row {
+  position: absolute;
+  width: 458px;
+  height: 48px;
+  background: #FFFFFF;
+  opacity: 0.18;
+  border-radius: 5px;
 }
 
-.persona-skill-icon-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.persona-alt-row.row-1-left  { left: 51px;  top: 638px; }
+.persona-alt-row.row-2-right { left: 508px; top: 687px; }
+.persona-alt-row.row-3-left  { left: 51px;  top: 736px; }
+.persona-alt-row.row-4-right { left: 508px; top: 785px; }
+
+/* Skills items (Frame 188:185 'skills') */
+.persona-skills-items {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: auto;
+}
+
+.persona-skill-icon-cell {
+  position: absolute;
+  width: 112px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-.persona-skill-text {
-  font-family: 'Almarai', 'Archivo Black', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 0.5px;
+.persona-skill-icon-bg {
+  position: absolute;
+  inset: 0;
+  width: 112px;
+  height: 30px;
+  display: block;
+}
+
+.persona-skill-icon-inner {
+  position: relative;
+  z-index: 2;
+  transform: scale(0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-skill-label-cell {
+  position: absolute;
+  height: 26px;
+  width: 201px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 32px;
+  letter-spacing: -3.52px;
   color: #FFFFFF;
-  text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  user-select: none;
 }
 
-.persona-skill-card.empty-card {
-  background: rgba(0, 10, 45, 0.4);
-  border: 1.5px dashed rgba(255, 255, 255, 0.2);
+.persona-skill-label-cell p {
+  margin: 0;
+  line-height: normal;
+}
+
+/* ------- NONE ------ (Node 188:184) */
+.persona-skill-none-cell {
+  position: absolute;
+  width: 250px;
+  height: 33px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 0;
+  font-family: 'Fira Sans', 'Fira Sans Condensed', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: -4.4px;
+  color: #7E87A1;
+  user-select: none;
 }
 
-.persona-skill-none-text {
-  font-family: 'Fira Sans Extra Condensed', monospace;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.35);
+.persona-skill-none-cell p {
+  margin: 0;
+  line-height: normal;
 }
 
 /* 7. Bottom HUD Bar */

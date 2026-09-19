@@ -362,8 +362,17 @@ function App() {
                     userSelect: 'none'
                   }}
                   onClick={() => {
-                    if (activeIndex === index) handleConfirm();
-                    else setActiveIndex(index);
+                    if (activeIndex === index) {
+                      const currentOption = menuOptions[index];
+                      if (currentOption.name === 'SKILL') setViewState('skill');
+                      else if (currentOption.name === 'PERSONA') setViewState('persona');
+                      else {
+                        setSelectedMenuName(currentOption.name);
+                        setViewState('construction');
+                      }
+                    } else {
+                      setActiveIndex(index);
+                    }
                   }}
                 >
                   {option.name}
