@@ -1281,6 +1281,7 @@ body {
   background: #000000;
   pointer-events: auto;
   overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Floating interactive visit CTA badge */
@@ -1544,6 +1545,10 @@ body {
   width: 829.662px !important;
   height: 466.685px !important;
   transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.persona-figma-frame-wrapper.frame-shrink .persona-frame-iframe {
+  transform: scale(0.496) !important;
 }
 
 /* 2. PERSONA Typography fly out to top left */
