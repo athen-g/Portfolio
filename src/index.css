@@ -2102,7 +2102,7 @@ body {
   top: 0;
   width: 1920px;
   height: 1080px;
-  z-index: 20;
+  z-index: 35;
   pointer-events: auto;
   animation: personaSkillsFlyIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both;
 }
