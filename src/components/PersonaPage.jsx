@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const PERSONA_PROJECTS = [
   {
     id: 0,
-    arcana: 'Priestess',
+    arcana: 'Fullstack',
     name: 'Hyperspace SIG',
     tagline: 'PIERCE THE VEIL',
     url: 'https://hyperspacesig.tech',
@@ -24,7 +24,7 @@ const PERSONA_PROJECTS = [
   },
   {
     id: 1,
-    arcana: 'Strength',
+    arcana: 'Fullstack',
     name: 'FutureU',
     tagline: 'IRON WILL',
     url: 'https://futureu.dev/?iframe=true',
@@ -42,7 +42,7 @@ const PERSONA_PROJECTS = [
   },
   {
     id: 2,
-    arcana: 'Fool',
+    arcana: 'Database',
     name: 'unimark',
     tagline: 'ORDER & WISDOM',
     url: 'https://theunimark.in',
@@ -60,7 +60,7 @@ const PERSONA_PROJECTS = [
   },
   {
     id: 3,
-    arcana: 'Emperor',
+    arcana: 'Fullstack',
     name: 'Hanasaku (花咲く)',
     tagline: 'BLOOMING LIFE',
     url: 'https://hanasaku-seven.vercel.app/',
@@ -78,7 +78,7 @@ const PERSONA_PROJECTS = [
   },
   {
     id: 4,
-    arcana: 'Justice',
+    arcana: 'Design',
     name: 'MGC Cosmetics',
     tagline: 'RIGHTEOUS BLADE',
     url: 'https://atharvanitinghule.wixstudio.com/mcgcosmetics',
@@ -96,7 +96,7 @@ const PERSONA_PROJECTS = [
   },
   {
     id: 5,
-    arcana: 'Fool',
+    arcana: 'Design',
     name: 'Green Life',
     tagline: 'INFINITE POTENTIAL',
     url: 'https://atharvanitinghule.wixstudio.com/greenlife',
@@ -287,31 +287,46 @@ export default function PersonaPage({ onBack, isExiting }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (isExiting) return;
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONA_PROJECTS.length - 1));
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0));
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONA_PROJECTS.length - 1));
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0));
-      } else if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        if (!isSelectedView) {
-          handleSelectProject();
+      if (isSelectedView) {
+        // When selected: circle through projects with ArrowLeft and ArrowRight
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          setActiveIndex((prev) => {
+            const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
+            return currentIdx > 0 ? currentIdx - 1 : PERSONA_PROJECTS.length - 1;
+          });
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          setActiveIndex((prev) => {
+            const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
+            return currentIdx < PERSONA_PROJECTS.length - 1 ? currentIdx + 1 : 0;
+          });
+        } else if (e.key === 'Escape' || e.key === 'Backspace') {
+          e.preventDefault();
+          handleDeselect();
         }
-      } else if (e.key === 'Escape' || e.key === 'Backspace') {
-        e.preventDefault();
-        handleDeselect();
+      } else {
+        // List view: ArrowUp and ArrowDown cycle through all rows (0..7 including dashed lines)
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          setActiveIndex((prev) => (prev > 0 ? prev - 1 : 7));
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          setActiveIndex((prev) => (prev < 7 ? prev + 1 : 0));
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (activeIndex < PERSONA_PROJECTS.length) {
+            handleSelectProject();
+          }
+        } else if (e.key === 'Escape' || e.key === 'Backspace') {
+          e.preventDefault();
+          handleDeselect();
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isExiting, isSelectedView, handleBack]);
+  }, [isExiting, isSelectedView, activeIndex, handleBack]);
 
   return (
     <div className={`persona-page-container ${isExiting ? 'skill-exiting' : 'skill-entering'}`}>
@@ -442,11 +457,17 @@ export default function PersonaPage({ onBack, isExiting }) {
           );
         })}
 
-        {/* Dashed Separator Lines (Nodes 165:274, 165:275) */}
-        <div className="persona-figma-dashed-line line-1">
+        {/* Dashed Separator Lines (Nodes 165:274, 165:275) - selectable, but cannot open */}
+        <div
+          className={`persona-figma-dashed-line line-1 ${activeIndex === 6 ? 'selected' : ''}`}
+          onClick={() => setActiveIndex(6)}
+        >
           <img src="/persona-dashed-line.svg" alt="separator" />
         </div>
-        <div className="persona-figma-dashed-line line-2">
+        <div
+          className={`persona-figma-dashed-line line-2 ${activeIndex === 7 ? 'selected' : ''}`}
+          onClick={() => setActiveIndex(7)}
+        >
           <img src="/persona-dashed-line.svg" alt="separator" />
         </div>
       </div>
@@ -515,36 +536,42 @@ export default function PersonaPage({ onBack, isExiting }) {
               </div>
             </div>
 
-            {/* Project N (Node 188:200) */}
+            {/* Project Name (shown as given instead of Project 123) */}
             <div className="persona-figma-project-wrap" data-node-id="188:200">
               <div className="persona-figma-project-rotator">
-                <p className="persona-figma-project-text">Project {activeIndex + 1}</p>
+                <p className="persona-figma-project-text">{currentProject.name}</p>
               </div>
             </div>
 
-            {/* LA Button (Node 189:204) */}
+            {/* LA Button with user's SVG (Node 189:204) */}
             <div
               className="persona-figma-la-wrap"
               data-node-id="189:204"
-              onClick={() => setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONA_PROJECTS.length - 1))}
+              onClick={() => setActiveIndex((prev) => {
+                const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
+                return currentIdx > 0 ? currentIdx - 1 : PERSONA_PROJECTS.length - 1;
+              })}
               style={{ cursor: 'pointer', pointerEvents: 'auto' }}
-              title="Previous Project"
+              title="Previous Project (ArrowLeft)"
             >
               <div className="persona-figma-la-rotator">
-                <p className="persona-figma-la-text">LA</p>
+                <img src="/la.svg" alt="LA" className="persona-figma-la-svg" />
               </div>
             </div>
 
-            {/* RA Button (Node 189:205) */}
+            {/* RA Button with user's SVG (Node 189:205) */}
             <div
               className="persona-figma-ra-wrap"
               data-node-id="189:205"
-              onClick={() => setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0))}
+              onClick={() => setActiveIndex((prev) => {
+                const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
+                return currentIdx < PERSONA_PROJECTS.length - 1 ? currentIdx + 1 : 0;
+              })}
               style={{ cursor: 'pointer', pointerEvents: 'auto' }}
-              title="Next Project"
+              title="Next Project (ArrowRight)"
             >
               <div className="persona-figma-ra-rotator">
-                <p className="persona-figma-ra-text">RA</p>
+                <img src="/ra.svg" alt="RA" className="persona-figma-ra-svg" />
               </div>
             </div>
           </div>
@@ -568,82 +595,82 @@ export default function PersonaPage({ onBack, isExiting }) {
           {/* Phase 3: Skills container flying in from bottom (Node 188:191) */}
           <div className="persona-selected-skills" data-node-id="188:191">
             {/* Rectangle 13 (Dark navy background container #00053a, Node 188:166) */}
-            <div className="persona-skills-bg-box" data-node-id="188:166" />
+            <div className="persona-skills-bg-box" data-node-id="188:166">
+              {/* Alternating row highlights inside container */}
+              <div className="persona-skills-alternatives" data-node-id="188:190">
+                <div className="persona-alt-row row-1-left" data-node-id="188:186" />
+                <div className="persona-alt-row row-2-right" data-node-id="188:188" />
+                <div className="persona-alt-row row-3-left" data-node-id="188:187" />
+                <div className="persona-alt-row row-4-right" data-node-id="188:189" />
+              </div>
 
-            {/* Alternating row highlights (Frame 188:190 'alternative') */}
-            <div className="persona-skills-alternatives" data-node-id="188:190">
-              <div className="persona-alt-row row-1-left" data-node-id="188:186" />
-              <div className="persona-alt-row row-2-right" data-node-id="188:188" />
-              <div className="persona-alt-row row-3-left" data-node-id="188:187" />
-              <div className="persona-alt-row row-4-right" data-node-id="188:189" />
-            </div>
-
-            {/* Skills items grid (Frame 188:185 'skills') */}
-            <div className="persona-skills-items" data-node-id="188:185">
-              {/* Left Column (Slots 0, 1, 2, 3) */}
-              {[0, 1, 2, 3].map((idx) => {
-                const skill = currentProject.skills && currentProject.skills[idx];
-                const topOffset = 646 + idx * 49;
-                const textTopOffset = 661 + idx * 49;
-                return (
-                  <React.Fragment key={`left-${idx}`}>
-                    <div
-                      className="persona-skill-icon-cell"
-                      style={{ left: '70px', top: `${topOffset}px` }}
-                      data-node-id={idx === 0 ? '188:167' : idx === 1 ? '188:169' : idx === 2 ? '188:170' : '188:171'}
-                    >
-                      <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
-                      <div className="persona-skill-icon-inner">
-                        {skill && <SkillLogo logo={skill.logo} />}
+              {/* Skills items grid */}
+              <div className="persona-skills-items" data-node-id="188:185">
+                {/* Left Column (Slots 0, 1, 2, 3) */}
+                {[0, 1, 2, 3].map((idx) => {
+                  const skill = currentProject.skills && currentProject.skills[idx];
+                  const topOffset = 18 + idx * 41.5;
+                  const textTopOffset = 33 + idx * 41.5;
+                  return (
+                    <React.Fragment key={`left-${idx}`}>
+                      <div
+                        className="persona-skill-icon-cell"
+                        style={{ left: '20px', top: `${topOffset}px` }}
+                        data-node-id={idx === 0 ? '188:167' : idx === 1 ? '188:169' : idx === 2 ? '188:170' : '188:171'}
+                      >
+                        <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
+                        <div className="persona-skill-icon-inner">
+                          {skill && <SkillLogo logo={skill.logo} />}
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      className="persona-skill-label-cell"
-                      style={{ left: '187px', top: `${textTopOffset}px` }}
-                      data-node-id={idx === 0 ? '188:176' : idx === 1 ? '188:177' : idx === 2 ? '188:178' : '188:179'}
-                    >
-                      <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
-
-              {/* Right Column (Slots 4, 5, 6, 7) */}
-              {[4, 5, 6].map((idx) => {
-                const skill = currentProject.skills && currentProject.skills[idx];
-                const rowIdx = idx - 4;
-                const topOffset = 646 + rowIdx * 49;
-                const textTopOffset = 661 + rowIdx * 49;
-                return (
-                  <React.Fragment key={`right-${idx}`}>
-                    <div
-                      className="persona-skill-icon-cell"
-                      style={{ left: '527px', top: `${topOffset}px` }}
-                      data-node-id={idx === 4 ? '188:172' : idx === 5 ? '188:173' : '188:174'}
-                    >
-                      <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
-                      <div className="persona-skill-icon-inner">
-                        {skill && <SkillLogo logo={skill.logo} />}
+                      <div
+                        className="persona-skill-label-cell"
+                        style={{ left: '125px', top: `${textTopOffset}px` }}
+                        data-node-id={idx === 0 ? '188:176' : idx === 1 ? '188:177' : idx === 2 ? '188:178' : '188:179'}
+                      >
+                        <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
                       </div>
-                    </div>
-                    <div
-                      className="persona-skill-label-cell"
-                      style={{ left: '644px', top: `${textTopOffset}px` }}
-                      data-node-id={idx === 4 ? '188:180' : idx === 5 ? '188:181' : '188:182'}
-                    >
-                      <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
+                    </React.Fragment>
+                  );
+                })}
 
-              {/* Slot 7: ------- NONE ------ (Node 188:184) */}
-              <div
-                className="persona-skill-none-cell"
-                style={{ left: '736px', top: '811.5px' }}
-                data-node-id="188:184"
-              >
-                <p>------- NONE ------</p>
+                {/* Right Column (Slots 4, 5, 6) */}
+                {[4, 5, 6].map((idx) => {
+                  const skill = currentProject.skills && currentProject.skills[idx];
+                  const rowIdx = idx - 4;
+                  const topOffset = 18 + rowIdx * 41.5;
+                  const textTopOffset = 33 + rowIdx * 41.5;
+                  return (
+                    <React.Fragment key={`right-${idx}`}>
+                      <div
+                        className="persona-skill-icon-cell"
+                        style={{ left: '405px', top: `${topOffset}px` }}
+                        data-node-id={idx === 4 ? '188:172' : idx === 5 ? '188:173' : '188:174'}
+                      >
+                        <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
+                        <div className="persona-skill-icon-inner">
+                          {skill && <SkillLogo logo={skill.logo} />}
+                        </div>
+                      </div>
+                      <div
+                        className="persona-skill-label-cell"
+                        style={{ left: '510px', top: `${textTopOffset}px` }}
+                        data-node-id={idx === 4 ? '188:180' : idx === 5 ? '188:181' : '188:182'}
+                      >
+                        <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
+
+                {/* Slot 7: ------- NONE ------ (Node 188:184) */}
+                <div
+                  className="persona-skill-none-cell"
+                  style={{ left: '590px', top: `${33 + 3 * 41.5}px` }}
+                  data-node-id="188:184"
+                >
+                  <p>------- NONE ------</p>
+                </div>
               </div>
             </div>
           </div>
