@@ -293,6 +293,12 @@ export default function PersonaPage({ onBack, isExiting }) {
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
         setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0));
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONA_PROJECTS.length - 1));
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0));
       } else if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         if (!isSelectedView) {
@@ -380,24 +386,26 @@ export default function PersonaPage({ onBack, isExiting }) {
       </div>
 
       {/* 6. Figma Tagline Typography "PIERCE THE VEIL" (Node 165:283) */}
-      <div
-        className={`persona-figma-tagline skill-fall-elem ${isSelectedView ? 'tagline-slow-fadeout' : ''}`}
-        key={`tag-${activeIndex}`}
-      >
-        {currentProject.tagline.split(' ').map((word, wIdx) => (
-          <span key={wIdx} className="persona-tagline-word">
-            {word.split('').map((char, cIdx) => (
-              <span
-                key={cIdx}
-                className="persona-tagline-char"
-                style={{ animationDelay: `${(wIdx * 4 + cIdx) * 0.12}s` }}
-              >
-                {char}
-              </span>
-            ))}
-          </span>
-        ))}
-      </div>
+      {!isSelectedView && (
+        <div
+          className="persona-figma-tagline skill-fall-elem"
+          key={`tag-${activeIndex}`}
+        >
+          {currentProject.tagline.split(' ').map((word, wIdx) => (
+            <span key={wIdx} className="persona-tagline-word">
+              {word.split('').map((char, cIdx) => (
+                <span
+                  key={cIdx}
+                  className="persona-tagline-char"
+                  style={{ animationDelay: `${(wIdx * 4 + cIdx) * 0.12}s` }}
+                >
+                  {char}
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* 7. Persona Projects Selection List & Selector (Nodes 165:276 to 165:281) */}
       <div className={`persona-figma-list-wrapper skill-fall-elem ${isSelectedView ? 'list-fadeout' : ''}`}>
@@ -515,14 +523,26 @@ export default function PersonaPage({ onBack, isExiting }) {
             </div>
 
             {/* LA Button (Node 189:204) */}
-            <div className="persona-figma-la-wrap" data-node-id="189:204">
+            <div
+              className="persona-figma-la-wrap"
+              data-node-id="189:204"
+              onClick={() => setActiveIndex((prev) => (prev > 0 ? prev - 1 : PERSONA_PROJECTS.length - 1))}
+              style={{ cursor: 'pointer', pointerEvents: 'auto' }}
+              title="Previous Project"
+            >
               <div className="persona-figma-la-rotator">
                 <p className="persona-figma-la-text">LA</p>
               </div>
             </div>
 
             {/* RA Button (Node 189:205) */}
-            <div className="persona-figma-ra-wrap" data-node-id="189:205">
+            <div
+              className="persona-figma-ra-wrap"
+              data-node-id="189:205"
+              onClick={() => setActiveIndex((prev) => (prev < PERSONA_PROJECTS.length - 1 ? prev + 1 : 0))}
+              style={{ cursor: 'pointer', pointerEvents: 'auto' }}
+              title="Next Project"
+            >
               <div className="persona-figma-ra-rotator">
                 <p className="persona-figma-ra-text">RA</p>
               </div>
