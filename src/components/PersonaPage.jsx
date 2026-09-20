@@ -61,11 +61,11 @@ const PERSONA_PROJECTS = [
   {
     id: 3,
     arcana: 'Fullstack',
-    name: 'Hanasaku (花咲く)',
+    name: 'Hanasaku',
     tagline: 'BLOOMING LIFE',
     url: 'https://hanasaku-seven.vercel.app/',
     displayUrl: 'hanasaku-seven.vercel.app',
-    description: 'Secure real-time health tracker with strict PostgreSQL security policies and multi-lingual support.',
+    description: 'Hanasaku (花咲く) - Secure real-time health tracker with strict PostgreSQL security policies and multi-lingual support.',
     skills: [
       { id: 0, name: 'REACT', logo: 'react', desc: 'Realtime biometric charts and wellness timeline interfaces.' },
       { id: 1, name: 'TYPESCRIPT', logo: 'typescript', desc: 'Strict type validation preventing invalid health metric ingestion.' },
