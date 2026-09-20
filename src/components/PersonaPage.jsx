@@ -576,9 +576,7 @@ export default function PersonaPage({ onBack, isExiting }) {
 
           {/* Phase 2: Top Slanted Banner (Node 188:165) */}
           <div
-            className={`persona-selected-top-banner ${
-              isBgRevealed ? (isBgReversing ? 'banner-reverse-topleft' : 'banner-flyout-topleft') : ''
-            }`}
+            className="persona-selected-top-banner"
             data-node-id="188:165"
             data-name="top"
           >
@@ -605,9 +603,7 @@ export default function PersonaPage({ onBack, isExiting }) {
 
           {/* Phase 2: Top Text & Navigation Elements (Node 189:206) */}
           <div
-            className={`persona-selected-top-text ${
-              isBgRevealed ? (isBgReversing ? 'banner-reverse-topleft' : 'banner-flyout-topleft') : ''
-            }`}
+            className="persona-selected-top-text"
             data-node-id="189:206"
             data-name="top-text"
           >
@@ -728,11 +724,9 @@ export default function PersonaPage({ onBack, isExiting }) {
             </div>
           </div>
 
-          {/* Phase 3: Diamond expanding inside blue banner (Rectangle 9, Node 184:160) */}
+          {/* Phase 3: Diamond staying in screen (Rectangle 9, Node 184:160) */}
           <div
-            className={`persona-selected-diamond ${
-              isBgRevealed ? (isBgReversing ? 'diamond-bg-shrink' : 'diamond-bg-expand') : ''
-            }`}
+            className="persona-selected-diamond"
             data-node-id="184:160"
           >
             <div className="persona-diamond-rotator">
@@ -903,31 +897,23 @@ export default function PersonaPage({ onBack, isExiting }) {
             </div>
           )}
 
-          {/* Background Reveal View Mode (Exact Figma 222:115 Node Structure & Typography) */}
+          {/* Background Reveal View Mode */}
           {isBgRevealed && (
             <div
               className={`persona-bg-reveal-container ${isBgReversing ? 'bg-reveal-reverse' : 'bg-reveal-enter'}`}
               key={`bg-reveal-${activeIndex}`}
             >
-              {/* BACKGROUND Header (Node 222:188: left 79px, top 641px, font: Fira Sans Italic 80px, #80f5fe) */}
+              {/* BACKGROUND Header (Node 222:188) */}
               <div className="persona-bg-reveal-header-wrap" data-node-id="222:188">
                 <p className="persona-bg-reveal-header-text">BACKGROUND</p>
               </div>
 
-              {/* Description List (Node 222:189: left 73px, top 783.5px, font: Fira Sans Italic 40px, #ffffff) */}
+              {/* Description List (Node 222:189: only description, positioned cleanly below title) */}
               <div className="persona-bg-reveal-list-wrap" data-node-id="222:189">
                 <ul className="persona-bg-reveal-ul">
                   <li className="persona-bg-reveal-li">
                     <span>{currentProject.description}</span>
                   </li>
-                  <li className="persona-bg-reveal-li">
-                    <span>Stack: {currentProject.skills ? currentProject.skills.map((s) => s.name).join(' • ') : ''}</span>
-                  </li>
-                  {currentProject.displayUrl && (
-                    <li className="persona-bg-reveal-li">
-                      <span>Live: {currentProject.displayUrl}</span>
-                    </li>
-                  )}
                 </ul>
               </div>
             </div>

@@ -2784,46 +2784,7 @@ body {
    BACKGROUND REVEAL FLYOUT & REVERSE ANIMATIONS (Exact Figma 222:115)
    ══════════════════════════════════════════════════════════════════ */
 
-/* 1. Top slanted banner & top text
-   In 222:115: shifted to left: -424.19px, top: -398.45px (Δx = -380.48px, Δy = -187.12px)
-*/
-@keyframes topBannerFlyoutTopLeft {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(-380.48px, -187.12px);
-    opacity: 0.2;
-  }
-}
-
-@keyframes topBannerReverseTopLeft {
-  0% {
-    transform: translate(-380.48px, -187.12px);
-    opacity: 0.2;
-  }
-
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}
-
-.persona-selected-top-banner.banner-flyout-topleft,
-.persona-selected-top-text.banner-flyout-topleft {
-  animation: topBannerFlyoutTopLeft 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  will-change: transform, opacity;
-}
-
-.persona-selected-top-banner.banner-reverse-topleft,
-.persona-selected-top-text.banner-reverse-topleft {
-  animation: topBannerReverseTopLeft 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  will-change: transform, opacity;
-}
-
-/* Blue rectangle bar inside top banner */
+/* 1. Only blue rectangle bar at the bottom of top section flies out */
 @keyframes blueRectFlyout {
   0% {
     transform: rotate(-11.2142deg) translate(0, 0);
@@ -2831,14 +2792,14 @@ body {
   }
 
   100% {
-    transform: rotate(-11.2142deg) translate(-200px, -100px);
+    transform: rotate(-11.2142deg) translate(-280px, -140px);
     opacity: 0;
   }
 }
 
 @keyframes blueRectReverse {
   0% {
-    transform: rotate(-11.2142deg) translate(-200px, -100px);
+    transform: rotate(-11.2142deg) translate(-280px, -140px);
     opacity: 0;
   }
 
@@ -3006,44 +2967,6 @@ body {
   will-change: transform, opacity;
 }
 
-/* 5. Diamond (Rectangle 9, Node 222:135)
-   In 222:115: left: -805.88px, top: -1537.69px, size: 4527.514px, rotate: -44.91deg
-   Scales up to cover the background space
-*/
-@keyframes diamondBgExpand {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(-1687px, -1686px) scale(3.93);
-    opacity: 1;
-  }
-}
-
-@keyframes diamondBgShrink {
-  0% {
-    transform: translate(-1687px, -1686px) scale(3.93);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-}
-
-.persona-selected-diamond.diamond-bg-expand {
-  animation: diamondBgExpand 0.52s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
-  will-change: transform, opacity;
-}
-
-.persona-selected-diamond.diamond-bg-shrink {
-  animation: diamondBgShrink 0.52s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
-  will-change: transform, opacity;
-}
-
 /* ══════════════════════════════════════════════════════════════════
    BACKGROUND REVEAL CONTENT (Exact Figma 222:115 Coordinates & Typography)
    ══════════════════════════════════════════════════════════════════ */
@@ -3091,17 +3014,15 @@ body {
 }
 
 /* BACKGROUND Title: Node 222:188
-   left: 79px, top: 641px, translateY(-50%), width: 425px, height: 54px
-   font-family: 'Fira Sans', sans-serif; font-style: italic; font-weight: 500;
-   font-size: 80px; letter-spacing: -8.8px; color: #80f5fe;
+   left: 79px, top: 641px
 */
 .persona-bg-reveal-header-wrap {
   position: absolute;
   left: 79px;
   top: 641px;
   transform: translateY(-50%);
-  width: 425px;
-  height: 54px;
+  width: 500px;
+  height: 80px;
   display: flex;
   align-items: center;
 }
@@ -3113,24 +3034,21 @@ body {
   font-size: 80px;
   letter-spacing: -8.8px;
   color: #80f5fe;
-  line-height: 54px;
+  line-height: 1;
   margin: 0;
   padding: 0;
   white-space: nowrap;
 }
 
-/* Bullet List: Node 222:189
-   left: 73px, top: 783.5px, translateY(-50%), width: 731px
-   font-family: 'Fira Sans', sans-serif; font-style: italic; font-weight: 500;
-   font-size: 40px; letter-spacing: -4.4px; color: #ffffff;
-   text-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+/* Bullet List / Description: Node 222:189
+   Positioned cleanly below title with zero overlap
+   left: 73px, top: 730px
 */
 .persona-bg-reveal-list-wrap {
   position: absolute;
   left: 73px;
-  top: 783.5px;
-  transform: translateY(-50%);
-  width: 731px;
+  top: 730px;
+  width: 800px;
   display: flex;
   flex-direction: column;
 }
@@ -3138,7 +3056,7 @@ body {
 .persona-bg-reveal-ul {
   list-style-type: disc;
   margin: 0;
-  padding-left: 55px;
+  padding-left: 45px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -3148,15 +3066,20 @@ body {
   font-family: 'Fira Sans', sans-serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 40px;
-  letter-spacing: -4.4px;
+  font-size: 38px;
+  letter-spacing: -3.5px;
   color: #ffffff;
-  line-height: normal;
+  line-height: 1.25;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .persona-bg-reveal-li span {
   display: inline;
+}
+
+.persona-bg-reveal-link {
+  color: #72FFFF;
+  font-weight: 600;
 }
 
 .persona-bg-reveal-link {
