@@ -2389,7 +2389,7 @@ body {
 .persona-skill-selector-group {
   position: absolute;
   pointer-events: none;
-  z-index: 36;
+  z-index: 1;
 }
 
 /* Position for each skill slot — exact Figma values from 204:115
@@ -2503,8 +2503,8 @@ body {
 
 /* Active skill label colour override — matches Figma #00053a on white pill */
 .persona-skill-label-cell.skill-active-label p {
-  color: #00053a;
-  font-weight: 400;
+  color: #00053a !important;
+  font-weight: 500;
 }
 
 /* ══════════════════════════════════════════════════════════════════

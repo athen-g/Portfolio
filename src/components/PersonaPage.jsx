@@ -746,9 +746,15 @@ export default function PersonaPage({ onBack, isExiting }) {
 
             {/* Alternating row highlights inside container (Frame 188:190) */}
             <div className="persona-skills-alternatives" data-node-id="188:190">
-              <div className="persona-alt-row row-1-left" data-node-id="188:186" />
-              <div className="persona-alt-row row-2-right" data-node-id="188:188" />
-              <div className="persona-alt-row row-3-left" data-node-id="188:187" />
+              {(!isSkillSelected || selectedSkillIndex !== 0) && (
+                <div className="persona-alt-row row-1-left" data-node-id="188:186" />
+              )}
+              {(!isSkillSelected || selectedSkillIndex !== 5) && (
+                <div className="persona-alt-row row-2-right" data-node-id="188:188" />
+              )}
+              {(!isSkillSelected || selectedSkillIndex !== 2) && (
+                <div className="persona-alt-row row-3-left" data-node-id="188:187" />
+              )}
               <div className="persona-alt-row row-4-right" data-node-id="188:189" />
             </div>
 
