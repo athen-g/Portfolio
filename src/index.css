@@ -1985,12 +1985,12 @@ body {
 }
 
 /* 7. STACK (Node 189:203) - 1.5x size
-   Figma: left 258px, top 109px
+   Figma: left 258px, top 109px (incremented slightly to avoid overlap)
 */
 .persona-figma-stack-wrap {
   position: absolute;
-  left: 258px;
-  top: 109px;
+  left: 278px;
+  top: 105px;
   width: 420px;
   height: 90px;
   display: flex;
