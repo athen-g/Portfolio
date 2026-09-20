@@ -1529,12 +1529,15 @@ body {
               top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* 1. Frame Shrink: transitions to bottom-right position & scale matching Figma node 183:152
+   z-index 25: in front of rectangle 8 (z: 10), top banner (z: 15), top text (z: 16), diamond (z: 20)
+   but behind skill list (z: 35) and skill info (z: 38) */
 .persona-figma-frame-wrapper.frame-shrink {
   left: 1045px !important;
   top: 427px !important;
   width: 826.505px !important;
   height: 538.995px !important;
-  z-index: 32;
+  z-index: 25 !important;
 }
 
 .persona-figma-frame-wrapper.frame-shrink .persona-figma-frame-rotator {
@@ -1624,7 +1627,6 @@ body {
   width: 1920px;
   height: 1080px;
   pointer-events: none;
-  z-index: 30;
   overflow: hidden;
 }
 
@@ -2101,7 +2103,7 @@ body {
   width: 1152.583px;
   height: 1152.583px;
   pointer-events: none;
-  z-index: 30;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
