@@ -601,7 +601,7 @@ export default function PersonaPage({ onBack, isExiting }) {
                   width="1973.89"
                   height="83.0765"
                   transform="rotate(-11.2142 27.5176 604.76)"
-                  fill="#001ACC"
+                  fill="#1A35E8"
                 />
                 <rect id="Rectangle 11" y="380.926" width="1959.44" height="224.891" transform="rotate(-11.21 0 380.926)" fill="white" />
                 <line id="Line 1" x1="40.8274" y1="368.883" x2="858.034" y2="206.923" stroke="#FF181D" strokeWidth="8" />
@@ -722,7 +722,7 @@ export default function PersonaPage({ onBack, isExiting }) {
                     <path
                       className={`persona-rect8-left-part ${isBgRevealed ? (isBgReversing ? 'reverse-bottomleft' : 'flyout-bottomleft') : ''}`}
                       d="M94.1505 0L1205.77 62.1366L915.039 232.43L1088.21 525.987L517.969 494.751L0 358.855L94.1505 0Z"
-                      fill="#001ACC"
+                      fill="#1A35E8"
                     />
                     {/* Right part of Rectangle 8: flies out to top right in 222:115 */}
                     <path
@@ -730,7 +730,7 @@ export default function PersonaPage({ onBack, isExiting }) {
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M1982.64 367.792L2049.78 109.889L1825.46 96.0075L1982.64 367.792Z"
-                      fill="#001ACC"
+                      fill="#1A35E8"
                     />
                   </g>
                 </svg>
