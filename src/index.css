@@ -1985,12 +1985,12 @@ body {
 }
 
 /* 7. STACK (Node 189:203) - 1.5x size
-   Figma: left 258px, top 109px (incremented slightly to avoid overlap)
+   Positioned clearly above Frontend / Arcana text and project title to prevent any overlap
 */
 .persona-figma-stack-wrap {
   position: absolute;
-  left: 278px;
-  top: 105px;
+  left: 254px;
+  top: 72px;
   width: 420px;
   height: 90px;
   display: flex;
