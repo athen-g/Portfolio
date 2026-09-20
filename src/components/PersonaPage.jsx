@@ -269,6 +269,7 @@ export default function PersonaPage({ onBack, isExiting }) {
   const [isBgReversing, setIsBgReversing] = useState(false);
   const [projectSwitchAnim, setProjectSwitchAnim] = useState(false);
   const [isSelectedEntering, setIsSelectedEntering] = useState(false);
+  const switchTimerRef = useRef(null);
 
   const handleBack = onBack || (() => { });
   const currentProject = PERSONA_PROJECTS[activeIndex] || PERSONA_PROJECTS[0];
@@ -310,9 +311,15 @@ export default function PersonaPage({ onBack, isExiting }) {
   };
 
   const triggerProjectSwitch = (newIdx) => {
+    if (switchTimerRef.current) {
+      clearTimeout(switchTimerRef.current);
+    }
     setActiveIndex(newIdx);
     setProjectSwitchAnim(true);
-    setTimeout(() => {
+    if (typeof window !== 'undefined' && window.focus) {
+      window.focus();
+    }
+    switchTimerRef.current = setTimeout(() => {
       setProjectSwitchAnim(false);
     }, 450);
   };
@@ -474,6 +481,8 @@ export default function PersonaPage({ onBack, isExiting }) {
                 className="persona-frame-iframe"
                 loading="lazy"
                 scrolling="no"
+                tabIndex={-1}
+                aria-hidden="true"
                 sandbox="allow-scripts allow-same-origin allow-popups"
               />
             </div>
@@ -642,10 +651,10 @@ export default function PersonaPage({ onBack, isExiting }) {
               </div>
             </div>
 
-            {/* Frontend (Node 188:201) */}
+            {/* Frontend / Arcana Category (Node 188:201) */}
             <div className="persona-figma-frontend-wrap" data-node-id="188:201">
               <div className="persona-figma-frontend-rotator">
-                <p className="persona-figma-frontend-text">Frontend</p>
+                <p className="persona-figma-frontend-text">{currentProject.arcana || 'Frontend'}</p>
               </div>
             </div>
 

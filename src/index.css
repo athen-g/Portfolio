@@ -1332,7 +1332,7 @@ body {
   transform: scale(0.6);
   transform-origin: top left;
   background: #000000;
-  pointer-events: auto;
+  pointer-events: none;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
