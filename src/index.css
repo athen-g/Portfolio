@@ -2444,7 +2444,7 @@ body {
   height: 52px;
 }
 
-/* White active row highlight pill — z-index 1 so it's behind icon+label (z-index 2+) */
+/* White active row highlight pill — z-index 2 so it is in front of the red envelope (z-index 1) but behind icon+label (z-index 5+) */
 .persona-skill-selector-pill {
   position: absolute;
   left: 0;
@@ -2453,7 +2453,7 @@ body {
   height: 48px;
   background: #FFFFFF;
   border-radius: 5px;
-  z-index: 1;
+  z-index: 2;
   animation: skillSelectorPillFadeIn 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
@@ -2469,8 +2469,11 @@ body {
   }
 }
 
-/* Red envelope — at top of selector group, slightly offset like Figma (204:124)
-   Figma: left 55px, top 706px offset from group top = top 0 + 4px shift right */
+/* Red envelope — sits behind the white selector pill, then flies/slides diagonally 4px out and stays there!
+   Figma 207:116:
+     White selector (207:115): left 51px, top 710px
+     Red envelope (204:124): left 55px, top 706px (+4px right, -4px up)
+   Starting behind white pill (offset 0, 4px) and animating to (4px, 0px) and sitting there. */
 .persona-skill-selector-envolope {
   position: absolute;
   left: 4px;
@@ -2479,25 +2482,24 @@ body {
   height: 48px;
   background: #FF0000;
   border-radius: 5px;
-  z-index: 2;
-  animation: envelopeFlyOutDiag 0.42s cubic-bezier(0.4, 0, 1, 1) 0.04s forwards;
-  will-change: transform, opacity;
+  z-index: 1;
+  animation: envelopeSlideOutDiag 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+  will-change: transform;
 }
 
-@keyframes envelopeFlyOutDiag {
+@keyframes envelopeSlideOutDiag {
   0% {
-    opacity: 1;
-    transform: translate(0, 0) rotate(0deg) scale(1);
+    transform: translate(-4px, 4px);
+    opacity: 0;
   }
 
-  15% {
+  20% {
     opacity: 1;
-    transform: translate(12px, -8px) rotate(-4deg) scale(1.05);
   }
 
   100% {
-    opacity: 0;
-    transform: translate(120px, -90px) rotate(-18deg) scale(0.7);
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
 

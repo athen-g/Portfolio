@@ -764,7 +764,7 @@ export default function PersonaPage({ onBack, isExiting }) {
                 className={`persona-skill-selector-group skill-idx-${selectedSkillIndex}`}
                 key={`selector-${selectedSkillIndex}`}
               >
-                {/* Red envelope flies out diagonally */}
+                {/* Red envelope sits behind white selector, slides diagonally out 4px and stays */}
                 <div className="persona-skill-selector-envolope" />
                 {/* White active row background */}
                 <div className="persona-skill-selector-pill" />
