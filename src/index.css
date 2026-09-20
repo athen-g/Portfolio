@@ -112,26 +112,26 @@
 }
 
 /* Parallax wave animations */
-.parallax > use {
+.parallax>use {
   animation: moveForever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
-.parallax > use:nth-child(1) {
+.parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
 
-.parallax > use:nth-child(2) {
+.parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
 
-.parallax > use:nth-child(3) {
+.parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
 
-.parallax > use:nth-child(4) {
+.parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
@@ -140,6 +140,7 @@
   0% {
     transform: translate3d(-90px, 0, 0);
   }
+
   100% {
     transform: translate3d(85px, 0, 0);
   }
@@ -314,12 +315,15 @@ body {
   0% {
     transform: translate(0px, 0px) rotate(0deg) scale(1) skewX(0deg);
   }
+
   28% {
     transform: translate(-5px, -3.5px) rotate(0.8deg) scale(1.01, 1.008) skewX(-0.7deg);
   }
+
   64% {
     transform: translate(3px, 2px) rotate(-0.6deg) scale(0.995, 1.005) skewX(0.5deg);
   }
+
   100% {
     transform: translate(0px, 0px) rotate(0deg) scale(1) skewX(0deg);
   }
@@ -531,9 +535,11 @@ body {
     transform: translateY(-80px);
     opacity: 0;
   }
+
   50% {
     opacity: 0.8;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -545,6 +551,7 @@ body {
     transform: translateX(-140px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -562,9 +569,11 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+
   40% {
     opacity: 0.8;
   }
+
   100% {
     transform: translateY(-80px);
     opacity: 0;
@@ -576,6 +585,7 @@ body {
     transform: translateX(0);
     opacity: 1;
   }
+
   100% {
     transform: translateX(-140px);
     opacity: 0;
@@ -587,6 +597,7 @@ body {
     transform: rotate(0deg) scale(1.0);
     opacity: 1;
   }
+
   100% {
     transform: rotate(-120deg) scale(0.65);
     opacity: 0;
@@ -597,9 +608,11 @@ body {
   0% {
     opacity: 1;
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -699,9 +712,11 @@ body {
   0% {
     transform: translate3d(0px, 0px, 0);
   }
+
   50% {
     transform: translate3d(0px, -100px, 0);
   }
+
   100% {
     transform: translate3d(0px, 0px, 0);
   }
@@ -712,9 +727,11 @@ body {
   0% {
     transform: translate3d(0px, 0px, 0) rotate(0deg);
   }
+
   50% {
     transform: translate3d(2px, -22px, 0) rotate(0.6deg);
   }
+
   100% {
     transform: translate3d(0px, 0px, 0) rotate(0deg);
   }
@@ -757,12 +774,15 @@ body {
   0% {
     transform: translate(0px, 0px) rotate(0deg) scale(1) skewX(0deg);
   }
+
   28% {
     transform: translate(-3px, -2px) rotate(0.6deg) scale(1.008, 1.006) skewX(-0.5deg);
   }
+
   64% {
     transform: translate(2px, 1.5px) rotate(-0.5deg) scale(0.996, 1.004) skewX(0.4deg);
   }
+
   100% {
     transform: translate(0px, 0px) rotate(0deg) scale(1) skewX(0deg);
   }
@@ -847,6 +867,7 @@ body {
     transform: rotate(-120deg) scale(0.65);
     opacity: 0.25;
   }
+
   100% {
     transform: rotate(0deg) scale(1.0);
     opacity: 1;
@@ -858,6 +879,7 @@ body {
     transform: rotate(0deg) scale(0.65);
     opacity: 0.25;
   }
+
   100% {
     transform: rotate(180deg) scale(1.0);
     opacity: 1;
@@ -869,6 +891,7 @@ body {
     transform: rotate(180deg) scale(0.65);
     opacity: 0.25;
   }
+
   100% {
     transform: rotate(0deg) scale(1.0);
     opacity: 1;
@@ -957,13 +980,33 @@ body {
 
 /* Red envelope shake animation on project scroll */
 @keyframes envelopeShake {
-  0%   { transform: translateX(0); }
-  15%  { transform: translateX(-3px); }
-  30%  { transform: translateX(2.5px); }
-  45%  { transform: translateX(-2px); }
-  60%  { transform: translateX(1.5px); }
-  75%  { transform: translateX(-1px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  15% {
+    transform: translateX(-3px);
+  }
+
+  30% {
+    transform: translateX(2.5px);
+  }
+
+  45% {
+    transform: translateX(-2px);
+  }
+
+  60% {
+    transform: translateX(1.5px);
+  }
+
+  75% {
+    transform: translateX(-1px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .skill-project-item.selected .envelope-shake {
@@ -1143,7 +1186,8 @@ body {
 .persona-figma-typography {
   position: absolute;
   left: -50px;
-  top: -35px; /* Shifted up to close the gap with the top of the frame */
+  top: -35px;
+  /* Shifted up to close the gap with the top of the frame */
   width: 1476.82px;
   height: 285.59px;
   display: flex;
@@ -1242,9 +1286,17 @@ body {
   display: inline-block;
 }
 
-.dot.dot-red { background: #ff5f56; }
-.dot.dot-yellow { background: #ffbd2e; }
-.dot.dot-green { background: #27c93f; }
+.dot.dot-red {
+  background: #ff5f56;
+}
+
+.dot.dot-yellow {
+  background: #ffbd2e;
+}
+
+.dot.dot-green {
+  background: #27c93f;
+}
 
 .persona-frame-url-bar {
   flex: 1;
@@ -1330,7 +1382,8 @@ body {
   font-weight: 800;
   font-size: 128px;
   line-height: 1;
-  color: #00A6E8; /* Darker, saturated cerulean/azure blue matching reference instead of bright cyan */
+  color: #00A6E8;
+  /* Darker, saturated cerulean/azure blue matching reference instead of bright cyan */
   text-shadow: none;
   pointer-events: none;
   z-index: 6;
@@ -1355,12 +1408,15 @@ body {
   0% {
     transform: translateY(0px) rotate(0deg) scale(1);
   }
+
   30% {
     transform: translateY(-9px) rotate(1.2deg) scale(1.02);
   }
+
   70% {
     transform: translateY(7px) rotate(-1deg) scale(0.98);
   }
+
   100% {
     transform: translateY(-4px) rotate(0.6deg) scale(1.01);
   }
@@ -1371,6 +1427,7 @@ body {
     opacity: 0;
     transform: translateX(40px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -1525,8 +1582,8 @@ body {
 /* 1. Frame Shrink: transitions to bottom-right position & scale matching Figma node 183:152 */
 .persona-figma-frame-wrapper {
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-              left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-              top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* 1. Frame Shrink: transitions to bottom-right position & scale matching Figma node 183:152
@@ -1566,6 +1623,7 @@ body {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
+
   100% {
     transform: translate3d(-100vw, -40vh, 0) scale(0.9);
     opacity: 0;
@@ -1583,6 +1641,7 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(-40px);
@@ -1596,8 +1655,13 @@ body {
 }
 
 @keyframes personaParticlesFadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* 5. Tagline fades out SLOWER than the list (0.7s) */
@@ -1611,6 +1675,7 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(60px);
@@ -1652,8 +1717,13 @@ body {
 }
 
 @keyframes personaSelectedFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* ── Phase 2: Top Slanted Banner (Node 188:165) ──
@@ -1675,6 +1745,7 @@ body {
     opacity: 0;
     transform: translate3d(-100vw, -30vh, 0);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -1707,6 +1778,7 @@ body {
     opacity: 0;
     transform: translate3d(-100vw, -30vh, 0);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -1752,9 +1824,11 @@ body {
   0% {
     translate: 0px 0px;
   }
+
   50% {
     translate: 79px -16.628px;
   }
+
   100% {
     translate: 0px 0px;
   }
@@ -1764,9 +1838,11 @@ body {
   0% {
     translate: 0px 0px;
   }
+
   50% {
     translate: -36.787px 5.458px;
   }
+
   100% {
     translate: 0px 0px;
   }
@@ -2069,6 +2145,7 @@ body {
     opacity: 0;
     transform: translate3d(100vw, 80vh, 0);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -2116,9 +2193,11 @@ body {
     opacity: 0;
     transform: scale(0);
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -2161,6 +2240,7 @@ body {
     opacity: 0;
     transform: translate3d(0, 100vh, 0);
   }
+
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -2199,10 +2279,25 @@ body {
 
 /* Alt rows: Figma 204:123 — row 2=508/759, row3=51/808, row4=508/857
    Row 1 is replaced by the white selector pill when skill-selected */
-.persona-alt-row.row-1-left  { left: 51px;  top: 710px; }
-.persona-alt-row.row-2-right { left: 508px; top: 759px; }
-.persona-alt-row.row-3-left  { left: 51px;  top: 808px; }
-.persona-alt-row.row-4-right { left: 508px; top: 857px; }
+.persona-alt-row.row-1-left {
+  left: 51px;
+  top: 710px;
+}
+
+.persona-alt-row.row-2-right {
+  left: 508px;
+  top: 759px;
+}
+
+.persona-alt-row.row-3-left {
+  left: 51px;
+  top: 808px;
+}
+
+.persona-alt-row.row-4-right {
+  left: 508px;
+  top: 857px;
+}
 
 /* Skills items (Frame 188:185 'skills') — z-index 2 so they render above selector pill (z-index 1) */
 .persona-skills-items {
@@ -2300,13 +2395,54 @@ body {
 /* Position for each skill slot — exact Figma values from 204:115
    Left col (0-3): left 51px (selector) or 55px (envelope), top = 710 + idx*49
    Right col (4-6): left 508px, top = 710 + (idx-4)*49 */
-.persona-skill-selector-group.skill-idx-0 { left: 51px;  top: 706px; width: 458px; height: 52px; }
-.persona-skill-selector-group.skill-idx-1 { left: 51px;  top: 755px; width: 458px; height: 52px; }
-.persona-skill-selector-group.skill-idx-2 { left: 51px;  top: 804px; width: 458px; height: 52px; }
-.persona-skill-selector-group.skill-idx-3 { left: 51px;  top: 853px; width: 458px; height: 52px; }
-.persona-skill-selector-group.skill-idx-4 { left: 508px; top: 706px; width: 458px; height: 52px; }
-.persona-skill-selector-group.skill-idx-5 { left: 508px; top: 755px; width: 458px; height: 52px; }
-.persona-skill-selector-group.skill-idx-6 { left: 508px; top: 804px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-0 {
+  left: 51px;
+  top: 706px;
+  width: 458px;
+  height: 52px;
+}
+
+.persona-skill-selector-group.skill-idx-1 {
+  left: 51px;
+  top: 755px;
+  width: 458px;
+  height: 52px;
+}
+
+.persona-skill-selector-group.skill-idx-2 {
+  left: 51px;
+  top: 804px;
+  width: 458px;
+  height: 52px;
+}
+
+.persona-skill-selector-group.skill-idx-3 {
+  left: 51px;
+  top: 853px;
+  width: 458px;
+  height: 52px;
+}
+
+.persona-skill-selector-group.skill-idx-4 {
+  left: 508px;
+  top: 706px;
+  width: 458px;
+  height: 52px;
+}
+
+.persona-skill-selector-group.skill-idx-5 {
+  left: 508px;
+  top: 755px;
+  width: 458px;
+  height: 52px;
+}
+
+.persona-skill-selector-group.skill-idx-6 {
+  left: 508px;
+  top: 804px;
+  width: 458px;
+  height: 52px;
+}
 
 /* White active row highlight pill — z-index 1 so it's behind icon+label (z-index 2+) */
 .persona-skill-selector-pill {
@@ -2322,8 +2458,15 @@ body {
 }
 
 @keyframes skillSelectorPillFadeIn {
-  0%   { opacity: 0; transform: scaleX(0.85); }
-  100% { opacity: 1; transform: scaleX(1); }
+  0% {
+    opacity: 0;
+    transform: scaleX(0.85);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 /* Red envelope — at top of selector group, slightly offset like Figma (204:124)
@@ -2342,9 +2485,20 @@ body {
 }
 
 @keyframes envelopeFlyOutDiag {
-  0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
-  15%  { opacity: 1; transform: translate(12px, -8px) rotate(-4deg) scale(1.05); }
-  100% { opacity: 0; transform: translate(120px, -90px) rotate(-18deg) scale(0.7); }
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translate(12px, -8px) rotate(-4deg) scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(120px, -90px) rotate(-18deg) scale(0.7);
+  }
 }
 
 /* Active skill label colour override — matches Figma #00053a on white pill */
@@ -2372,9 +2526,19 @@ body {
 }
 
 @keyframes skillInfoFlyIn {
-  0%   { opacity: 0; transform: translateY(80px); }
-  60%  { opacity: 1; }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Background box for info card
@@ -2387,7 +2551,7 @@ body {
   height: 314px;
   background: #202f59;
   border-radius: 5px;
-  box-shadow: 20px 20px 4px 0px rgba(0,5,61,0.2);
+  box-shadow: 20px 20px 4px 0px rgba(0, 5, 61, 0.2);
 }
 
 /* Slanted SKILL envelope graphic
@@ -2516,7 +2680,7 @@ body {
 .persona-skill-info-description p {
   margin: 0;
   font-family: 'Fira Sans', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   line-height: normal;
   color: #FFFFFF;
   letter-spacing: 0;
@@ -2534,7 +2698,7 @@ body {
   top: 154px !important;
   z-index: 25 !important;
   transition: left 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
-              top 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+    top 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -2543,9 +2707,19 @@ body {
 
 /* Frame recoil left then snap back */
 @keyframes frameProjectSwitch {
-  0%   { transform: translateX(0); }
-  30%  { transform: translateX(-18px); opacity: 0.7; }
-  100% { transform: translateX(0);  opacity: 1; }
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-18px);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .persona-figma-frame-wrapper.frame-project-switch {
@@ -2554,10 +2728,25 @@ body {
 
 /* Skills list offset left then fly in from right */
 @keyframes skillsProjectSwitch {
-  0%   { transform: translateX(0); opacity: 1; }
-  25%  { transform: translateX(-22px); opacity: 0.5; }
-  26%  { transform: translateX(60px);  opacity: 0; }
-  100% { transform: translateX(0);  opacity: 1; }
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  25% {
+    transform: translateX(-22px);
+    opacity: 0.5;
+  }
+
+  26% {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .persona-selected-skills.skills-project-switch {
@@ -2566,10 +2755,25 @@ body {
 
 /* Skill info card recoil */
 @keyframes infoProjectSwitch {
-  0%   { opacity: 1; transform: translateY(0); }
-  25%  { opacity: 0; transform: translateY(40px); }
-  26%  { opacity: 0; transform: translateY(-40px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  25% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  26% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .persona-selected-skill-info.info-project-switch {
@@ -2577,63 +2781,271 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   BACKGROUND REVEAL FLYOUT ANIMATIONS
+   BACKGROUND REVEAL FLYOUT & REVERSE ANIMATIONS (Exact Figma 222:115)
    ══════════════════════════════════════════════════════════════════ */
 
-/* Rectangle 10 (top blue banner) flies out to top-left */
-@keyframes flyoutTopLeft {
-  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
-  100% { opacity: 0; transform: translate(-120vw, -60vh) scale(0.8); }
+/* 1. Top slanted banner & top text
+   In 222:115: shifted to left: -424.19px, top: -398.45px (Δx = -380.48px, Δy = -187.12px)
+*/
+@keyframes topBannerFlyoutTopLeft {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-380.48px, -187.12px);
+    opacity: 0.2;
+  }
 }
 
-.persona-top-blue-rect.flyout-topleft {
-  animation: flyoutTopLeft 0.55s cubic-bezier(0.4, 0, 1, 1) forwards;
+@keyframes topBannerReverseTopLeft {
+  0% {
+    transform: translate(-380.48px, -187.12px);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.persona-selected-top-banner.banner-flyout-topleft,
+.persona-selected-top-text.banner-flyout-topleft {
+  animation: topBannerFlyoutTopLeft 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   will-change: transform, opacity;
 }
 
-/* Rectangle 8 right part flies to top-left (opposite to bottom-right) */
-.persona-rect8-right-part.flyout-topleft {
-  animation: flyoutTopLeft 0.6s cubic-bezier(0.4, 0, 1, 1) 0.05s forwards;
+.persona-selected-top-banner.banner-reverse-topleft,
+.persona-selected-top-text.banner-reverse-topleft {
+  animation: topBannerReverseTopLeft 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   will-change: transform, opacity;
 }
 
-/* Rectangle 8 left part flies out to bottom-right */
-@keyframes flyoutBottomRight {
-  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
-  100% { opacity: 0; transform: translate(120vw, 60vh) scale(0.8); }
+/* Blue rectangle bar inside top banner */
+@keyframes blueRectFlyout {
+  0% {
+    transform: rotate(-11.2142deg) translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-11.2142deg) translate(-200px, -100px);
+    opacity: 0;
+  }
 }
 
-.persona-rect8-left-part.flyout-bottomright {
-  animation: flyoutBottomRight 0.6s cubic-bezier(0.4, 0, 1, 1) 0.05s forwards;
+@keyframes blueRectReverse {
+  0% {
+    transform: rotate(-11.2142deg) translate(-200px, -100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(-11.2142deg) translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.persona-top-blue-rect.blue-rect-flyout {
+  animation: blueRectFlyout 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 27.5176px 604.76px;
+}
+
+.persona-top-blue-rect.blue-rect-reverse {
+  animation: blueRectReverse 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 27.5176px 604.76px;
+}
+
+/* 2. Rectangle 8 (bottom slanted graphic)
+   Left piece (Node 222:136): moves to left: -713.07px, top: 1048.9px (Δx = -622px, Δy = +836px)
+   Right piece (Node 222:181): moves to left: 1946px, top: 58.57px (Δx = +850px, Δy = -300px)
+*/
+@keyframes rect8LeftFlyout {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-622px, 836px);
+    opacity: 0;
+  }
+}
+
+@keyframes rect8LeftReverse {
+  0% {
+    transform: translate(-622px, 836px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.persona-rect8-left-part.flyout-bottomleft {
+  animation: rect8LeftFlyout 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   will-change: transform, opacity;
 }
 
-/* Skills container flies out to bottom-left */
+.persona-rect8-left-part.reverse-bottomleft {
+  animation: rect8LeftReverse 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes rect8RightFlyout {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(850px, -300px);
+    opacity: 0;
+  }
+}
+
+@keyframes rect8RightReverse {
+  0% {
+    transform: translate(850px, -300px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.persona-rect8-right-part.flyout-topright {
+  animation: rect8RightFlyout 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.persona-rect8-right-part.reverse-topright {
+  animation: rect8RightReverse 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* 3. Skills container (Node 222:138)
+   In 222:115: shifted to left: -360px, top: 1096px (Δx = -400px, Δy = +400px)
+*/
 @keyframes skillsFlyoutBottomLeft {
-  0%   { opacity: 1; transform: translate(0, 0); }
-  100% { opacity: 0; transform: translate(-80vw, 80vh); }
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-400px, 400px);
+  }
+}
+
+@keyframes skillsReverseBottomLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-400px, 400px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 .persona-selected-skills.skills-flyout-bottomleft {
-  animation: skillsFlyoutBottomLeft 0.52s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  animation: skillsFlyoutBottomLeft 0.48s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
   pointer-events: none;
   will-change: transform, opacity;
 }
 
-/* Diamond expands during background reveal */
+.persona-selected-skills.skills-reverse-bottomleft {
+  animation: skillsReverseBottomLeft 0.48s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  will-change: transform, opacity;
+}
+
+/* 4. Skill Info Card (Node 222:164)
+   In 222:115: shifted down to top: 1109px (Δy = +486px)
+*/
+@keyframes skillInfoFlyoutDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(486px);
+    opacity: 0;
+  }
+}
+
+@keyframes skillInfoReverseDown {
+  0% {
+    transform: translateY(486px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.persona-selected-skill-info.info-flyout-down {
+  animation: skillInfoFlyoutDown 0.48s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.persona-selected-skill-info.info-reverse-down {
+  animation: skillInfoReverseDown 0.48s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  will-change: transform, opacity;
+}
+
+/* 5. Diamond (Rectangle 9, Node 222:135)
+   In 222:115: left: -805.88px, top: -1537.69px, size: 4527.514px, rotate: -44.91deg
+   Scales up to cover the background space
+*/
 @keyframes diamondBgExpand {
-  0%   { transform: scale(1); opacity: 1; }
-  40%  { transform: scale(2.5); opacity: 0.6; }
-  100% { transform: scale(6); opacity: 0; }
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-1687px, -1686px) scale(3.93);
+    opacity: 1;
+  }
+}
+
+@keyframes diamondBgShrink {
+  0% {
+    transform: translate(-1687px, -1686px) scale(3.93);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
 }
 
 .persona-selected-diamond.diamond-bg-expand {
-  animation: diamondBgExpand 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  animation: diamondBgExpand 0.52s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  will-change: transform, opacity;
+}
+
+.persona-selected-diamond.diamond-bg-shrink {
+  animation: diamondBgShrink 0.52s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
   will-change: transform, opacity;
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   BACKGROUND REVEAL CONTENT (flies in from right + fade)
+   BACKGROUND REVEAL CONTENT (Exact Figma 222:115 Coordinates & Typography)
    ══════════════════════════════════════════════════════════════════ */
 
 .persona-bg-reveal-container {
@@ -2642,67 +3054,109 @@ body {
   top: 0;
   width: 1920px;
   height: 1080px;
-  z-index: 40;
+  z-index: 35;
   pointer-events: none;
+}
+
+.persona-bg-reveal-container.bg-reveal-enter {
+  animation: bgRevealContainerFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.persona-bg-reveal-container.bg-reveal-reverse {
+  animation: bgRevealContainerFadeOut 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes bgRevealContainerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bgRevealContainerFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+/* BACKGROUND Title: Node 222:188
+   left: 79px, top: 641px, translateY(-50%), width: 425px, height: 54px
+   font-family: 'Fira Sans', sans-serif; font-style: italic; font-weight: 500;
+   font-size: 80px; letter-spacing: -8.8px; color: #80f5fe;
+*/
+.persona-bg-reveal-header-wrap {
+  position: absolute;
+  left: 79px;
+  top: 641px;
+  transform: translateY(-50%);
+  width: 425px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
+
+.persona-bg-reveal-header-text {
+  font-family: 'Fira Sans', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 80px;
+  letter-spacing: -8.8px;
+  color: #80f5fe;
+  line-height: 54px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Bullet List: Node 222:189
+   left: 73px, top: 783.5px, translateY(-50%), width: 731px
+   font-family: 'Fira Sans', sans-serif; font-style: italic; font-weight: 500;
+   font-size: 40px; letter-spacing: -4.4px; color: #ffffff;
+   text-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+*/
+.persona-bg-reveal-list-wrap {
+  position: absolute;
+  left: 73px;
+  top: 783.5px;
+  transform: translateY(-50%);
+  width: 731px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 120px;
-  animation: bgRevealContainerIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
-  will-change: transform, opacity;
 }
 
-@keyframes bgRevealContainerIn {
-  0%   { opacity: 0; transform: translateX(120px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-.persona-bg-reveal-title-wrap {
-  margin-bottom: 28px;
-}
-
-.persona-bg-reveal-title {
-  font-family: 'Almarai', 'Archivo Black', sans-serif;
-  font-weight: 800;
-  font-size: 140px;
-  letter-spacing: -12px;
-  color: #FFFFFF;
-  line-height: 0.9;
+.persona-bg-reveal-ul {
+  list-style-type: disc;
   margin: 0;
-  text-transform: uppercase;
-  text-shadow: 0 0 60px rgba(0,26,204,0.8), 0 4px 30px rgba(0,0,0,0.9);
-}
-
-.persona-bg-reveal-body-wrap {
+  padding-left: 55px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  max-width: 900px;
+  gap: 8px;
 }
 
-.persona-bg-reveal-bullet {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 28px;
-  color: rgba(210, 230, 255, 0.92);
-  line-height: 1.4;
-  margin: 0;
-  letter-spacing: -0.3px;
+.persona-bg-reveal-li {
+  font-family: 'Fira Sans', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: -4.4px;
+  color: #ffffff;
+  line-height: normal;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.persona-bg-reveal-sub {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 22px;
-  color: rgba(180, 200, 240, 0.75);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.persona-bg-reveal-url {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 22px;
-  color: rgba(180, 200, 240, 0.75);
-  margin: 0;
+.persona-bg-reveal-li span {
+  display: inline;
 }
 
 .persona-bg-reveal-link {
@@ -2825,9 +3279,11 @@ body {
     transform: translate3d(0, 0, 0) scale(0);
     opacity: 0.9;
   }
+
   15% {
     opacity: 1;
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
@@ -2899,13 +3355,11 @@ body {
 .terminal-hazard-header {
   width: 100%;
   height: 36px;
-  background: repeating-linear-gradient(
-    -45deg,
-    #FFF933,
-    #FFF933 16px,
-    #000000 16px,
-    #000000 32px
-  );
+  background: repeating-linear-gradient(-45deg,
+      #FFF933,
+      #FFF933 16px,
+      #000000 16px,
+      #000000 32px);
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   overflow: hidden;
@@ -3023,8 +3477,13 @@ body {
   color: #FFFFFF;
 }
 
-.text-cyan { color: #72FFFF !important; }
-.text-red { color: #FF4D4D !important; }
+.text-cyan {
+  color: #72FFFF !important;
+}
+
+.text-red {
+  color: #FF4D4D !important;
+}
 
 .terminal-back-btn {
   display: flex;
@@ -3104,8 +3563,16 @@ body {
 }
 
 @keyframes radarPulse {
-  0% { transform: scale(0.97); opacity: 0.7; }
-  100% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 8px #72FFFF); }
+  0% {
+    transform: scale(0.97);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #72FFFF);
+  }
 }
 
 .radar-status-badge {
@@ -3161,10 +3628,26 @@ body {
   height: 4px;
   background: #72FFFF;
 }
-.slot-corner.top-l { top: 0; left: 0; }
-.slot-corner.top-r { top: 0; right: 0; }
-.slot-corner.bot-l { bottom: 0; left: 0; }
-.slot-corner.bot-r { bottom: 0; right: 0; }
+
+.slot-corner.top-l {
+  top: 0;
+  left: 0;
+}
+
+.slot-corner.top-r {
+  top: 0;
+  right: 0;
+}
+
+.slot-corner.bot-l {
+  bottom: 0;
+  left: 0;
+}
+
+.slot-corner.bot-r {
+  bottom: 0;
+  right: 0;
+}
 
 .slot-number {
   font-family: 'Fira Sans Extra Condensed', monospace;
@@ -3201,8 +3684,15 @@ body {
 }
 
 @keyframes moonGlow {
-  0% { transform: scale(0.95); opacity: 0.7; }
-  100% { transform: scale(1.05); opacity: 1; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
 
 .darkhour-grid-lines {
@@ -3212,7 +3702,7 @@ body {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(rgba(0, 255, 224, 0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0, 255, 224, 0.04) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(0, 255, 224, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -3241,8 +3731,15 @@ body {
 }
 
 @keyframes minuteTick {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(6deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(6deg);
+  }
 }
 
 .clock-time-badge {
@@ -3312,9 +3809,20 @@ body {
   font-size: 16px;
 }
 
-.quest-no { color: #00FFE0; font-weight: 800; }
-.quest-title { flex: 1; color: #D0F5EE; }
-.quest-status { font-weight: 800; font-size: 13px; }
+.quest-no {
+  color: #00FFE0;
+  font-weight: 800;
+}
+
+.quest-title {
+  flex: 1;
+  color: #D0F5EE;
+}
+
+.quest-status {
+  font-weight: 800;
+  font-size: 13px;
+}
 
 /* SYSTEM Terminal Matrix */
 .darkhour-terminal-matrix {
@@ -3428,13 +3936,23 @@ body {
 }
 
 @keyframes floatShard1 {
-  0% { transform: translateY(0) rotate(25deg); }
-  100% { transform: translateY(-30px) rotate(32deg); }
+  0% {
+    transform: translateY(0) rotate(25deg);
+  }
+
+  100% {
+    transform: translateY(-30px) rotate(32deg);
+  }
 }
 
 @keyframes floatShard2 {
-  0% { transform: translateY(0) rotate(-35deg); }
-  100% { transform: translateY(-24px) rotate(-42deg); }
+  0% {
+    transform: translateY(0) rotate(-35deg);
+  }
+
+  100% {
+    transform: translateY(-24px) rotate(-42deg);
+  }
 }
 
 .theme-velvet-centerpiece {
@@ -3560,4 +4078,4 @@ body {
   background: rgba(255, 215, 0, 0.22) !important;
   border-color: #FFD700 !important;
   box-shadow: 0 0 22px rgba(255, 215, 0, 0.35) !important;
-}
+}

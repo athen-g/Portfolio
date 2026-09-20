@@ -266,6 +266,7 @@ export default function PersonaPage({ onBack, isExiting }) {
   const [isSkillSelected, setIsSkillSelected] = useState(false);
   const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
   const [isBgRevealed, setIsBgRevealed] = useState(false);
+  const [isBgReversing, setIsBgReversing] = useState(false);
   const [projectSwitchAnim, setProjectSwitchAnim] = useState(false);
   const [isSelectedEntering, setIsSelectedEntering] = useState(false);
 
@@ -279,15 +280,26 @@ export default function PersonaPage({ onBack, isExiting }) {
       setIsTransitioning(true);
       setIsSkillSelected(false);
       setIsBgRevealed(false);
+      setIsBgReversing(false);
       setIsSelectedEntering(true);
       setTimeout(() => setIsTransitioning(false), 1400);
       setTimeout(() => setIsSelectedEntering(false), 1500);
     }
   };
 
+  const closeBgReveal = () => {
+    if (isBgRevealed && !isBgReversing) {
+      setIsBgReversing(true);
+      setTimeout(() => {
+        setIsBgRevealed(false);
+        setIsBgReversing(false);
+      }, 500);
+    }
+  };
+
   const handleDeselect = () => {
     if (isBgRevealed) {
-      setIsBgRevealed(false);
+      closeBgReveal();
     } else if (isSkillSelected) {
       setIsSkillSelected(false);
     } else if (isSelectedView) {
@@ -310,9 +322,9 @@ export default function PersonaPage({ onBack, isExiting }) {
       if (isExiting) return;
 
       if (isBgRevealed) {
-        if (e.key === 'Escape' || e.key === 'Backspace') {
+        if (e.key === 'Escape' || e.key === 'Backspace' || e.key === 'b' || e.key === 'B') {
           e.preventDefault();
-          setIsBgRevealed(false);
+          closeBgReveal();
         }
         return;
       }
@@ -345,6 +357,7 @@ export default function PersonaPage({ onBack, isExiting }) {
           } else if (e.key === 'b' || e.key === 'B') {
             e.preventDefault();
             setIsBgRevealed(true);
+            setIsBgReversing(false);
           } else if (e.key === 'Escape' || e.key === 'Backspace') {
             e.preventDefault();
             setIsSkillSelected(false);
@@ -368,6 +381,7 @@ export default function PersonaPage({ onBack, isExiting }) {
           } else if (e.key === 'b' || e.key === 'B') {
             e.preventDefault();
             setIsBgRevealed(true);
+            setIsBgReversing(false);
           } else if (e.key === 'Escape' || e.key === 'Backspace') {
             e.preventDefault();
             handleDeselect();
@@ -561,12 +575,20 @@ export default function PersonaPage({ onBack, isExiting }) {
           </div>
 
           {/* Phase 2: Top Slanted Banner (Node 188:165) */}
-          <div className="persona-selected-top-banner" data-node-id="188:165" data-name="top">
+          <div
+            className={`persona-selected-top-banner ${
+              isBgRevealed ? (isBgReversing ? 'banner-reverse-topleft' : 'banner-flyout-topleft') : ''
+            }`}
+            data-node-id="188:165"
+            data-name="top"
+          >
             <svg preserveAspectRatio="none" overflow="visible" style={{ display: 'block', width: '100%', height: '100%' }} viewBox="0 0 1979.87 686.251" fill="none">
               <g id="top">
                 <rect
                   id="Rectangle 10"
-                  className={`persona-top-blue-rect ${isBgRevealed ? 'flyout-topleft' : ''}`}
+                  className={`persona-top-blue-rect ${
+                    isBgRevealed ? (isBgReversing ? 'blue-rect-reverse' : 'blue-rect-flyout') : ''
+                  }`}
                   x="27.5176"
                   y="604.76"
                   width="1973.89"
@@ -582,7 +604,13 @@ export default function PersonaPage({ onBack, isExiting }) {
           </div>
 
           {/* Phase 2: Top Text & Navigation Elements (Node 189:206) */}
-          <div className="persona-selected-top-text" data-node-id="189:206" data-name="top-text">
+          <div
+            className={`persona-selected-top-text ${
+              isBgRevealed ? (isBgReversing ? 'banner-reverse-topleft' : 'banner-flyout-topleft') : ''
+            }`}
+            data-node-id="189:206"
+            data-name="top-text"
+          >
             {/* Atharva Ghule (Node 188:192) */}
             <div className="persona-figma-author-wrap" data-node-id="188:192">
               <div className="persona-figma-author-rotator">
@@ -680,15 +708,15 @@ export default function PersonaPage({ onBack, isExiting }) {
               <div className="persona-bottom-rect-inner">
                 <svg preserveAspectRatio="none" overflow="visible" style={{ display: 'block', width: '100%', height: '100%' }} viewBox="0 0 2049.78 525.987" fill="none">
                   <g id="Rectangle 8">
-                    {/* Left part of Rectangle 8: flies out to bottom right */}
+                    {/* Left part of Rectangle 8: flies out to bottom left in 222:115 */}
                     <path
-                      className={`persona-rect8-left-part ${isBgRevealed ? 'flyout-bottomright' : ''}`}
+                      className={`persona-rect8-left-part ${isBgRevealed ? (isBgReversing ? 'reverse-bottomleft' : 'flyout-bottomleft') : ''}`}
                       d="M94.1505 0L1205.77 62.1366L915.039 232.43L1088.21 525.987L517.969 494.751L0 358.855L94.1505 0Z"
                       fill="#001ACC"
                     />
-                    {/* Right part of Rectangle 8: goes opposite (to top left) */}
+                    {/* Right part of Rectangle 8: flies out to top right in 222:115 */}
                     <path
-                      className={`persona-rect8-right-part ${isBgRevealed ? 'flyout-topleft' : ''}`}
+                      className={`persona-rect8-right-part ${isBgRevealed ? (isBgReversing ? 'reverse-topright' : 'flyout-topright') : ''}`}
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M1982.64 367.792L2049.78 109.889L1825.46 96.0075L1982.64 367.792Z"
@@ -701,7 +729,12 @@ export default function PersonaPage({ onBack, isExiting }) {
           </div>
 
           {/* Phase 3: Diamond expanding inside blue banner (Rectangle 9, Node 184:160) */}
-          <div className={`persona-selected-diamond ${isBgRevealed ? 'diamond-bg-expand' : ''}`} data-node-id="184:160">
+          <div
+            className={`persona-selected-diamond ${
+              isBgRevealed ? (isBgReversing ? 'diamond-bg-shrink' : 'diamond-bg-expand') : ''
+            }`}
+            data-node-id="184:160"
+          >
             <div className="persona-diamond-rotator">
               <div className="persona-diamond-box" />
             </div>
@@ -709,9 +742,9 @@ export default function PersonaPage({ onBack, isExiting }) {
 
           {/* Phase 3: Skills container flying in from bottom (Node 188:191) */}
           <div
-            className={`persona-selected-skills ${isSelectedEntering ? 'skills-entering' : ''} ${isBgRevealed ? 'skills-flyout-bottomleft' : ''} ${
-              projectSwitchAnim ? 'skills-project-switch' : ''
-            }`}
+            className={`persona-selected-skills ${isSelectedEntering ? 'skills-entering' : ''} ${
+              isBgRevealed ? (isBgReversing ? 'skills-reverse-bottomleft' : 'skills-flyout-bottomleft') : ''
+            } ${projectSwitchAnim ? 'skills-project-switch' : ''}`}
             data-node-id="188:191"
           >
             {/* Rectangle 13 (Dark navy background container #00053a, Node 188:166) */}
@@ -826,10 +859,13 @@ export default function PersonaPage({ onBack, isExiting }) {
             </div>
           </div>
 
-          {/* Skill Info Card (Frame 207:136) — exact Figma absolute positioning */}
-          {isSkillSelected && !isBgRevealed && (
+          {/* Skill Info Card (Frame 207:136) — exact Figma absolute positioning
+              In 222:115: shifted down off screen to top: 1109px */}
+          {isSkillSelected && (
             <div
-              className={`persona-selected-skill-info ${projectSwitchAnim ? 'info-project-switch' : ''}`}
+              className={`persona-selected-skill-info ${projectSwitchAnim ? 'info-project-switch' : ''} ${
+                isBgRevealed ? (isBgReversing ? 'info-reverse-down' : 'info-flyout-down') : ''
+              }`}
               data-node-id="207:136"
               key={`info-${selectedSkillIndex}-${activeIndex}`}
             >
@@ -867,16 +903,32 @@ export default function PersonaPage({ onBack, isExiting }) {
             </div>
           )}
 
-          {/* Background Reveal View Mode */}
+          {/* Background Reveal View Mode (Exact Figma 222:115 Node Structure & Typography) */}
           {isBgRevealed && (
-            <div className="persona-bg-reveal-container" key={`bg-reveal-${activeIndex}`}>
-              <div className="persona-bg-reveal-title-wrap">
-                <h1 className="persona-bg-reveal-title">BACKGROUND</h1>
+            <div
+              className={`persona-bg-reveal-container ${isBgReversing ? 'bg-reveal-reverse' : 'bg-reveal-enter'}`}
+              key={`bg-reveal-${activeIndex}`}
+            >
+              {/* BACKGROUND Header (Node 222:188: left 79px, top 641px, font: Fira Sans Italic 80px, #80f5fe) */}
+              <div className="persona-bg-reveal-header-wrap" data-node-id="222:188">
+                <p className="persona-bg-reveal-header-text">BACKGROUND</p>
               </div>
-              <div className="persona-bg-reveal-body-wrap">
-                <p className="persona-bg-reveal-bullet">• {currentProject.description}</p>
-                <p className="persona-bg-reveal-sub">• Stack: {currentProject.skills.map(s => s.name).join(' • ')}</p>
-                <p className="persona-bg-reveal-url">• Live URL: <span className="persona-bg-reveal-link">{currentProject.displayUrl}</span></p>
+
+              {/* Description List (Node 222:189: left 73px, top 783.5px, font: Fira Sans Italic 40px, #ffffff) */}
+              <div className="persona-bg-reveal-list-wrap" data-node-id="222:189">
+                <ul className="persona-bg-reveal-ul">
+                  <li className="persona-bg-reveal-li">
+                    <span>{currentProject.description}</span>
+                  </li>
+                  <li className="persona-bg-reveal-li">
+                    <span>Stack: {currentProject.skills ? currentProject.skills.map((s) => s.name).join(' • ') : ''}</span>
+                  </li>
+                  {currentProject.displayUrl && (
+                    <li className="persona-bg-reveal-li">
+                      <span>Live: {currentProject.displayUrl}</span>
+                    </li>
+                  )}
+                </ul>
               </div>
             </div>
           )}
