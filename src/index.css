@@ -180,7 +180,8 @@
   z-index: 4;
   pointer-events: none;
   mix-blend-mode: lighten;
-  opacity: 1;
+  opacity: 0.75;
+  filter: brightness(0.65) contrast(1.2);
   -webkit-mask-image: url(/blue.svg);
   mask-image: url(/blue.svg);
   -webkit-mask-size: 100% 100%;
@@ -494,7 +495,7 @@ body {
   z-index: 10;
 }
 
-/* Water overlay video on Skill page — darker moody blend */
+/* Water overlay video on Skill and Persona pages — darker moody blend */
 .skill-water-overlay-video {
   position: absolute;
   top: 0;
@@ -505,8 +506,8 @@ body {
   z-index: 5;
   pointer-events: none;
   mix-blend-mode: lighten;
-  opacity: 0.45;
-  filter: brightness(0.8) contrast(1.25);
+  opacity: 0.3;
+  filter: brightness(0.55) contrast(1.35);
 }
 
 /* Image 6 overlay — darker texture */
@@ -1100,7 +1101,7 @@ body {
 }
 
 .persona-figma-blue-bg {
-  background-color: #0018B4;
+  background-color: #0018b4;
   width: 2122.81px;
   height: 1194.08px;
 }
@@ -1533,7 +1534,7 @@ body {
   top: 427px !important;
   width: 826.505px !important;
   height: 538.995px !important;
-  z-index: 25;
+  z-index: 32;
 }
 
 .persona-figma-frame-wrapper.frame-shrink .persona-figma-frame-rotator {
@@ -1823,16 +1824,18 @@ body {
 
 /* 4. Polygon 1 (Red chevron background for LA, Node 188:194)
    Figma: left -12.21px, top 233.54px, width 60.213px, height 81.405px, rotate -84.04deg
+   Offset slightly to left: 8px so the chevron tip is completely visible on screen
 */
 .persona-figma-polygon1-wrap {
   position: absolute;
-  left: -12.21px;
+  left: 8px;
   top: 233.54px;
   width: 60.213px;
   height: 81.405px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 18;
 }
 
 .persona-figma-polygon1-rotator {
@@ -1852,13 +1855,14 @@ body {
 */
 .persona-figma-rect18-wrap {
   position: absolute;
-  left: 4.5px;
+  left: 20px;
   top: 245.5px;
   width: 47.5px;
   height: 59px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 19;
 }
 
 .persona-figma-rect18-rotator {
@@ -1966,7 +1970,7 @@ body {
   white-space: nowrap;
 }
 
-/* 9. LA Button with SVG (Node 189:204)
+/* 9. LA Button with SVG/PNG (Node 189:204)
    Figma: left 52px, top 255.82px, width 150.345px, height 97.649px, rotate -11.21deg
 */
 .persona-figma-la-wrap {
@@ -1979,7 +1983,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 25;
 }
 
 .persona-figma-la-rotator {
@@ -2000,9 +2004,10 @@ body {
   height: 100px;
   display: block;
   pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
 }
 
-/* 10. RA Button with SVG (Node 189:205)
+/* 10. RA Button with SVG/PNG (Node 189:205)
    Figma: left 870px, top 89.15px, width 163.683px, height 100.292px, rotate -11.21deg
 */
 .persona-figma-ra-wrap {
@@ -2015,7 +2020,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 25;
 }
 
 .persona-figma-ra-rotator {
@@ -2036,6 +2041,7 @@ body {
   height: 103px;
   display: block;
   pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
 }
 
 /* ── Phase 2: Bottom Blue Slanted Graphic (Rectangle 8, Node 184:158) ──
@@ -2141,6 +2147,10 @@ body {
   height: 1080px;
   z-index: 35;
   pointer-events: auto;
+}
+
+/* Only play the fly-in on first entry to selected view */
+.persona-selected-skills.skills-entering {
   animation: personaSkillsFlyIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both;
 }
 
@@ -2155,13 +2165,14 @@ body {
   }
 }
 
-/* Rectangle 13 (Background box #00053a, Node 188:166) */
+/* Rectangle 13 (Background box #00053a, Node 188:166 / 204:122)
+   Figma: left 40px, top 696px, width 944px, height 223px */
 .persona-skills-bg-box {
   position: absolute;
   left: 40px;
-  top: 624px;
+  top: 696px;
   width: 944px;
-  height: 352px;
+  height: 223px;
   background: #00053A;
 }
 
@@ -2184,12 +2195,14 @@ body {
   border-radius: 5px;
 }
 
-.persona-alt-row.row-1-left  { left: 51px;  top: 638px; }
-.persona-alt-row.row-2-right { left: 508px; top: 687px; }
-.persona-alt-row.row-3-left  { left: 51px;  top: 736px; }
-.persona-alt-row.row-4-right { left: 508px; top: 785px; }
+/* Alt rows: Figma 204:123 — row 2=508/759, row3=51/808, row4=508/857
+   Row 1 is replaced by the white selector pill when skill-selected */
+.persona-alt-row.row-1-left  { left: 51px;  top: 759px; }
+.persona-alt-row.row-2-right { left: 508px; top: 759px; }
+.persona-alt-row.row-3-left  { left: 51px;  top: 808px; }
+.persona-alt-row.row-4-right { left: 508px; top: 857px; }
 
-/* Skills items (Frame 188:185 'skills') */
+/* Skills items (Frame 188:185 'skills') — z-index 2 so they render above selector pill (z-index 1) */
 .persona-skills-items {
   position: absolute;
   left: 0;
@@ -2197,6 +2210,7 @@ body {
   width: 1920px;
   height: 1080px;
   pointer-events: auto;
+  z-index: 2;
 }
 
 .persona-skill-icon-cell {
@@ -2270,13 +2284,435 @@ body {
   line-height: normal;
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   SKILL SELECTION ANIMATIONS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Skill selector group: fades in, then envelope flies out diagonally */
+.persona-skill-selector-group {
+  position: absolute;
+  pointer-events: none;
+  z-index: 36;
+}
+
+/* Position for each skill slot — exact Figma values from 204:115
+   Left col (0-3): left 51px (selector) or 55px (envelope), top = 710 + idx*49
+   Right col (4-6): left 508px, top = 710 + (idx-4)*49 */
+.persona-skill-selector-group.skill-idx-0 { left: 51px;  top: 706px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-1 { left: 51px;  top: 755px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-2 { left: 51px;  top: 804px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-3 { left: 51px;  top: 853px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-4 { left: 508px; top: 706px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-5 { left: 508px; top: 755px; width: 458px; height: 52px; }
+.persona-skill-selector-group.skill-idx-6 { left: 508px; top: 804px; width: 458px; height: 52px; }
+
+/* White active row highlight pill — z-index 1 so it's behind icon+label (z-index 2+) */
+.persona-skill-selector-pill {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 458px;
+  height: 48px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  z-index: 1;
+  animation: skillSelectorPillFadeIn 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes skillSelectorPillFadeIn {
+  0%   { opacity: 0; transform: scaleX(0.85); }
+  100% { opacity: 1; transform: scaleX(1); }
+}
+
+/* Red envelope — at top of selector group, slightly offset like Figma (204:124)
+   Figma: left 55px, top 706px offset from group top = top 0 + 4px shift right */
+.persona-skill-selector-envolope {
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 458px;
+  height: 48px;
+  background: #FF0000;
+  border-radius: 5px;
+  z-index: 2;
+  animation: envelopeFlyOutDiag 0.42s cubic-bezier(0.4, 0, 1, 1) 0.04s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes envelopeFlyOutDiag {
+  0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  15%  { opacity: 1; transform: translate(12px, -8px) rotate(-4deg) scale(1.05); }
+  100% { opacity: 0; transform: translate(120px, -90px) rotate(-18deg) scale(0.7); }
+}
+
+/* Active skill label colour override — matches Figma #00053a on white pill */
+.persona-skill-label-cell.skill-active-label p {
+  color: #00053a;
+  font-weight: 400;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SKILL INFO CARD (fly in from bottom + fade)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Skill Info Card — exact Figma absolute positions from node 207:136 / 204:115
+   NOT relative/bottom-anchored; uses absolute coordinates in 1920x1080 space */
+.persona-selected-skill-info {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 38;
+  pointer-events: none;
+  animation: skillInfoFlyIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes skillInfoFlyIn {
+  0%   { opacity: 0; transform: translateY(80px); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Background box for info card
+   Figma 207:120: left 1005px, top 623px, width 886px, height 314px, bg #202f59, border-radius 5px */
+.persona-skill-info-bg {
+  position: absolute;
+  left: 1005px;
+  top: 623px;
+  width: 886px;
+  height: 314px;
+  background: #202f59;
+  border-radius: 5px;
+  box-shadow: 20px 20px 4px 0px rgba(0,5,61,0.2);
+}
+
+/* Slanted SKILL envelope graphic
+   Figma 207:135: left 1005px, top 623px, width 294.928px, height 102.304px */
+.persona-skill-info-envelope {
+  position: absolute;
+  left: 1005px;
+  top: 623px;
+  width: 294.928px;
+  height: 102.304px;
+  pointer-events: none;
+}
+
+.persona-skill-info-envelope img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Skill icon badge inside info card
+   Figma 207:121: left 1116px, top 706px, width 123px, height 33px */
+.persona-skill-info-icon-wrap {
+  position: absolute;
+  left: 1116px;
+  top: 706px;
+  width: 123px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.persona-skill-info-icon-bg {
+  position: absolute;
+  inset: 0;
+  width: 123px;
+  height: 33px;
+  display: block;
+}
+
+.persona-skill-info-icon-inner {
+  position: relative;
+  z-index: 2;
+  transform: scale(0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Skill name title
+   Figma 207:122: left 1245px, top 722.5px, translateY -50%, Fira Sans Condensed 32px white */
+.persona-skill-info-title-wrap {
+  position: absolute;
+  left: 1245px;
+  top: 722.5px;
+  transform: translateY(-50%);
+  width: 221px;
+  height: 29px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.persona-skill-info-title-wrap p {
+  margin: 0;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -3.52px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+/* Info badge
+   Figma 207:124: left 1222px, top 784px, width 76px, height 24px, border 4px solid white, border-radius 10px
+   Figma 207:125 text: left 1245px, top 796px, translateY -50% */
+.persona-skill-info-pill-badge {
+  position: absolute;
+  left: 1222px;
+  top: 784px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.persona-info-badge-border {
+  width: 76px;
+  height: 24px;
+  border: 4px solid #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.persona-info-badge-text {
+  position: absolute;
+  left: 1245px;
+  top: 796px;
+  transform: translateY(-50%);
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -2.2px;
+  white-space: nowrap;
+}
+
+/* Description text
+   Figma 207:127: left 1314px, top 823px, translateY -50%, width 416px, Fira Sans Regular 36px white */
+.persona-skill-info-description {
+  position: absolute;
+  left: 1314px;
+  top: 823px;
+  transform: translateY(-50%);
+  width: 416px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.persona-skill-info-description p {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 36px;
+  line-height: normal;
+  color: #FFFFFF;
+  letter-spacing: -3.96px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FRAME — SKILL SELECTED POSITION OVERRIDE
+   ══════════════════════════════════════════════════════════════════ */
+
+/* When skill is selected, frame moves to Figma position 204:118:
+   left: 1025px, top: 154px, width 826.505px, height 538.995px */
+.persona-figma-frame-wrapper.frame-shrink.frame-skill-selected-pos {
+  left: 1025px !important;
+  top: 154px !important;
+  transition: left 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+              top 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PROJECT SWITCH ANIMATIONS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Frame recoil left then snap back */
+@keyframes frameProjectSwitch {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(-18px); opacity: 0.7; }
+  100% { transform: translateX(0);  opacity: 1; }
+}
+
+.persona-figma-frame-wrapper.frame-project-switch {
+  animation: frameProjectSwitch 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Skills list offset left then fly in from right */
+@keyframes skillsProjectSwitch {
+  0%   { transform: translateX(0); opacity: 1; }
+  25%  { transform: translateX(-22px); opacity: 0.5; }
+  26%  { transform: translateX(60px);  opacity: 0; }
+  100% { transform: translateX(0);  opacity: 1; }
+}
+
+.persona-selected-skills.skills-project-switch {
+  animation: skillsProjectSwitch 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Skill info card recoil */
+@keyframes infoProjectSwitch {
+  0%   { opacity: 1; transform: translateY(0); }
+  25%  { opacity: 0; transform: translateY(40px); }
+  26%  { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.persona-selected-skill-info.info-project-switch {
+  animation: infoProjectSwitch 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BACKGROUND REVEAL FLYOUT ANIMATIONS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Rectangle 10 (top blue banner) flies out to top-left */
+@keyframes flyoutTopLeft {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(-120vw, -60vh) scale(0.8); }
+}
+
+.persona-top-blue-rect.flyout-topleft {
+  animation: flyoutTopLeft 0.55s cubic-bezier(0.4, 0, 1, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Rectangle 8 right part flies to top-left (opposite to bottom-right) */
+.persona-rect8-right-part.flyout-topleft {
+  animation: flyoutTopLeft 0.6s cubic-bezier(0.4, 0, 1, 1) 0.05s forwards;
+  will-change: transform, opacity;
+}
+
+/* Rectangle 8 left part flies out to bottom-right */
+@keyframes flyoutBottomRight {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(120vw, 60vh) scale(0.8); }
+}
+
+.persona-rect8-left-part.flyout-bottomright {
+  animation: flyoutBottomRight 0.6s cubic-bezier(0.4, 0, 1, 1) 0.05s forwards;
+  will-change: transform, opacity;
+}
+
+/* Skills container flies out to bottom-left */
+@keyframes skillsFlyoutBottomLeft {
+  0%   { opacity: 1; transform: translate(0, 0); }
+  100% { opacity: 0; transform: translate(-80vw, 80vh); }
+}
+
+.persona-selected-skills.skills-flyout-bottomleft {
+  animation: skillsFlyoutBottomLeft 0.52s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Diamond expands during background reveal */
+@keyframes diamondBgExpand {
+  0%   { transform: scale(1); opacity: 1; }
+  40%  { transform: scale(2.5); opacity: 0.6; }
+  100% { transform: scale(6); opacity: 0; }
+}
+
+.persona-selected-diamond.diamond-bg-expand {
+  animation: diamondBgExpand 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  will-change: transform, opacity;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BACKGROUND REVEAL CONTENT (flies in from right + fade)
+   ══════════════════════════════════════════════════════════════════ */
+
+.persona-bg-reveal-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 40;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 120px;
+  animation: bgRevealContainerIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  will-change: transform, opacity;
+}
+
+@keyframes bgRevealContainerIn {
+  0%   { opacity: 0; transform: translateX(120px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.persona-bg-reveal-title-wrap {
+  margin-bottom: 28px;
+}
+
+.persona-bg-reveal-title {
+  font-family: 'Almarai', 'Archivo Black', sans-serif;
+  font-weight: 800;
+  font-size: 140px;
+  letter-spacing: -12px;
+  color: #FFFFFF;
+  line-height: 0.9;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 60px rgba(0,26,204,0.8), 0 4px 30px rgba(0,0,0,0.9);
+}
+
+.persona-bg-reveal-body-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 900px;
+}
+
+.persona-bg-reveal-bullet {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 28px;
+  color: rgba(210, 230, 255, 0.92);
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.persona-bg-reveal-sub {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 22px;
+  color: rgba(180, 200, 240, 0.75);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.persona-bg-reveal-url {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 22px;
+  color: rgba(180, 200, 240, 0.75);
+  margin: 0;
+}
+
+.persona-bg-reveal-link {
+  color: #72FFFF;
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FRAME position when skill info is visible (slight upward shift)
+   ══════════════════════════════════════════════════════════════════ */
+
 /* 7. Bottom HUD Bar */
 .persona-hud-bar {
   position: absolute;
   bottom: 22px;
   right: 35px;
   text-align: right;
-  z-index: 10;
+  z-index: 50;
   pointer-events: none;
 }
 
@@ -2305,6 +2741,26 @@ body {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.3px;
+}
+
+.hud-btn.hud-clickable {
+  pointer-events: auto;
+  padding: 6px 14px;
+  background: rgba(0, 5, 58, 0.75);
+  border: 1px solid rgba(0, 26, 204, 0.6);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+}
+
+.hud-btn.hud-clickable:hover {
+  background: rgba(0, 26, 204, 0.85);
+  border-color: #72FFFF;
+  color: #72FFFF;
 }
 
 .hud-btn-icon {

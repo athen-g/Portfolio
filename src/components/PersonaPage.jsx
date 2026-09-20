@@ -13,13 +13,13 @@ const PERSONA_PROJECTS = [
     displayUrl: 'hyperspacesig.tech',
     description: 'Hyperspace XR SIG platform featuring an immersive cyberpunk interface with scroll-driven storytelling and serverless dashboard.',
     skills: [
-      { id: 0, name: 'REACT', logo: 'react' },
-      { id: 1, name: 'TYPESCRIPT', logo: 'typescript' },
-      { id: 2, name: 'VITE', logo: 'vite' },
-      { id: 3, name: 'SUPABASE', logo: 'supabase' },
-      { id: 4, name: 'POSTGRESQL', logo: 'postgresql' },
-      { id: 5, name: 'REST APIS', logo: 'restapi' },
-      { id: 6, name: 'JWT', logo: 'jwt' }
+      { id: 0, name: 'REACT', logo: 'react', desc: 'Component architecture driving responsive cyberpunk viewport UI and state flow.' },
+      { id: 1, name: 'TYPESCRIPT', logo: 'typescript', desc: 'Strict static type definitions ensuring contract fidelity across modules.' },
+      { id: 2, name: 'VITE', logo: 'vite', desc: 'High-speed HMR build bundler providing instant compilation and code-splitting.' },
+      { id: 3, name: 'SUPABASE', logo: 'supabase', desc: 'Realtime database engine and backend service handling auth and storage.' },
+      { id: 4, name: 'POSTGRESQL', logo: 'postgresql', desc: 'Relational data store featuring row-level security and optimized query indexes.' },
+      { id: 5, name: 'REST APIS', logo: 'restapi', desc: 'Secure stateless REST endpoints delivering serialized resources.' },
+      { id: 6, name: 'JWT', logo: 'jwt', desc: 'Cryptographic JSON Web Tokens maintaining stateless user authentication.' }
     ]
   },
   {
@@ -31,13 +31,13 @@ const PERSONA_PROJECTS = [
     displayUrl: 'futureu.dev',
     description: 'Privacy-focused MHT-CET college predictor giving Maharashtra aspirants cutoff trends and seat matrices.',
     skills: [
-      { id: 0, name: 'REACT', logo: 'react' },
-      { id: 1, name: 'JAVASCRIPT / TYPESCRIPT', logo: 'js_ts' },
-      { id: 2, name: 'CODE SPLITTING', logo: 'codesplit' },
-      { id: 3, name: 'LAZY LOADING', logo: 'lazyload' },
-      { id: 4, name: 'PERFORMANCE OPTIMIZATION', logo: 'perf' },
-      { id: 5, name: 'REST APIS', logo: 'restapi' },
-      { id: 6, name: 'VITE', logo: 'vite' }
+      { id: 0, name: 'REACT', logo: 'react', desc: 'Interactive filter views and reactive cutoff prediction visualization.' },
+      { id: 1, name: 'JAVASCRIPT / TYPESCRIPT', logo: 'js_ts', desc: 'Modern typed ECMAScript powering algorithmic predictive models.' },
+      { id: 2, name: 'CODE SPLITTING', logo: 'codesplit', desc: 'Granular dynamic chunk allocation reducing initial page payload.' },
+      { id: 3, name: 'LAZY LOADING', logo: 'lazyload', desc: 'Deferred asset and component hydration optimizing first contentful paint.' },
+      { id: 4, name: 'PERFORMANCE OPTIMIZATION', logo: 'perf', desc: 'Memoization, debounced queries, and tree-shaking for 60fps responsiveness.' },
+      { id: 5, name: 'REST APIS', logo: 'restapi', desc: 'Low-latency data endpoints serving high-throughput ranking datasets.' },
+      { id: 6, name: 'VITE', logo: 'vite', desc: 'Fast ESM bundler delivering rapid builds and efficient deployment assets.' }
     ]
   },
   {
@@ -49,13 +49,13 @@ const PERSONA_PROJECTS = [
     displayUrl: 'theunimark.in',
     description: 'School management & learning system featuring a high-performance attendance and grading database.',
     skills: [
-      { id: 0, name: 'NEXT.JS', logo: 'nextjs' },
-      { id: 1, name: 'REACT', logo: 'react' },
-      { id: 2, name: 'TYPESCRIPT', logo: 'typescript' },
-      { id: 3, name: 'GRAPHQL', logo: 'graphql' },
-      { id: 4, name: 'REST APIS', logo: 'restapi' },
-      { id: 5, name: 'MYSQL', logo: 'mysql' },
-      { id: 6, name: 'JWT', logo: 'jwt' }
+      { id: 0, name: 'NEXT.JS', logo: 'nextjs', desc: 'Hybrid SSR & static rendering optimizing educational portal availability.' },
+      { id: 1, name: 'REACT', logo: 'react', desc: 'Modular administrative dashboards and student roster workflows.' },
+      { id: 2, name: 'TYPESCRIPT', logo: 'typescript', desc: 'Strict interface contracts preventing regressions across large codebases.' },
+      { id: 3, name: 'GRAPHQL', logo: 'graphql', desc: 'Precise declarative queries aggregating student data across school nodes.' },
+      { id: 4, name: 'REST APIS', logo: 'restapi', desc: 'REST endpoints powering legacy system bridges and batch data sync.' },
+      { id: 5, name: 'MYSQL', logo: 'mysql', desc: 'ACID-compliant relational schema structured for transactional attendance logs.' },
+      { id: 6, name: 'JWT', logo: 'jwt', desc: 'Role-based access tokens separating student, teacher, and admin permissions.' }
     ]
   },
   {
@@ -67,13 +67,13 @@ const PERSONA_PROJECTS = [
     displayUrl: 'hanasaku-seven.vercel.app',
     description: 'Secure real-time health tracker with strict PostgreSQL security policies and multi-lingual support.',
     skills: [
-      { id: 0, name: 'REACT', logo: 'react' },
-      { id: 1, name: 'TYPESCRIPT', logo: 'typescript' },
-      { id: 2, name: 'POSTGRESQL', logo: 'postgresql' },
-      { id: 3, name: 'SUPABASE', logo: 'supabase' },
-      { id: 4, name: 'REST APIS', logo: 'restapi' },
-      { id: 5, name: 'JWT', logo: 'jwt' },
-      { id: 6, name: 'VITE', logo: 'vite' }
+      { id: 0, name: 'REACT', logo: 'react', desc: 'Realtime biometric charts and wellness timeline interfaces.' },
+      { id: 1, name: 'TYPESCRIPT', logo: 'typescript', desc: 'Strict type validation preventing invalid health metric ingestion.' },
+      { id: 2, name: 'POSTGRESQL', logo: 'postgresql', desc: 'Strict RLS health schema safeguarding patient privacy and records.' },
+      { id: 3, name: 'SUPABASE', logo: 'supabase', desc: 'Realtime pub/sub subscriptions broadcasting live patient updates.' },
+      { id: 4, name: 'REST APIS', logo: 'restapi', desc: 'Encrypted payload transport delivering sensitive diagnostic data.' },
+      { id: 5, name: 'JWT', logo: 'jwt', desc: 'Secure session tokens with automatic refresh cycles and revocation.' },
+      { id: 6, name: 'VITE', logo: 'vite', desc: 'Lightweight client bundle engine optimizing mobile web accessibility.' }
     ]
   },
   {
@@ -85,13 +85,13 @@ const PERSONA_PROJECTS = [
     displayUrl: 'atharvanitinghule.wixstudio.com/mcgcosmetics',
     description: 'Premium e-commerce storefront engineered for cosmetics cataloging with interactive hover modules.',
     skills: [
-      { id: 0, name: 'JAVASCRIPT / TYPESCRIPT', logo: 'js_ts' },
-      { id: 1, name: 'REST APIS', logo: 'restapi' },
-      { id: 2, name: 'PERFORMANCE OPTIMIZATION', logo: 'perf' },
-      { id: 3, name: 'CODE SPLITTING', logo: 'codesplit' },
-      { id: 4, name: 'LAZY LOADING', logo: 'lazyload' },
-      { id: 5, name: 'JWT', logo: 'jwt' },
-      { id: 6, name: 'REACT', logo: 'react' }
+      { id: 0, name: 'JAVASCRIPT / TYPESCRIPT', logo: 'js_ts', desc: 'Interactive visual state machine managing product preview variations.' },
+      { id: 1, name: 'REST APIS', logo: 'restapi', desc: 'Headless cart and inventory management API integration.' },
+      { id: 2, name: 'PERFORMANCE OPTIMIZATION', logo: 'perf', desc: 'Image responsive srcsets and CSS containment for stutter-free scrolling.' },
+      { id: 3, name: 'CODE SPLITTING', logo: 'codesplit', desc: 'On-demand loading of heavy 3D product viewports and carousels.' },
+      { id: 4, name: 'LAZY LOADING', logo: 'lazyload', desc: 'Progressive image disclosure keeping initial bandwidth footprint light.' },
+      { id: 5, name: 'JWT', logo: 'jwt', desc: 'Authenticated customer profile and checkout session verification.' },
+      { id: 6, name: 'REACT', logo: 'react', desc: 'Componentized design system following luxury brand typography and palettes.' }
     ]
   },
   {
@@ -103,15 +103,15 @@ const PERSONA_PROJECTS = [
     displayUrl: 'atharvanitinghule.wixstudio.com/greenlife',
     description: 'Organic bio-centric presence implementing sustainable branding aesthetics and smooth parallax.',
     skills: [
-      { id: 0, name: 'REACT', logo: 'react' },
-      { id: 1, name: 'TYPESCRIPT', logo: 'typescript' },
-      { id: 2, name: 'PERFORMANCE OPTIMIZATION', logo: 'perf' },
-      { id: 3, name: 'REST APIS', logo: 'restapi' },
-      { id: 4, name: 'VITE', logo: 'vite' },
-      { id: 5, name: 'LAZY LOADING', logo: 'lazyload' },
-      { id: 6, name: 'JWT', logo: 'jwt' }
+      { id: 0, name: 'REACT', logo: 'react', desc: 'Smooth spring-physics transitions and scroll-coupled environmental layouts.' },
+      { id: 1, name: 'TYPESCRIPT', logo: 'typescript', desc: 'Reliable type contracts orchestrating interactive narrative animations.' },
+      { id: 2, name: 'PERFORMANCE OPTIMIZATION', logo: 'perf', desc: 'GPU-accelerated transforms for continuous 60fps parallax depth.' },
+      { id: 3, name: 'REST APIS', logo: 'restapi', desc: 'Dynamic botanical catalog queries and impact counter syncing.' },
+      { id: 4, name: 'VITE', logo: 'vite', desc: 'Rapid development environment with aggressive asset minification.' },
+      { id: 5, name: 'LAZY LOADING', logo: 'lazyload', desc: 'Scroll-triggered image reveals minimizing network load.' },
+      { id: 6, name: 'JWT', logo: 'jwt', desc: 'Session token authentication for community subscriber contributions.' }
     ]
-  },
+  }
 ];
 
 /* ── Skill Icon Vector Badges ── */
@@ -263,6 +263,11 @@ export default function PersonaPage({ onBack, isExiting }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isSelectedView, setIsSelectedView] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isSkillSelected, setIsSkillSelected] = useState(false);
+  const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
+  const [isBgRevealed, setIsBgRevealed] = useState(false);
+  const [projectSwitchAnim, setProjectSwitchAnim] = useState(false);
+  const [isSelectedEntering, setIsSelectedEntering] = useState(false);
 
   const handleBack = onBack || (() => { });
   const currentProject = PERSONA_PROJECTS[activeIndex] || PERSONA_PROJECTS[0];
@@ -272,38 +277,101 @@ export default function PersonaPage({ onBack, isExiting }) {
     if (!isSelectedView) {
       setIsSelectedView(true);
       setIsTransitioning(true);
+      setIsSkillSelected(false);
+      setIsBgRevealed(false);
+      setIsSelectedEntering(true);
       setTimeout(() => setIsTransitioning(false), 1400);
+      setTimeout(() => setIsSelectedEntering(false), 1500);
     }
   };
 
   const handleDeselect = () => {
-    if (isSelectedView) {
+    if (isBgRevealed) {
+      setIsBgRevealed(false);
+    } else if (isSkillSelected) {
+      setIsSkillSelected(false);
+    } else if (isSelectedView) {
       setIsSelectedView(false);
     } else {
       handleBack();
     }
   };
 
+  const triggerProjectSwitch = (newIdx) => {
+    setActiveIndex(newIdx);
+    setProjectSwitchAnim(true);
+    setTimeout(() => {
+      setProjectSwitchAnim(false);
+    }, 450);
+  };
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (isExiting) return;
+
+      if (isBgRevealed) {
+        if (e.key === 'Escape' || e.key === 'Backspace') {
+          e.preventDefault();
+          setIsBgRevealed(false);
+        }
+        return;
+      }
+
       if (isSelectedView) {
-        // When selected: circle through projects with ArrowLeft and ArrowRight
-        if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          setActiveIndex((prev) => {
-            const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
-            return currentIdx > 0 ? currentIdx - 1 : PERSONA_PROJECTS.length - 1;
-          });
-        } else if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          setActiveIndex((prev) => {
-            const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
-            return currentIdx < PERSONA_PROJECTS.length - 1 ? currentIdx + 1 : 0;
-          });
-        } else if (e.key === 'Escape' || e.key === 'Backspace') {
-          e.preventDefault();
-          handleDeselect();
+        if (isSkillSelected) {
+          // Inside Skill Selection Mode
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setSelectedSkillIndex((prev) => {
+              if (prev === 0) return 3;
+              if (prev <= 3) return prev - 1;
+              if (prev === 4) return 6;
+              return prev - 1;
+            });
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            setSelectedSkillIndex((prev) => {
+              if (prev === 3) return 0;
+              if (prev < 3) return prev + 1;
+              if (prev === 6) return 4;
+              return prev + 1;
+            });
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            setSelectedSkillIndex((prev) => (prev < 4 ? Math.min(prev + 4, 6) : prev));
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            setSelectedSkillIndex((prev) => (prev >= 4 ? prev - 4 : prev));
+          } else if (e.key === 'b' || e.key === 'B') {
+            e.preventDefault();
+            setIsBgRevealed(true);
+          } else if (e.key === 'Escape' || e.key === 'Backspace') {
+            e.preventDefault();
+            setIsSkillSelected(false);
+          }
+        } else {
+          // Project View
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const currentIdx = activeIndex < PERSONA_PROJECTS.length ? activeIndex : 0;
+            const newIdx = currentIdx > 0 ? currentIdx - 1 : PERSONA_PROJECTS.length - 1;
+            triggerProjectSwitch(newIdx);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            const currentIdx = activeIndex < PERSONA_PROJECTS.length ? activeIndex : 0;
+            const newIdx = currentIdx < PERSONA_PROJECTS.length - 1 ? currentIdx + 1 : 0;
+            triggerProjectSwitch(newIdx);
+          } else if (e.key === 'Enter' || e.key === ' ' || e.key === 'x' || e.key === 'X') {
+            e.preventDefault();
+            setIsSkillSelected(true);
+            setSelectedSkillIndex(0);
+          } else if (e.key === 'b' || e.key === 'B') {
+            e.preventDefault();
+            setIsBgRevealed(true);
+          } else if (e.key === 'Escape' || e.key === 'Backspace') {
+            e.preventDefault();
+            handleDeselect();
+          }
         }
       } else {
         // List view: ArrowUp and ArrowDown cycle through all rows (0..7 including dashed lines)
@@ -326,7 +394,13 @@ export default function PersonaPage({ onBack, isExiting }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isExiting, isSelectedView, activeIndex, handleBack]);
+  }, [isExiting, isSelectedView, isSkillSelected, isBgRevealed, activeIndex, handleBack]);
+
+  const selectedSkill = (currentProject.skills && currentProject.skills[selectedSkillIndex]) || {
+    name: 'REACT',
+    logo: 'react',
+    desc: 'Core architecture and component tree driving state flow.'
+  };
 
   return (
     <div className={`persona-page-container ${isExiting ? 'skill-exiting' : 'skill-entering'}`}>
@@ -358,7 +432,11 @@ export default function PersonaPage({ onBack, isExiting }) {
       </div>
 
       {/* 5. Right Feature Card Frame — Dynamic Project Website Live Embed & Link */}
-      <div className={`persona-figma-frame-wrapper skill-fall-elem ${isSelectedView ? 'frame-shrink' : ''}`}>
+      <div
+        className={`persona-figma-frame-wrapper skill-fall-elem ${
+          isSelectedView ? (isSkillSelected ? 'frame-shrink frame-skill-selected-pos' : 'frame-shrink') : ''
+        } ${projectSwitchAnim ? 'frame-project-switch' : ''}`}
+      >
         <div className="persona-figma-frame-rotator">
           <div className="persona-figma-frame-box">
             {/* Browser top-bar indicator like main branch ProjectCard */}
@@ -484,7 +562,23 @@ export default function PersonaPage({ onBack, isExiting }) {
 
           {/* Phase 2: Top Slanted Banner (Node 188:165) */}
           <div className="persona-selected-top-banner" data-node-id="188:165" data-name="top">
-            <img src="/top.svg" alt="top banner" className="persona-top-banner-img" />
+            <svg preserveAspectRatio="none" overflow="visible" style={{ display: 'block', width: '100%', height: '100%' }} viewBox="0 0 1979.87 686.251" fill="none">
+              <g id="top">
+                <rect
+                  id="Rectangle 10"
+                  className={`persona-top-blue-rect ${isBgRevealed ? 'flyout-topleft' : ''}`}
+                  x="27.5176"
+                  y="604.76"
+                  width="1973.89"
+                  height="83.0765"
+                  transform="rotate(-11.2142 27.5176 604.76)"
+                  fill="#001ACC"
+                />
+                <rect id="Rectangle 11" y="380.926" width="1959.44" height="224.891" transform="rotate(-11.21 0 380.926)" fill="white" />
+                <line id="Line 1" x1="40.8274" y1="368.883" x2="858.034" y2="206.923" stroke="#FF181D" strokeWidth="8" />
+                <rect id="Rectangle 12" x="11.5405" y="215.521" width="794.19" height="151.986" transform="rotate(-11.21 11.5405 215.521)" fill="#00053A" />
+              </g>
+            </svg>
           </div>
 
           {/* Phase 2: Top Text & Navigation Elements (Node 189:206) */}
@@ -545,35 +639,37 @@ export default function PersonaPage({ onBack, isExiting }) {
               </div>
             </div>
 
-            {/* LA Button with user's SVG (Node 189:204) */}
+            {/* LA Button with user's SVG/PNG (Node 189:204) */}
             <div
               className="persona-figma-la-wrap"
               data-node-id="189:204"
-              onClick={() => setActiveIndex((prev) => {
-                const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
-                return currentIdx > 0 ? currentIdx - 1 : PERSONA_PROJECTS.length - 1;
-              })}
+              onClick={() => {
+                const currentIdx = activeIndex < PERSONA_PROJECTS.length ? activeIndex : 0;
+                const newIdx = currentIdx > 0 ? currentIdx - 1 : PERSONA_PROJECTS.length - 1;
+                triggerProjectSwitch(newIdx);
+              }}
               style={{ cursor: 'pointer', pointerEvents: 'auto' }}
               title="Previous Project (ArrowLeft)"
             >
               <div className="persona-figma-la-rotator">
-                <img src="/la.svg" alt="LA" className="persona-figma-la-svg" />
+                <img src="/la.png" alt="LA" className="persona-figma-la-svg" />
               </div>
             </div>
 
-            {/* RA Button with user's SVG (Node 189:205) */}
+            {/* RA Button with user's SVG/PNG (Node 189:205) */}
             <div
               className="persona-figma-ra-wrap"
               data-node-id="189:205"
-              onClick={() => setActiveIndex((prev) => {
-                const currentIdx = prev < PERSONA_PROJECTS.length ? prev : 0;
-                return currentIdx < PERSONA_PROJECTS.length - 1 ? currentIdx + 1 : 0;
-              })}
+              onClick={() => {
+                const currentIdx = activeIndex < PERSONA_PROJECTS.length ? activeIndex : 0;
+                const newIdx = currentIdx < PERSONA_PROJECTS.length - 1 ? currentIdx + 1 : 0;
+                triggerProjectSwitch(newIdx);
+              }}
               style={{ cursor: 'pointer', pointerEvents: 'auto' }}
               title="Next Project (ArrowRight)"
             >
               <div className="persona-figma-ra-rotator">
-                <img src="/ra.svg" alt="RA" className="persona-figma-ra-svg" />
+                <img src="/ra.png" alt="RA" className="persona-figma-ra-svg" />
               </div>
             </div>
           </div>
@@ -582,20 +678,42 @@ export default function PersonaPage({ onBack, isExiting }) {
           <div className="persona-selected-bottom-rect" data-node-id="184:158">
             <div className="persona-bottom-rect-rotator">
               <div className="persona-bottom-rect-inner">
-                <img src="/rectangle8.svg" alt="Rectangle 8" className="persona-bottom-rect-svg" />
+                <svg preserveAspectRatio="none" overflow="visible" style={{ display: 'block', width: '100%', height: '100%' }} viewBox="0 0 2049.78 525.987" fill="none">
+                  <g id="Rectangle 8">
+                    {/* Left part of Rectangle 8: flies out to bottom right */}
+                    <path
+                      className={`persona-rect8-left-part ${isBgRevealed ? 'flyout-bottomright' : ''}`}
+                      d="M94.1505 0L1205.77 62.1366L915.039 232.43L1088.21 525.987L517.969 494.751L0 358.855L94.1505 0Z"
+                      fill="#001ACC"
+                    />
+                    {/* Right part of Rectangle 8: goes opposite (to top left) */}
+                    <path
+                      className={`persona-rect8-right-part ${isBgRevealed ? 'flyout-topleft' : ''}`}
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M1982.64 367.792L2049.78 109.889L1825.46 96.0075L1982.64 367.792Z"
+                      fill="#001ACC"
+                    />
+                  </g>
+                </svg>
               </div>
             </div>
           </div>
 
           {/* Phase 3: Diamond expanding inside blue banner (Rectangle 9, Node 184:160) */}
-          <div className="persona-selected-diamond" data-node-id="184:160">
+          <div className={`persona-selected-diamond ${isBgRevealed ? 'diamond-bg-expand' : ''}`} data-node-id="184:160">
             <div className="persona-diamond-rotator">
               <div className="persona-diamond-box" />
             </div>
           </div>
 
           {/* Phase 3: Skills container flying in from bottom (Node 188:191) */}
-          <div className="persona-selected-skills" data-node-id="188:191">
+          <div
+            className={`persona-selected-skills ${isSelectedEntering ? 'skills-entering' : ''} ${isBgRevealed ? 'skills-flyout-bottomleft' : ''} ${
+              projectSwitchAnim ? 'skills-project-switch' : ''
+            }`}
+            data-node-id="188:191"
+          >
             {/* Rectangle 13 (Dark navy background container #00053a, Node 188:166) */}
             <div className="persona-skills-bg-box" data-node-id="188:166" />
 
@@ -607,18 +725,36 @@ export default function PersonaPage({ onBack, isExiting }) {
               <div className="persona-alt-row row-4-right" data-node-id="188:189" />
             </div>
 
+            {/* Active Skill Selector highlight pill & red envelope */}
+            {isSkillSelected && (
+              <div
+                className={`persona-skill-selector-group skill-idx-${selectedSkillIndex}`}
+                key={`selector-${selectedSkillIndex}`}
+              >
+                {/* Red envelope flies out diagonally */}
+                <div className="persona-skill-selector-envolope" />
+                {/* White active row background */}
+                <div className="persona-skill-selector-pill" />
+              </div>
+            )}
+
             {/* Skills items grid (Frame 188:185) */}
             <div className="persona-skills-items" data-node-id="188:185">
               {/* Left Column (Slots 0, 1, 2, 3) */}
               {[0, 1, 2, 3].map((idx) => {
                 const skill = currentProject.skills && currentProject.skills[idx];
-                const topOffset = 646 + idx * 49;
-                const textTopOffset = 661 + idx * 49;
+                const isItemActive = isSkillSelected && selectedSkillIndex === idx;
+                const topOffset = 718 + idx * 49;
+                const textTopOffset = 733 + idx * 49;
                 return (
                   <React.Fragment key={`left-${idx}`}>
                     <div
                       className="persona-skill-icon-cell"
-                      style={{ left: '70px', top: `${topOffset}px` }}
+                      style={{ left: '70px', top: `${topOffset}px`, cursor: 'pointer' }}
+                      onClick={() => {
+                        setIsSkillSelected(true);
+                        setSelectedSkillIndex(idx);
+                      }}
                       data-node-id={idx === 0 ? '188:167' : idx === 1 ? '188:169' : idx === 2 ? '188:170' : '188:171'}
                     >
                       <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
@@ -627,8 +763,12 @@ export default function PersonaPage({ onBack, isExiting }) {
                       </div>
                     </div>
                     <div
-                      className="persona-skill-label-cell"
-                      style={{ left: '187px', top: `${textTopOffset}px` }}
+                      className={`persona-skill-label-cell ${isItemActive ? 'skill-active-label' : ''}`}
+                      style={{ left: '187px', top: `${textTopOffset}px`, cursor: 'pointer' }}
+                      onClick={() => {
+                        setIsSkillSelected(true);
+                        setSelectedSkillIndex(idx);
+                      }}
                       data-node-id={idx === 0 ? '188:176' : idx === 1 ? '188:177' : idx === 2 ? '188:178' : '188:179'}
                     >
                       <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
@@ -641,13 +781,18 @@ export default function PersonaPage({ onBack, isExiting }) {
               {[4, 5, 6].map((idx) => {
                 const skill = currentProject.skills && currentProject.skills[idx];
                 const rowIdx = idx - 4;
-                const topOffset = 646 + rowIdx * 49;
-                const textTopOffset = 661 + rowIdx * 49;
+                const isItemActive = isSkillSelected && selectedSkillIndex === idx;
+                const topOffset = 718 + rowIdx * 49;
+                const textTopOffset = 733 + rowIdx * 49;
                 return (
                   <React.Fragment key={`right-${idx}`}>
                     <div
                       className="persona-skill-icon-cell"
-                      style={{ left: '527px', top: `${topOffset}px` }}
+                      style={{ left: '527px', top: `${topOffset}px`, cursor: 'pointer' }}
+                      onClick={() => {
+                        setIsSkillSelected(true);
+                        setSelectedSkillIndex(idx);
+                      }}
                       data-node-id={idx === 4 ? '188:172' : idx === 5 ? '188:173' : '188:174'}
                     >
                       <img src="/skill-icon.svg" alt="icon box" className="persona-skill-icon-bg" />
@@ -656,8 +801,12 @@ export default function PersonaPage({ onBack, isExiting }) {
                       </div>
                     </div>
                     <div
-                      className="persona-skill-label-cell"
-                      style={{ left: '644px', top: `${textTopOffset}px` }}
+                      className={`persona-skill-label-cell ${isItemActive ? 'skill-active-label' : ''}`}
+                      style={{ left: '644px', top: `${textTopOffset}px`, cursor: 'pointer' }}
+                      onClick={() => {
+                        setIsSkillSelected(true);
+                        setSelectedSkillIndex(idx);
+                      }}
                       data-node-id={idx === 4 ? '188:180' : idx === 5 ? '188:181' : '188:182'}
                     >
                       <p>{skill ? skill.name : `Skill ${idx + 1}`}</p>
@@ -669,13 +818,68 @@ export default function PersonaPage({ onBack, isExiting }) {
               {/* Slot 7: ------- NONE ------ (Node 188:184) */}
               <div
                 className="persona-skill-none-cell"
-                style={{ left: '736px', top: '811.5px' }}
+                style={{ left: '736px', top: '883.5px' }}
                 data-node-id="188:184"
               >
                 <p>------- NONE ------</p>
               </div>
             </div>
           </div>
+
+          {/* Skill Info Card (Frame 207:136) — exact Figma absolute positioning */}
+          {isSkillSelected && !isBgRevealed && (
+            <div
+              className={`persona-selected-skill-info ${projectSwitchAnim ? 'info-project-switch' : ''}`}
+              data-node-id="207:136"
+              key={`info-${selectedSkillIndex}-${activeIndex}`}
+            >
+              {/* bg: left 1005px, top 623px, width 886px, height 314px, bg #202f59 */}
+              <div className="persona-skill-info-bg" data-node-id="207:120" />
+
+              {/* skill-envolope: left 1005px, top 623px, width 294.928px, height 102.304px */}
+              <div className="persona-skill-info-envelope" data-node-id="207:135">
+                <img src="/skill-envolope.svg" alt="Skill Envelope" />
+              </div>
+
+              {/* skill-icon: left 1116px, top 706px, width 123px, height 33px */}
+              <div className="persona-skill-info-icon-wrap" data-node-id="207:121">
+                <img src="/skill-icon.svg" alt="" className="persona-skill-info-icon-bg" />
+                <div className="persona-skill-info-icon-inner">
+                  <SkillLogo logo={selectedSkill.logo} />
+                </div>
+              </div>
+
+              {/* skill name: left 1245px, top 722.5px, translateY -50% */}
+              <div className="persona-skill-info-title-wrap" data-node-id="207:122">
+                <p>{selectedSkill.name}</p>
+              </div>
+
+              {/* info pill: left 1222px, top 784px, width 76px, height 24px, border-radius 10px */}
+              <div className="persona-skill-info-pill-badge" data-node-id="207:126">
+                <div className="persona-info-badge-border" />
+                <span className="persona-info-badge-text">Info</span>
+              </div>
+
+              {/* description: left 1314px, top 823px, translateY -50%, width 416px */}
+              <div className="persona-skill-info-description" data-node-id="207:127">
+                <p>{selectedSkill.desc || currentProject.description}</p>
+              </div>
+            </div>
+          )}
+
+          {/* Background Reveal View Mode */}
+          {isBgRevealed && (
+            <div className="persona-bg-reveal-container" key={`bg-reveal-${activeIndex}`}>
+              <div className="persona-bg-reveal-title-wrap">
+                <h1 className="persona-bg-reveal-title">BACKGROUND</h1>
+              </div>
+              <div className="persona-bg-reveal-body-wrap">
+                <p className="persona-bg-reveal-bullet">• {currentProject.description}</p>
+                <p className="persona-bg-reveal-sub">• Stack: {currentProject.skills.map(s => s.name).join(' • ')}</p>
+                <p className="persona-bg-reveal-url">• Live URL: <span className="persona-bg-reveal-link">{currentProject.displayUrl}</span></p>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
