@@ -2455,24 +2455,28 @@ body {
   font-size: 32px;
   font-weight: 400;
   color: #FFFFFF;
-  letter-spacing: -3.52px;
+  letter-spacing: 0;
   line-height: normal;
   white-space: nowrap;
 }
 
 /* Info badge
    Figma 207:124: left 1222px, top 784px, width 76px, height 24px, border 4px solid white, border-radius 10px
-   Figma 207:125 text: left 1245px, top 796px, translateY -50% */
+   Figma 207:125 text: inside badge, font Fira Sans, 20px, bold */
 .persona-skill-info-pill-badge {
   position: absolute;
   left: 1222px;
   top: 784px;
+  width: 76px;
+  height: 24px;
   display: flex;
   align-items: center;
-  gap: 0;
+  justify-content: center;
 }
 
 .persona-info-badge-border {
+  position: absolute;
+  inset: 0;
   width: 76px;
   height: 24px;
   border: 4px solid #FFFFFF;
@@ -2481,16 +2485,16 @@ body {
 }
 
 .persona-info-badge-text {
-  position: absolute;
-  left: 1245px;
-  top: 796px;
-  transform: translateY(-50%);
+  position: relative;
+  z-index: 2;
   font-family: 'Fira Sans', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #FFFFFF;
-  letter-spacing: -2.2px;
+  letter-spacing: 0;
+  line-height: 1;
   white-space: nowrap;
+  user-select: none;
 }
 
 /* Description text
@@ -2513,7 +2517,7 @@ body {
   font-size: 36px;
   line-height: normal;
   color: #FFFFFF;
-  letter-spacing: -3.96px;
+  letter-spacing: 0;
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -2521,10 +2525,12 @@ body {
    ══════════════════════════════════════════════════════════════════ */
 
 /* When skill is selected, frame moves to Figma position 204:118:
-   left: 1025px, top: 154px, width 826.505px, height 538.995px */
+   left: 1025px, top: 154px, width 826.505px, height 538.995px
+   Must be behind skill info container (which is inside .persona-selected-container at z-index: 30+) */
 .persona-figma-frame-wrapper.frame-shrink.frame-skill-selected-pos {
   left: 1025px !important;
   top: 154px !important;
+  z-index: 25 !important;
   transition: left 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
               top 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
