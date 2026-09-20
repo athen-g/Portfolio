@@ -2197,7 +2197,7 @@ body {
 
 /* Alt rows: Figma 204:123 — row 2=508/759, row3=51/808, row4=508/857
    Row 1 is replaced by the white selector pill when skill-selected */
-.persona-alt-row.row-1-left  { left: 51px;  top: 759px; }
+.persona-alt-row.row-1-left  { left: 51px;  top: 710px; }
 .persona-alt-row.row-2-right { left: 508px; top: 759px; }
 .persona-alt-row.row-3-left  { left: 51px;  top: 808px; }
 .persona-alt-row.row-4-right { left: 508px; top: 857px; }
