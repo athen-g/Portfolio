@@ -2821,6 +2821,67 @@ body {
   transform-origin: 27.5176px 604.76px;
 }
 
+/* Atharva Ghule name fades out when viewing background */
+@keyframes authorFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes authorFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.persona-figma-author-wrap.author-flyout-fade {
+  animation: authorFadeOut 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  pointer-events: none;
+}
+
+.persona-figma-author-wrap.author-reverse-fade {
+  animation: authorFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+}
+
+/* Diamond expands until it is out of the screen */
+@keyframes diamondBgExpandOutOfScreen {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4.8);
+    opacity: 0;
+  }
+}
+
+@keyframes diamondBgShrinkBack {
+  0% {
+    transform: scale(4.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.persona-selected-diamond.diamond-bg-expand {
+  animation: diamondBgExpandOutOfScreen 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  will-change: transform, opacity;
+}
+
+.persona-selected-diamond.diamond-bg-shrink {
+  animation: diamondBgShrinkBack 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  will-change: transform, opacity;
+}
+
 /* 2. Rectangle 8 (bottom slanted graphic)
    Left piece (Node 222:136): moves to left: -713.07px, top: 1048.9px (Δx = -622px, Δy = +836px)
    Right piece (Node 222:181): moves to left: 1946px, top: 58.57px (Δx = +850px, Δy = -300px)

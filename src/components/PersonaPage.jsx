@@ -617,7 +617,12 @@ export default function PersonaPage({ onBack, isExiting }) {
             data-name="top-text"
           >
             {/* Atharva Ghule (Node 188:192) */}
-            <div className="persona-figma-author-wrap" data-node-id="188:192">
+            <div
+              className={`persona-figma-author-wrap ${
+                isBgRevealed ? (isBgReversing ? 'author-reverse-fade' : 'author-flyout-fade') : ''
+              }`}
+              data-node-id="188:192"
+            >
               <div className="persona-figma-author-rotator">
                 <p className="persona-figma-author-text">Atharva Ghule</p>
               </div>
@@ -733,9 +738,11 @@ export default function PersonaPage({ onBack, isExiting }) {
             </div>
           </div>
 
-          {/* Phase 3: Diamond staying in screen (Rectangle 9, Node 184:160) */}
+          {/* Phase 3: Diamond (Rectangle 9, Node 184:160) - expands out of screen when viewing background */}
           <div
-            className="persona-selected-diamond"
+            className={`persona-selected-diamond ${
+              isBgRevealed ? (isBgReversing ? 'diamond-bg-shrink' : 'diamond-bg-expand') : ''
+            }`}
             data-node-id="184:160"
           >
             <div className="persona-diamond-rotator">
